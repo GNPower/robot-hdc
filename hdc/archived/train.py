@@ -3,7 +3,7 @@ from typing import Union, Literal, get_args
 import numpy as np
 import scipy.stats
 
-from hdc.hypervector import Hypervector, HV_Zero
+from hdc.hypervector import Encoding, HV_Zero
 
 _BUNDLE_MODES = Literal["majority"]
 _BIND_MODES = Literal["multiply", "xor"]
@@ -16,7 +16,7 @@ class Bundler():
             raise ValueError("Invalid bundle_mode. Expected one of %s" % options)
         self.bundle_mode = bundle_mode
 
-    def _bundle_majority(self, *hypervectors: Hypervector) -> Hypervector:
+    def _bundle_majority(self, *hypervectors: Encoding) -> Encoding:
         shape = len(hypervectors[0].hv.shape)
         if shape == 1:
             arrays = [arr.hv for arr in hypervectors]
@@ -32,7 +32,7 @@ class Bundler():
         else:
             raise TypeError("Only a set of 1D arrays or a single 2D array is supported for bundling")
         
-    def bundle(self, *hypervectors: Hypervector):
+    def bundle(self, *hypervectors: Encoding):
         if self.bundle_mode == "majority":
             return self._bundle_majority(*hypervectors)
         
@@ -44,7 +44,7 @@ class Binder():
             raise ValueError("Invalid bundle_mode. Expected one of %s" % options)
         self.bind_mode = bind_mode
 
-    def _bind_multiply(self, *hypervectors: Hypervector) -> Hypervector:
+    def _bind_multiply(self, *hypervectors: Encoding) -> Encoding:
         shape = len(hypervectors[0].hv.shape)
         if shape == 1:
             arrays = [arr.hv for arr in hypervectors]
@@ -66,7 +66,7 @@ class Binder():
         else:
             raise TypeError("Only a set of 1D arrays or a single 2D array is supported for binding")
 
-    def _bind_xor(self, *hypervectors: Hypervector) -> Hypervector:
+    def _bind_xor(self, *hypervectors: Encoding) -> Encoding:
         shape = len(hypervectors[0].hv.shape)
         if shape == 1:
             arrays = [arr.hv for arr in hypervectors]
@@ -88,7 +88,7 @@ class Binder():
         else:
             raise TypeError("Only a set of 1D arrays or a single 2D array is supported for binding")
 
-    def bind(self, *hypervectors: Hypervector) -> Hypervector:
+    def bind(self, *hypervectors: Encoding) -> Encoding:
         if self.bind_mode == "multiply":
             return self._bind_multiply(*hypervectors)
         elif self.bind_mode == "xor":

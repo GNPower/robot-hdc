@@ -2,18 +2,23 @@
 
 from __future__ import annotations
 from abc import ABC, abstractmethod
+from functools import partial
 from math import ceil
-from typing import Union, Literal, get_args
+from typing import Callable, Union, Literal, get_args
 
 import numpy as np
 import scipy.stats
+from hdc.components.binding import CircularConvolution, CircularCorrelation, ContextDependThinning, ElementAngleAddition, ElementAngleSubtraction, ElementMultiplication, ExclusiveOr, InverseMatrixMultiplication, MatrixMultiplication, SegmentShifting, Shifting, TransposeVectorDerivedTransformation, VectorDerivedTransformation
+from hdc.components.bundling import AnglesOfElementAddition, Disjunction, ElementAddition, ElementAdditionBipolarThreshold, ElementAdditionCut, ElementAdditionNormalized, ElementAdditionBinaryThreshold
+from hdc.components.elements import BernoulliBinary, BernoulliBiploar, BernoulliSparse, NormalReal, SparseSegmented, UniformAngles, UniformBipolar
+from hdc.components.similarity import AngleDistance, CosineSimilarity, HammingDistance, Overlap
+from hdc.components.thinning import NoThin
 
-from hdc.exceptions import DimensionsNotMatchingError, DtypesNotMatchingError
+from hdc.exceptions import DimensionsNotMatchingError, DtypesNotMatchingError, RaiseNotImplementedError
+from hdc.components import HypervectorEncoding
 
 
-_VECTOR_TYPES = Literal["bipolar", "binary", "int"]
-
-class Hypervector(ABC):
+class Encoding(object):
     """A Hypervector representation in Python
 
     The Hypervector class is an abstract class implementing
@@ -25,7 +30,7 @@ class Hypervector(ABC):
         ABC (metaclass): Abstract Base Class from Python's abc library
     """    
     
-    def __init__(self, dimension: int, type: _VECTOR_TYPES) -> None:
+    def __init__(self, encoding: HypervectorEncoding, dimension: int = 10_000) -> None:
         """A Hypervector representation in Python
 
         This is an abstract class to represent a Hypervector
@@ -34,254 +39,187 @@ class Hypervector(ABC):
 
         Args:
             dimension (int): The number of dimensions in the Hypervector (ex. 1k, 10k)
-            depth (int): The depth of each dimension of the Hypervector in bits (ex. 1, 32)
+            encoding (HypervectorEncoding): The encoding to use for this hypervector
         """
-        options = get_args(_VECTOR_TYPES)
-        if type not in options:
-            raise ValueError("Invalid bundle_mode. Expected one of %s" % options)        
         self.dimension = dimension
-        self.type = type
-        self.dt = np.int32
-        self.hv = np.zeros(self.dimension, dtype=self.dt)
-        self._generate()
+
+        self.__element_gen =  encoding["elements"]
+        self.__similarity_op  =  encoding["similarity"]
+        self.__bundling_op    =  encoding["bundling"]
+        self.__thinning_op    =  encoding["thinning"]
+        self.__binding_op     =  encoding["binding"]
+        self.__unbinding_op   =  encoding["unbinding"]
+
+    def generate(self, dimensions: int = None):
+        if dimensions == None:
+            dimensions = self.dimension
+        return self.__element_gen(dimensions)
+
+    def similarity(self, hvA: np.ndarray, hvB: np.ndarray) -> float:
+        return self.__similarity_op(hvA, hvB)
+
+    def bundle(self, *hypervectors: np.ndarray) -> np.ndarray:
+        return self.__bundling_op(*hypervectors)
+
+    def thin(self, hypervector: np.ndarray) -> np.ndarray:
+        return self.__thinning_op(hypervector)
+
+    def bind(self, *hypervectors: np.ndarray) -> np.ndarray:
+        return self.__binding_op(hypervectors)
+
+    def unbind(self, *hypervectors: np.ndarray) -> np.ndarray:
+        return self.__unbinding_op(hypervectors)
 
 
-    @classmethod
-    @abstractmethod
-    def _generate(self) -> None:
-        """Generate the initial contents of the Hypervector
+class MAP_C(Encoding):
+    encoding = {
+        "elements": UniformBipolar,
+        "similarity": CosineSimilarity,
+        "bundling": ElementAdditionCut,
+        "thinning": NoThin,
+        "binding": ElementMultiplication,
+        "unbinding": ElementMultiplication,
+    }
 
-        The Hypervector is available in self.hv and is set to all zeros.
-
-        The numpy datatype for the Hypervector is available in self.dt,
-        this is the smallest number of bytes needed to represent the 
-        numbner of bits given in self.depth.
-
-        Default funtionality is to set all dimensions to zero.
-        """
-        pass
-
-    def _set(self, vector: np.ndarray, offset: int = 0) -> None:
-        """Sets the contents of the Hypervector directly.
-
-        WARNING: Do not use this method direcly unless
-        you know what you are doing. This is meant to be 
-        used internally by the dunder methods of this function
-
-        Args:
-            vector (np.array): _description_
-        """
-        self_end = vector.shape[0] + offset
-        vec_end = vector.shape[0]
-        if self_end > self.hv.shape[0]:
-            self_end = self.hv.shape[0]
-            vec_end = self.hv.shape[0] - offset
-        self.hv[offset:self_end] = vector[0:vec_end]
-
-    def __str__(self) -> str:
-        """Implementation of __str__
-
-        Returns the internal array's __str__
-        method directly.
-
-        Returns:
-            str: String representation of the Hypervector
-        """
-        return self.hv.__str__()
-    
-    def __getitem__(self, index: Union(int, slice)) -> Hypervector:
-        """Implementation of __getitem__
-
-        Supports indexing and slicing of Hypervectors using
-        standard Python notation (e.x. a[0], a[1:10], a[:10], etc.)
-
-        Args:
-            index (Union(int, slice)): Either the index or slice to return
-
-        Returns:
-            Hypervector: The resultant Hypervector
-        """
-        if type(index) == int:
-            res = HV_Zero(1)
-            res_hv = self.hv[index]
-            res._set(res_hv)
-            return res
-        if type(index) == slice:
-            res_hv = self.hv[index.start:index.stop]
-            res = HV_Zero(res_hv.shape[0])
-            res._set(res_hv)
-            return res
-
-    def __mul__(self, value: Hypervector) -> Hypervector:
-        """Hypervector multiplication
-
-        Allows the use of  a * b where a,b are Hypervectors.
-
-        WARNING: Hypervectors must have the same np.dtype and dimension
-        for this function to be defined.
-
-        Args:
-            value (Hypervector): Second Hypervector to multiply
-
-        Returns:
-            Hypervector: The resultant Hypervector
-        """
-        if self.dt != value.dt:
-            raise DtypesNotMatchingError(value.dt)
-        if self.dimension != value.dimension:
-            raise DimensionsNotMatchingError(value.dimension)
-        res = HV_Zero(self.dimension)
-        res_hv = np.multiply(self.hv, value.hv)
-        res._set(res_hv)
-        return res
-    
-    def __add__(self, value: Hypervector) -> Hypervector:
-        """Hypervector addition
-
-        Allows the use of  a + b where a,b are Hypervectors.
-
-        WARNING: Hypervectors must have the same np.dtype and dimension
-        for this function to be defined.
-
-        Args:
-            value (Hypervector): Second Hypervector to add
-
-        Returns:
-            Hypervector: The resultant Hypervector
-        """
-        if self.dt != value.dt:
-            raise DtypesNotMatchingError(value.dt)
-        if self.dimension != value.dimension:
-            raise DimensionsNotMatchingError(value.dimension)
-        res = HV_Zero(self.dimension)
-        res_hv = np.add(self.hv, value.hv)
-        res._set(res_hv)
-        return res
-    
-    def __lshift__(self, value: int) -> Hypervector:
-        """Hypervector left shift
-
-        Allows the use of  a << b where a is a Hypervector, b is an integer.
-        Shifts are circular, so any dimension shifted out will appear at the 
-        beginning of the Hypervector
-
-        Args:
-            value (int): The amount to shift by
-
-        Returns:
-            Hypervector: The resultant Hypervector
-        """
-        res = HV_Zero(self.dimension)
-        res_hv = np.roll(self.hv, -value)
-        res._set(res_hv)
-        return res
-    
-    def __ilshift__(self, value: int) -> Hypervector:
-        """Hypervector left shift
-
-        Allows the use of  a =<< b where a is a Hypervector, b is an integer.
-        Shifts are circular, so any dimension shifted out will appear at the 
-        beginning of the Hypervector
-
-        Args:
-            value (int): The amount to shift by
-
-        Returns:
-            Hypervector: The resultant Hypervector
-        """
-        res = HV_Zero(self.dimension)
-        res_hv = np.roll(self.hv, -value)
-        res._set(res_hv)
-        return res
-    
-    def __rshift__(self, value: int) -> Hypervector:
-        """Hypervector right shift
-
-        Allows the use of  a >> b where a is a Hypervector, b is an integer.
-        Shifts are circular, so any dimension shifted out will appear at the 
-        end of the Hypervector
-
-        Args:
-            value (int): The amount to shift by
-
-        Returns:
-            Hypervector: The resultant Hypervector
-        """
-        res = HV_Zero(self.dimension)
-        res_hv = np.roll(self.hv, value)
-        res._set(res_hv)
-        return res
-    
-    def __irshift__(self, value: int) -> Hypervector:
-        """Hypervector right shift
-
-        Allows the use of  a =>> b where a is a Hypervector, b is an integer.
-        Shifts are circular, so any dimension shifted out will appear at the 
-        end of the Hypervector
-
-        Args:
-            value (int): The amount to shift by
-
-        Returns:
-            Hypervector: The resultant Hypervector
-        """
-        res = HV_Zero(self.dimension)
-        res_hv = np.roll(self.hv, value)
-        res._set(res_hv)
-        return res
-    
-    def cosine_similarity(self, value: Hypervector) -> float:
-        """Calculates cosine similarity
-
-        The cosine similarity is a measure of how similar two 
-        Hypervectors are. This is the same as the hamming distance 
-        in binary.
-
-        Args:
-            value (Hypervector): The second hypervector to use in the calculation
-
-        Returns:
-            float: Resulting cosine similarity
-        """
-        return np.dot(self.hv, value.hv)/(np.linalg.norm(self.hv)*np.linalg.norm(value.hv))        
+    def __init__(self, dimension: int = 10_000) -> None:
+        super().__init__(self.encoding, dimension)
 
 
-class HV_Zero(Hypervector):
-    """A Hypervector whos initial contents are
-    all zero.
+class MAP_I(Encoding):
+    encoding = {
+        "elements": BernoulliBiploar,
+        "similarity": CosineSimilarity,
+        "bundling": ElementAddition,
+        "thinning": NoThin,
+        "binding": ElementMultiplication,
+        "unbinding": ElementMultiplication,
+    }
 
-    Args:
-        Hypervector (object): Base Hypervector implementation
-    """
+    def __init__(self, dimension: int = 10_000) -> None:
+        super().__init__(self.encoding, dimension)
 
-    def __init__(self, dimension: int) -> None:
-        super().__init__(dimension, type="int")
 
-    def _generate(self) -> None:
-        """Does nothing, so the Hypervector
-        values stay as all zeros
-        """
-        pass
+class HRR(Encoding):
+    encoding = {
+        "elements": NormalReal,
+        "similarity": CosineSimilarity,
+        "bundling": ElementAdditionNormalized,
+        "thinning": NoThin,
+        "binding": CircularConvolution,
+        "unbinding": CircularCorrelation,
+    }
 
-class HV_Rand(Hypervector):
-    """A Hypervector whos initial contents are random.
+    def __init__(self, dimension: int = 10_000) -> None:
+        super().__init__(self.encoding, dimension)
 
-    Args:
-        Hypervector (object): Base Hypervector implementation
-    """
 
-    def __init__(self, dimension: int, type: _VECTOR_TYPES, loc:int = 0, scale:int = 10) -> None:
-        self.loc = loc
-        self.scale = scale
-        super().__init__(dimension, type=type)        
+class VTB(Encoding):
+    encoding = {
+        "elements": NormalReal,
+        "similarity": CosineSimilarity,
+        "bundling": ElementAdditionNormalized,
+        "thinning": NoThin,
+        "binding": VectorDerivedTransformation,
+        "unbinding": TransposeVectorDerivedTransformation,
+    }
 
-    def _generate(self) -> None:
-        """Sets the Hypervector initial values to the
-        standard normal distribution using numpy
-        """
-        if self.type == "int":
-            self.hv = scipy.stats.norm.ppf(np.random.random(self.dimension), loc=self.loc, scale=self.scale).astype(int)
-        elif self.type == "bipolar":
-            self.hv = np.random.choice([-1,1],self.dimension)
-        elif self.type == "binary":
-            self.hv = np.random.choice([0,1],self.dimension)
+    def __init__(self, dimension: int = 10_000) -> None:
+        super().__init__(self.encoding, dimension)
+
+
+class MBAT(Encoding):
+    encoding = {
+        "elements": NormalReal,
+        "similarity": CosineSimilarity,
+        "bundling": ElementAdditionNormalized,
+        "thinning": NoThin,
+        "binding": MatrixMultiplication,
+        "unbinding": InverseMatrixMultiplication,
+    }
+
+    def __init__(self, dimension: int = 10_000) -> None:
+        super().__init__(self.encoding, dimension)
+
+
+class MAP_B(Encoding):
+    encoding = {
+        "elements": BernoulliBiploar,
+        "similarity": CosineSimilarity,
+        "bundling": ElementAdditionBipolarThreshold,
+        "thinning": NoThin,
+        "binding": ElementMultiplication,
+        "unbinding": ElementMultiplication,
+    }
+
+    def __init__(self, dimension: int = 10_000) -> None:
+        super().__init__(self.encoding, dimension)
+
+
+class BSC(Encoding):
+    encoding = {
+        "elements": BernoulliBinary,
+        "similarity": HammingDistance,
+        "bundling": ElementAdditionBinaryThreshold,
+        "thinning": NoThin,
+        "binding": ExclusiveOr,
+        "unbinding": ExclusiveOr,
+    }
+
+    def __init__(self, dimension: int = 10_000) -> None:
+        super().__init__(self.encoding, dimension)
+
+
+class BSDC_CDT(Encoding):
+    encoding = {
+        "elements": BernoulliSparse,
+        "similarity": Overlap,
+        "bundling": Disjunction,
+        "thinning": NoThin,
+        "binding": ContextDependThinning,
+        "unbinding": RaiseNotImplementedError,
+    }
+
+    def __init__(self, dimension: int = 10_000) -> None:
+        super().__init__(self.encoding, dimension)
+
+
+class BSDC_S(Encoding):
+    encoding = {
+        "elements": BernoulliSparse,
+        "similarity": Overlap,
+        "bundling": Disjunction,
+        "thinning": NoThin, # NOTE: Optional thinning
+        "binding": Shifting,
+        "unbinding": Shifting,
+    }
+
+    def __init__(self, dimension: int = 10_000) -> None:
+        super().__init__(self.encoding, dimension)
+
+
+class BSDC_SEG(Encoding):
+    encoding = {
+        "elements": SparseSegmented,
+        "similarity": Overlap,
+        "bundling": Disjunction,
+        "thinning": NoThin, # NOTE: Optional thinning
+        "binding": SegmentShifting,
+        "unbinding": SegmentShifting,
+    }
+
+    def __init__(self, dimension: int = 10_000) -> None:
+        super().__init__(self.encoding, dimension)
+
+
+class FHRR(Encoding):
+    encoding = {
+        "elements": UniformAngles,
+        "similarity": AngleDistance,
+        "bundling": AnglesOfElementAddition,
+        "thinning": NoThin,
+        "binding": ElementAngleAddition,
+        "unbinding": ElementAngleSubtraction,
+    }
+
+    def __init__(self, dimension: int = 10_000) -> None:
+        super().__init__(self.encoding, dimension)

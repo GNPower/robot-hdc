@@ -1,7 +1,7 @@
 import keyboard
 
 from robot.grid import Grid
-from hdc.hypervector import Hypervector
+from hdc.hypervector import Encoding
 from hdc.encoder import Encoder
 from hdc.train import Binder, Bundler
 
@@ -112,7 +112,7 @@ class Demo(object):
         goal_pos = self.grid.goal_pos
         return goal_pos[1] - rob_pos[1]
     
-    def bind_sensor_hv(self) -> Hypervector:
+    def bind_sensor_hv(self) -> Encoding:
         # Bind the Object Sensor HVs       
         if self.is_wall_north():
             ob1 = self.binder.bind(self.enc.encode_set("object_north"), self.enc.encode_set("id_object_north"))

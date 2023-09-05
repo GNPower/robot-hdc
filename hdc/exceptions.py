@@ -17,7 +17,7 @@ class DtypesNotMatchingError(Exception):
 
 
 class DimensionsNotMatchingError(Exception):
-    """Exception rainsed when two Hypervectors don't have matching dimensions
+    """Exception raised when two Hypervectors don't have matching dimensions
 
     Attributes:
         dimension -- the offending dimension, which does not match
@@ -31,3 +31,21 @@ class DimensionsNotMatchingError(Exception):
         else:
             self._message = f"dimension {dimension} does not match the dimension of first Hypervector"
         super().__init__(self.message)
+
+
+class HypervectgorNotImplementedError(Exception):
+    """Exception raised when any part of a Hypervector is not implemented
+
+    Attributes:
+        message -- explaination of the error
+    """
+    def __init__(self, message: str = None) -> None:
+        if message:
+            self.message = message
+        else:
+            self._message = f"Functionality not implemented on this Hypervector"
+        super().__init__(self.message)
+
+
+def RaiseNotImplementedError():
+    raise HypervectgorNotImplementedError

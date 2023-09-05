@@ -3,10 +3,6 @@ from math import sqrt, ceil, pi
 import random
 from typing import Callable, Union
 
-# SimpleElement = Callable[[int], np.ndarray]
-# ProbabailisticElement = Callable[[int, float], np.ndarray]
-# HdcElement = Union(SimpleElement, ProbabailisticElement)
-
 
 def UniformBipolar(dimensions: int) -> np.ndarray:
     """UniformBipolar X∈R, X_i ~ U(-1,1)
@@ -31,7 +27,8 @@ def BernoulliBiploar(dimensions: int) -> np.ndarray:
     :return: hypervector
     :rtype: np.ndarray
     """
-    return (np.random.binomial(size=dimensions, n=1, p= 0.5)*2) - 1
+    # return (np.random.binomial(size=dimensions, n=1, p= 0.5)*2) - 1
+    return np.random.choice([-1,1], dimensions, p=[0.5, 0.5])
 
 
 def BernoulliBinary(dimensions: int) -> np.ndarray:
@@ -116,7 +113,7 @@ def SparseSegmented(dimensions: int, probability: float = None) -> np.ndarray:
 
 
 def UniformAngles(dimensions: int) -> np.ndarray:
-    """UniformAngles UniformAngles θ∈R, θ_i ~ U(-pi, pi)
+    """UniformAngles θ∈R, θ_i ~ U(-pi, pi)
 
     Uniformly distributed angles from -pi to pi. Useful for a 
     complex hypervector representation X∈C, X_i = e^(i*θ). In this 

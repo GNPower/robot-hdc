@@ -3,8 +3,6 @@ from math import cos, sin
 import numpy as np
 from typing import Callable
 
-# SimilarityOp = Callable[[np.ndarray, np.ndarray], np.ndarray]
-
 
 def CosineSimilarity(a: np.ndarray, b: np.ndarray) -> np.ndarray:
     """CosineSimilarity Cosine Similarity of two vectors
@@ -19,7 +17,16 @@ def CosineSimilarity(a: np.ndarray, b: np.ndarray) -> np.ndarray:
     :return: similarity hypervector
     :rtype: np.ndarray
     """
-    return np.dot(a, b)/(np.linalg.norm(a)*np.linalg.norm(b)) 
+    return np.dot(a, b)/(np.linalg.norm(a)*np.linalg.norm(b))
+    # try:
+    #     sim = np.dot(a, b)/(np.linalg.norm(a)*np.linalg.norm(b))
+    #     return sim
+    # except:
+    #     print("@@@@@@ ERROR ERROR ERROR @@@@@@")
+    #     print(f"sim: {sim}")
+    #     print(f"a: {a}")
+    #     print(f"b: {b}")
+    #     return -100
 
 
 def HammingDistance(a: np.ndarray, b: np.ndarray) -> np.ndarray:
@@ -54,7 +61,7 @@ def Overlap(a: np.ndarray, b: np.ndarray) -> np.ndarray:
     :return: similarity hypervector
     :rtype: np.ndarray
     """
-    return np.count_nonzero((a == 1) and (b == 1)) / max(np.sum(a), np.sum(b))
+    return np.count_nonzero(np.logical_and(a == b, a == 1)) / max(np.sum(a), np.sum(b))
 
 
 def AngleDistance(a: np.ndarray, b: np.ndarray) -> np.ndarray:
@@ -71,13 +78,7 @@ def AngleDistance(a: np.ndarray, b: np.ndarray) -> np.ndarray:
     :return: similarity hypervector
     :rtype: np.ndarray
     """
-    sum = 0
-    for i in range(a.size):
-        real = cos(a[i])
-        im = sin(a[i])
-        ac = complex(real, im)
-        real = cos(b[i])
-        im = sin(b[i])
-        bc = complex(real, im)
-        sum += cmath.cos(ac, bc)
-    return real(sum / a.size)
+    return np.sum(np.cos(a - b)) / a.size
+    # cmp = (np.cos(a) - np.cos(b)) + ((np.sin(a) - np.sin(b)) * 1j)
+    # sum = np.sum(np.cos(cmp))
+    # return (sum / a.size).real

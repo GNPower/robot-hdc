@@ -1,54 +1,45 @@
-from abc import ABC, abstractmethod
-from math import ceil
-from typing import Literal
-
 import numpy as np
 
-from hdc.exceptions import DimensionsNotMatchingError, DtypesNotMatchingError
-from hdc.hypervector import Hypervector, HV_Rand, HV_Zero, _VECTOR_TYPES
+from hdc.components import HypervectorEncoding
 
-_ENCODING_TYPES = Literal["key", "range"]
 
-class Encoder(object):
+class HVEncoder(object):
 
-    def __init__(self) -> None:
-        self.encodings = {
-            "set": {},
-            "range": {},
-        }
+    def __init__(self, dimension: int, encoding: HypervectorEncoding) -> None:
+        """A Hypervector representation in Python
 
-    def create_set_encoding(self, key: str, type: _VECTOR_TYPES, dimensions: int) -> None:
-        self.encodings["set"][key] = {
-            "type": type,
-            "dimensions": dimensions,
-            "vector": HV_Rand(dimensions, type)
-        }
+        This is an abstract class to represent a Hypervector
+        Encoder and its basic operations.
 
-    def create_range_encoding(self, key: str, type: _VECTOR_TYPES, dimensions: int, min: float, max: float, partitions: int) -> None:
-        steps = np.linspace(min, max, partitions+1)
-        base_hv = HV_Rand(dimensions, "int")
-        put_hv = HV_Rand(dimensions, "int")
-        vectors = [HV_Zero(dimensions) for i in range(steps.size-1)]
-        for i, vector in enumerate(vectors):
-            vector._set(put_hv.hv)
-            offset = int(dimensions / partitions) * i
-            vector._set(base_hv.hv[offset:], offset=offset)
-        self.encodings["range"][key] = {
-            "type": type,
-            "dimensions": dimensions,
-            "min": min,
-            "max": max,
-            "partitions": partitions,
-            "steps": steps,
-            "vectors": vectors
-        }
+        Args:
+            dimension (int): The number of dimensions in the Hypervector (ex. 1k, 10k)
+            encoding (HypervectorEncoding): The encoding to use for this hypervector
+        """
+        self.dimension = dimension
 
-    def encode_set(self, key: str) -> Hypervector:
-        return self.encodings["set"][key]["vector"]
+        self.element_gen =  encoding["elements"]
+        self.similarity_op  =  encoding["similarity"]
+        self.bundling_op    =  encoding["bundling"]
+        self.thinning_op    =  encoding["thinning"]
+        self.binding_op     =  encoding["binding"]
+        self.unbinding_op   =  encoding["unbinding"]
 
-    def encode_range(self, key: str, val: float) -> Hypervector:
-        steps = self.encodings["range"][key]["steps"]
-        for i in range(1,len(steps)):
-            if val <= steps[i]:
-                return self.encodings["range"][key]["vectors"][i-1]
-        return self.encodings["range"][key]["vectors"][-1]
+    
+    def GenerateHypervectorArray(self) -> np.ndarray:
+        return self.element_gen()
+    
+
+    def Similarity(self, hvA: np.ndarray, hvB: np.ndarray) -> float:
+        return self.similarity_op(hvA, hvB)
+    
+
+    def Bundle(self, *hypervectors: np.ndarray) -> np.ndarray:
+        return self.bundling_op(hypervectors)
+    
+
+    def Bind(self, *hypervectors: np.ndarray) -> np.ndarray:
+        return self.binding_op(hypervectors)
+    
+
+    def Unbind(self, *hypervectors: np.ndarray) -> np.ndarray:
+        return self.unbinding_op(hypervectors)

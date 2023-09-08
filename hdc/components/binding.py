@@ -5,7 +5,7 @@ from typing import Callable, List
 from hdc.components import __GetHypervectorAsList
 
 
-# TODO: Remaining -- 7
+# TODO: Remaining -- 5
 
 def ElementMultiplication(*hypervectors: np.ndarray) -> np.ndarray:
     hvs = __GetHypervectorAsList(*hypervectors)

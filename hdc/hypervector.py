@@ -43,7 +43,11 @@ class Encoding(object):
         """
         self.dimension = dimension
 
-        self.__element_gen =  encoding["elements"]
+        if "dtype" in encoding:            
+            self.__dtype          =  encoding["dtype"]
+        else:
+            self.__dtype = None
+        self.__element_gen    =  encoding["elements"]
         self.__similarity_op  =  encoding["similarity"]
         self.__bundling_op    =  encoding["bundling"]
         self.__thinning_op    =  encoding["thinning"]
@@ -53,7 +57,7 @@ class Encoding(object):
     def generate(self, dimensions: int = None):
         if dimensions == None:
             dimensions = self.dimension
-        return self.__element_gen(dimensions)
+        return self.__element_gen(dimensions, self.__dtype)
 
     def similarity(self, hvA: np.ndarray, hvB: np.ndarray) -> float:
         return self.__similarity_op(hvA, hvB)
@@ -73,12 +77,15 @@ class Encoding(object):
 
 class MAP_C(Encoding):
     encoding = {
+        "dtype": np.float64,
         "elements": UniformBipolar,
         "similarity": CosineSimilarity,
         "bundling": ElementAdditionCut,
         "thinning": NoThin,
         "binding": ElementMultiplication,
         "unbinding": ElementMultiplication,
+        "preformat": None,
+        "postformat": None,
     }
 
     def __init__(self, dimension: int = 10_000) -> None:
@@ -87,6 +94,7 @@ class MAP_C(Encoding):
 
 class MAP_I(Encoding):
     encoding = {
+        "dtype": np.int8,
         "elements": BernoulliBiploar,
         "similarity": CosineSimilarity,
         "bundling": ElementAddition,
@@ -101,6 +109,7 @@ class MAP_I(Encoding):
 
 class HRR(Encoding):
     encoding = {
+        "dtype": np.float16,
         "elements": NormalReal,
         "similarity": CosineSimilarity,
         "bundling": ElementAdditionNormalized,

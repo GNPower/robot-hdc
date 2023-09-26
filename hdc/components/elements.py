@@ -4,7 +4,7 @@ import random
 from typing import Callable, Union
 
 
-def UniformBipolar(dimensions: int) -> np.ndarray:
+def UniformBipolar(dimensions: int, dtype: type = np.float_) -> np.ndarray:
     """UniformBipolar X∈R, X_i ~ U(-1,1)
 
     Uniform distribution of real numbers between -1 and 1
@@ -14,10 +14,10 @@ def UniformBipolar(dimensions: int) -> np.ndarray:
     :return: hypervector
     :rtype: np.ndarray
     """
-    return np.random.uniform(-1,1,dimensions)
+    return np.random.uniform(-1,1,dimensions).astype(dtype)
 
 
-def BernoulliBiploar(dimensions: int) -> np.ndarray:
+def BernoulliBiploar(dimensions: int, dtype: type = np.int_) -> np.ndarray:
     """BernoulliBiploar X∈Z, X_i ~ B(0.5)*2 - 1
 
     Bernoulli distribution of bipolar numbers, either -1 or 1
@@ -27,11 +27,10 @@ def BernoulliBiploar(dimensions: int) -> np.ndarray:
     :return: hypervector
     :rtype: np.ndarray
     """
-    # return (np.random.binomial(size=dimensions, n=1, p= 0.5)*2) - 1
-    return np.random.choice([-1,1], dimensions, p=[0.5, 0.5])
+    return np.random.choice([-1,1], dimensions, p=[0.5, 0.5]).astype(dtype)
 
 
-def BernoulliBinary(dimensions: int) -> np.ndarray:
+def BernoulliBinary(dimensions: int, dtype: type = np.int_) -> np.ndarray:
     """BernoulliBinary X∈{0,1}, X_i ~ B(0.5)
 
     Bernoulli distribution of binary numbers, either 0 or 1
@@ -41,10 +40,10 @@ def BernoulliBinary(dimensions: int) -> np.ndarray:
     :return: hypervector
     :rtype: np.ndarray
     """
-    return np.random.binomial(size=dimensions, n=1, p= 0.5)
+    return np.random.binomial(size=dimensions, n=1, p= 0.5).astype(dtype)
 
 
-def BernoulliSparse(dimensions: int, probability: float = None) -> np.ndarray:
+def BernoulliSparse(dimensions: int, probability: float = None, dtype: type = np.int_) -> np.ndarray:
     """BernoulliSparse X∈{0,1}, X_i ~ B(p << 1)
 
     Bernoulli distribution of binary numbers, either 0 or 1 with variable 
@@ -60,10 +59,10 @@ def BernoulliSparse(dimensions: int, probability: float = None) -> np.ndarray:
     """
     if probability is None:
         probability = 1/sqrt(dimensions)
-    return np.random.binomial(size = dimensions, n = 1, p = probability)
+    return np.random.binomial(size = dimensions, n = 1, p = probability).astype(dtype)
 
 
-def NormalReal(dimensions: int) -> np.ndarray:
+def NormalReal(dimensions: int, dtype: type = np.float_) -> np.ndarray:
     """NormalReal X∈R, X_i ~ N(0, 1/d)
 
     Normal distribution of real numbers with mean 0 and variance 1/d, 
@@ -75,10 +74,10 @@ def NormalReal(dimensions: int) -> np.ndarray:
     :rtype: np.ndarray
     """
     sigma = sqrt(1/dimensions)
-    return np.random.normal(0, sigma, dimensions)
+    return np.random.normal(0, sigma, dimensions).astype(dtype)
 
 
-def SparseSegmented(dimensions: int, probability: float = None) -> np.ndarray:
+def SparseSegmented(dimensions: int, probability: float = None, dtype: type = np.int_) -> np.ndarray:
     """SparseSegmented X∈{0,1}, X_i ~ B(p << 1)
 
     Sparsely segmented binary numbers, either 0 or 1 with variable 
@@ -109,10 +108,10 @@ def SparseSegmented(dimensions: int, probability: float = None) -> np.ndarray:
         index = random.randrange(seg_d)
         vector[index] = 1
         hypervector = np.append(hypervector, vector)
-    return hypervector[:dimensions]
+    return hypervector[:dimensions].astype(dtype)
 
 
-def UniformAngles(dimensions: int) -> np.ndarray:
+def UniformAngles(dimensions: int, dtype: type = np.float_) -> np.ndarray:
     """UniformAngles θ∈R, θ_i ~ U(-pi, pi)
 
     Uniformly distributed angles from -pi to pi. Useful for a 
@@ -126,4 +125,4 @@ def UniformAngles(dimensions: int) -> np.ndarray:
     :return: hypervector
     :rtype: np.ndarray
     """
-    return np.random.uniform(-pi,pi,dimensions)
+    return np.random.uniform(-pi,pi,dimensions).astype(dtype)

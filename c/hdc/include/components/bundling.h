@@ -38,7 +38,12 @@
 /*******************************************************************************
 *   Includes
 *******************************************************************************/
+#include <stdlib.h>
+#include <math.h>
+#include <cmath>
+#include <vector>
 
+using namespace std;
 
 /*******************************************************************************
 *   Preprocessor Macros
@@ -123,7 +128,18 @@ void ElementAdditionCutBipolar(vector<T> &result, vector<vector<T>> &hypervector
         {
             sum += hypervectors[i][j];
         }
-        result[j] = max(-1, std::min(sum, 1));
+        if (sum > 1)
+        {
+            result[j] = 1;
+        }
+        else if (sum < -1)
+        {
+            result[j] = -1;
+        }
+        else
+        {
+            result[j] = sum;
+        }
     }
 };
 

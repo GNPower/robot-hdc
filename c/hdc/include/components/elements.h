@@ -38,7 +38,14 @@
 /*******************************************************************************
 *   Includes
 *******************************************************************************/
+#include <iostream>
+#include <stdlib.h>
+#include <math.h>
+#include <cmath>
+#include <vector>
+#include <random>
 
+using namespace std;
 
 /*******************************************************************************
 *   Preprocessor Macros
@@ -123,10 +130,14 @@ void UniformBipolar(vector<T> &hypervector, unsigned int dimensions)
      * @param dimensions number of dimensions in the vector
      * @type dimensions unsigned int
      */
+    std::random_device rd;  // Will be used to obtain a seed for the random number engine
+    std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
+    std::uniform_real_distribution<> dis(-1.0, 1.0);
     unsigned int i;
     for (i = 0; i < dimensions; i++)
     {
-        hypervector[i] = -1 + ((double) rand() / RAND_MAX) * 2;
+        hypervector[i] = dis(gen);
+        // cout << "i: " << i << " [i]: " << hypervector[i] << endl;
     }
 };
 
@@ -288,6 +299,46 @@ void SparseSegmented(vector<T> &hypervector, unsigned int dimensions, float prob
 
 
 template <typename T>
+void SparseSegmentedAuto(vector<T> &hypervector, unsigned int dimensions)
+{
+    /**
+     * @brief SparseSegmented X∈{0,1}, X_i ~ B(p << 1)
+     * 
+     * Sparsely segmented binary numbers, either 0 or 1 with variable 
+     * probability. If undefined probability is given as p = 1/sqrt(dimensions). 
+     * Hypervector is split into s, dimensions * probability, segments. Each segment 
+     * populated with exactly 1 non-zero element uniformly distributed throughout the 
+     * segment.
+     * 
+     * NOTE: Since s = dimensions * probability is not garunteed to evenly divide into 
+     * the hypervector dimensions, the segment, s, is rounded up and the final hypervector trimmed. 
+     * This means the non-zero value in the last segment may be trimmed and not be present in the 
+     * final hypervector.
+     * 
+     * @param hypervector pointer to the hypervector array
+     * @type hypervector vector<T>
+     * @param dimensions: number of dimensions in the vector
+     * @type dimensions: unsigned int
+     * @param probability: probability of the Bernoulli distribution, defaults to 1/sqrt(d)
+     * @type probability: float, optional
+     */
+    double probability = 1/sqrt(dimensions);
+    unsigned int s = ceil(dimensions * probability);
+    unsigned int seg_d = ceil(dimensions/s);
+    unsigned int i;
+    for (i = 0; i < dimensions; i++)
+    {
+        hypervector[i] = 0;
+    }
+    for (i = 0; i < s; i++)
+    {
+        unsigned int index = (rand() % (seg_d + 1));
+        hypervector[(i*seg_d)+index] = 1;
+    }
+};
+
+
+template <typename T>
 void UniformAngles(vector<T> &hypervector, unsigned int dimensions)
 {
     /**
@@ -307,7 +358,7 @@ void UniformAngles(vector<T> &hypervector, unsigned int dimensions)
     unsigned int i;
     for (i = 0; i < dimensions; i++)
     {
-        hypervector[i] = -M_PI + (((double) rand() / RAND_MAX) * (2*M_PI));
+        hypervector[i] = -3.14159265358979323846 + (((double) rand() / RAND_MAX) * (2*3.14159265358979323846));
     }
 };
 

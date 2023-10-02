@@ -38,6 +38,10 @@
 /*******************************************************************************
 *   Includes
 *******************************************************************************/
+#include "components/elements.h"
+#include "components/bundling.h"
+#include "components/binding.h"
+#include "components/similarity.h"
 
 
 /*******************************************************************************
@@ -73,16 +77,16 @@ class Encoding {
     private:
         int dimensions;
         void (*element_func)(vector<T> &hypervector, unsigned int dimensions);
-        void (*similarity_func)(vector<T> &a, vector<T> &b);
+        float (*similarity_func)(vector<T> a, vector<T> b);
         void (*bundling_func)(vector<T> &result, vector<vector<T>> &hypervectors);
         void (*binding_func)(vector<T> &result, vector<vector<T>> &hypervectors);
-        void (*unbinding_func)(vector<T> &result, vector<vector<T>> &hypervectors);        
+        void (*unbinding_func)(vector<T> &result, vector<vector<T>> &hypervectors);
 
     public:
         Encoding(
             int dimensions,
             void (*element_func)(vector<T> &hypervector, unsigned int dimensions),
-            void (*similarity_func)(vector<T> &a, vector<T> &b),
+            float (*similarity_func)(vector<T> a, vector<T> b),
             void (*bundling_func)(vector<T> &result, vector<vector<T>> &hypervectors),
             void (*binding_func)(vector<T> &result, vector<vector<T>> &hypervectors),
             void (*unbinding_func)(vector<T> &result, vector<vector<T>> &hypervectors)
@@ -101,19 +105,19 @@ class Encoding {
             return this->dimensions;
         };
 
-        void generate(vector<T> hypervector)
+        void generate(vector<T> &hypervector)
         {
             this->element_func(hypervector, this->dimensions);
         };
 
-        void generate(vector<T> hypervector, unsigned int dimensions)
+        void generate(vector<T> &hypervector, unsigned int dimensions)
         {
             this->element_func(hypervector, dimensions);
         };
 
         float similarity(vector<T> a, vector<T> b)
         {
-            this->similarity_func(a, b);
+            return this->similarity_func(a, b);
         };
 
         void bundle(vector<T> &result, vector<vector<T>> &hypervectors)
@@ -133,156 +137,145 @@ class Encoding {
 };
 
 
-template <typename T> 
-class MAP_C : public Encoding {
+class MAP_C : public Encoding<double> {
     public:
-        MAP_C(unsigned int dimensions) : Encoding(
+        MAP_C(unsigned int dimensions) : Encoding<double>(
             dimensions,
-            UniformBipolar<T>,
-            CosineSimilarity<T>,
-            ElementAdditionCutBipolar<T>,
-            ElementMultiplication<T>,
-            ElementMultiplication<T>
+            UniformBipolar<double>,
+            CosineSimilarity<double>,
+            ElementAdditionCutBipolar<double>,
+            ElementMultiplication<double>,
+            ElementMultiplication<double>
         ) {};
 };
 
 
-template <typename T> 
-class MAP_I : public Encoding {
+class MAP_I : public Encoding<int> {
     public:
-        MAP_I(unsigned int dimensions) : Encoding(
+        MAP_I(unsigned int dimensions) : Encoding<int>(
             dimensions,
-            BernoulliBiploar<T>,
-            CosineSimilarity<T>,
-            ElementAddition<T>,
-            ElementMultiplication<T>,
-            ElementMultiplication<T>
+            BernoulliBiploar<int>,
+            CosineSimilarity<int>,
+            ElementAddition<int>,
+            ElementMultiplication<int>,
+            ElementMultiplication<int>
         ) {};
 };
 
 
-template <typename T> 
-class HRR : public Encoding {
+class HRR : public Encoding<double> {
     public:
-        HRR(unsigned int dimensions) : Encoding(
+        HRR(unsigned int dimensions) : Encoding<double>(
             dimensions,
-            NormalReal<T>,
-            CosineSimilarity<T>,
-            ElementAdditionNormalized<T>,
-            CircularConvolution<T>,
-            CircularCorrelation<T>
+            NormalReal<double>,
+            CosineSimilarity<double>,
+            ElementAdditionNormalized<double>,
+            CircularConvolution<double>,
+            CircularCorrelation<double>
         ) {};
 };
 
 
-template <typename T> 
-class VTB : public Encoding {
+class VTB : public Encoding<double> {
     public:
-        VTB(unsigned int dimensions) : Encoding(
+        VTB(unsigned int dimensions) : Encoding<double>(
             dimensions,
-            NormalReal<T>,
-            CosineSimilarity<T>,
-            ElementAdditionNormalized<T>,
-            VectorDerivedTransformation<T>,
-            TransposeVectorDerivedTransformation<T>
+            NormalReal<double>,
+            CosineSimilarity<double>,
+            ElementAdditionNormalized<double>,
+            VectorDerivedTransformation<double>,
+            TransposeVectorDerivedTransformation<double>
         ) {};
 };
 
 
-template <typename T> 
-class MBAT : public Encoding {
+class MBAT : public Encoding<double> {
     public:
-        MBAT(unsigned int dimensions) : Encoding(
+        MBAT(unsigned int dimensions) : Encoding<double>(
             dimensions,
-            NormalReal<T>,
-            CosineSimilarity<T>,
-            ElementAdditionNormalized<T>,
-            MatrixMultiplication<T>,
-            InverseMatrixMultiplication<T>
+            NormalReal<double>,
+            CosineSimilarity<double>,
+            ElementAdditionNormalized<double>,
+            MatrixMultiplication<double>,
+            InverseMatrixMultiplication<double>
         ) {};
 };
 
 
-template <typename T> 
-class MAP_B : public Encoding {
+class MAP_B : public Encoding<int> {
     public:
-        MAP_B(unsigned int dimensions) : Encoding(
+        MAP_B(unsigned int dimensions) : Encoding<int>(
             dimensions,
-            BernoulliBiploar<T>,
-            CosineSimilarity<T>,
-            ElementAdditionBipolarThreshold<T>,
-            ElementMultiplication<T>,
-            ElementMultiplication<T>
+            BernoulliBiploar<int>,
+            CosineSimilarity<int>,
+            ElementAdditionBipolarThreshold<int>,
+            ElementMultiplication<int>,
+            ElementMultiplication<int>
         ) {};
 };
 
 
-template <typename T> 
-class BSC : public Encoding {
+class BSC : public Encoding<unsigned int> {
     public:
-        BSC(unsigned int dimensions) : Encoding(
+        BSC(unsigned int dimensions) : Encoding<unsigned int>(
             dimensions,
-            BernoulliBiploar<T>,
-            HammingDistance<T>,
-            ElementAdditionBinaryThreshold<T>,
-            ExclusiveOr<T>,
-            ExclusiveOr<T>
+            BernoulliBiploar<unsigned int>,
+            HammingDistance<unsigned int>,
+            ElementAdditionBinaryThreshold<unsigned int>,
+            ExclusiveOr<unsigned int>,
+            ExclusiveOr<unsigned int>
         ) {};
 };
 
 
-template <typename T> 
-class BSDC_CDT : public Encoding {
+class BSDC_CDT : public Encoding<unsigned int> {
     public:
-        BSDC_CDT(unsigned int dimensions) : Encoding(
+        BSDC_CDT(unsigned int dimensions) : Encoding<unsigned int>(
             dimensions,
-            BernoulliSparseAuto<T>,
-            Overlap<T>,
-            Disjunction<T>,
-            ContextDependThinning<T>,
-            ContextDependThinning<T>
+            BernoulliSparseAuto<unsigned int>,
+            Overlap<unsigned int>,
+            Disjunction<unsigned int>,
+            ContextDependThinning<unsigned int>,
+            ContextDependThinning<unsigned int>
         ) {};
 };
 
 
-template <typename T> 
-class BSDC_S : public Encoding {
+class BSDC_S : public Encoding<unsigned int> {
     public:
-        BSDC_S(unsigned int dimensions) : Encoding(
+        BSDC_S(unsigned int dimensions) : Encoding<unsigned int>(
             dimensions,
-            BernoulliSparseAuto<T>,
-            Overlap<T>,
-            Disjunction<T>,
-            Shifting<T>,
-            Shifting<T>
+            BernoulliSparseAuto<unsigned int>,
+            Overlap<unsigned int>,
+            Disjunction<unsigned int>,
+            Shifting<unsigned int>,
+            Shifting<unsigned int>
         ) {};
 };
 
 
-template <typename T> 
-class BSDC_SEG : public Encoding {
+class BSDC_SEG : public Encoding<unsigned int> {
     public:
-        BSDC_SEG(unsigned int dimensions) : Encoding(
+        BSDC_SEG(unsigned int dimensions) : Encoding<unsigned int>(
             dimensions,
-            SparseSegmented<T>,
-            Overlap<T>,
-            Disjunction<T>,
-            SegmentShifting<T>,
-            SegmentShifting<T>
+            SparseSegmentedAuto<unsigned int>,
+            Overlap<unsigned int>,
+            Disjunction<unsigned int>,
+            SegmentShifting<unsigned int>,
+            SegmentShifting<unsigned int>
         ) {};
 };
 
 
-template <typename T> 
-class FHRR : public Encoding {
+class FHRR : public Encoding<double> {
     public:
-        FHRR(unsigned int dimensions) : Encoding(
+        FHRR(unsigned int dimensions) : Encoding<double>(
             dimensions,
-            UniformAngles<T>,
-            AngleDistance<T>,
-            AnglesOfElementAddition<T>,
-            ElementAngleAddition<T>,
-            ElementAngleSubtraction<T>
+            UniformAngles<double>,
+            AngleDistance<double>,
+            AnglesOfElementAddition<double>,
+            ElementAngleAddition<double>,
+            ElementAngleSubtraction<double>
         ) {};
 };
 

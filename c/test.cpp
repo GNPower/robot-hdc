@@ -4,6 +4,8 @@
 #include <cmath>
 #include <vector>
 #include <iostream>
+#include <random>
+#include <time.h>
 #include <algorithm>
 
 #include "components/elements.h"
@@ -39,6 +41,8 @@ void printVec2d(vector<vector<T>> &vec)
 
 int main()
 {
+    srand(time(0));
+
     unsigned int dim = 10;
     cout << "dim: " << dim << endl;
 
@@ -66,13 +70,11 @@ int main()
     printVec2d(memory);
     cout << endl << endl << endl;
 
-    vector<unsigned int> indices(memory.size());
-    unsigned int i;
-    for (i = 0; i < indices.size(); i++)
-        indices[i] = i;
-
+    vector<int> indices = RandomSubset(memory, 5);
     printVec(indices);
     cout << endl << endl << endl;
 
-    shuffle(indices.begin(), indices.end());
-}
+    
+
+
+};

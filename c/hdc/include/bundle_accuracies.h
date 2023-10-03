@@ -88,12 +88,45 @@ void BuildItemMemory(vector<vector<T>> &memory_to_fill, unsigned int memory_size
 
 // TODO: should I return a new vector2d as the subset or are indices ok?
 template <typename T>
-void RandomSubset(vector<vector<T>> &memory, unsigned int sample_size)
+vector<int> RandomSubset(vector<vector<T>> &memory, unsigned int sample_size)
 {
-    vector<unsigned int> indices(memory.size());
+    vector<int> indices(sample_size, -1);
+    unsigned int i = 0;
+    while(i < sample_size)
+    {
+        int val = rand() % memory.size();
+        if(!count(indices.begin(), indices.end(), val))
+        {
+            indices[i] = val;
+            i++;
+        }
+    }
+    
+    return indices;
+};
+
+
+template <typename T>
+float BundleAccuracy(vector<vector<T>> &memory, unsigned int sample_size, Encoding<T> &enc)
+{
+    // Randomly choose (sample_size) hypervectors without replacement from the full item memory
+    vector<int> sample_indices = RandomSubset(memory, sample_size);
+    // Build the sample memory
+    vector<vector<T>> sample(sample_size);
     unsigned int i;
-    for (i = 0; i < indices.size(); i++)
-        indices[i] = i;
+    for (i = 0; i < sample_size; i++)
+    {
+        sample.push_back(memory[sample_indices[i]]);
+    }
+    // Bundle the sample vectors into a single hypervector
+    vector<T> bundled;
+    enc.bundle(bundled, sample);
+    // Get the similarity between every hypervector in the item_memory and the bundled hypervector
+    vector<float> similarities(sample_size);
+    for (i = 0; i < sample_size; i++)
+    {
+        similarities[i] = enc.similarity(bundled, sample[i]);
+    }
     
 };
 
@@ -104,11 +137,6 @@ void RandomSubset(vector<vector<T>> &memory, unsigned int sample_size)
 *******************************************************************************/
 #endif /* HDC_HYPERVECTOR_H_ */
 /*
-def RandomSubset(item_memory: List[np.ndarray], sample_size: int) -> List[np.ndarray]:
-    if sample_size > len(item_memory):
-        return item_memory
-    return random.sample(item_memory, sample_size)
-
 
 def BundleAccuracy(item_memory: List[np.ndarray], sample_size: int, encoding: Encoding) -> float:
     # Randomly choose (sample_size) hypervectors without replacement from the full item memory

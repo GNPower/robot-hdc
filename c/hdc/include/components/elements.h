@@ -107,7 +107,7 @@ double randn(double mu, double sigma)
     }
     while (W >= 1 || W == 0);
 
-    mult = sqrt ((-2 * log(W)) / W);
+    mult = sqrt( (double)((-2 * log(W)) / W) );
     X1 = U1 * mult;
     X2 = U2 * mult;
 
@@ -130,13 +130,14 @@ void UniformBipolar(vector<T> &hypervector, unsigned int dimensions)
      * @param dimensions number of dimensions in the vector
      * @type dimensions unsigned int
      */
-    std::random_device rd;  // Will be used to obtain a seed for the random number engine
-    std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
-    std::uniform_real_distribution<> dis(-1.0, 1.0);
+    // random_device rd;  // Will be used to obtain a seed for the random number engine
+    // mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
+    // uniform_real_distribution<> dis(-1.0, 1.0);
     unsigned int i;
     for (i = 0; i < dimensions; i++)
     {
-        hypervector[i] = dis(gen);
+        // hypervector[i] = dis(gen);
+        hypervector[i] = 2*((double) rand() / RAND_MAX) - 1;
         // cout << "i: " << i << " [i]: " << hypervector[i] << endl;
     }
 };
@@ -201,7 +202,7 @@ void BernoulliSparseAuto(vector<T> &hypervector, unsigned int dimensions)
      * @param probability: probability of the Bernoulli distribution, defaults to 1/sqrt(d)
      * @type probability: float, optional
      */
-    int upper_limit = RAND_MAX/sqrt(dimensions);
+    int upper_limit = RAND_MAX/sqrt((double)dimensions);
     unsigned int i;
     for (i = 0; i < dimensions; i++)
     {
@@ -250,7 +251,8 @@ void NormalReal(vector<T> &hypervector, unsigned int dimensions)
      * @param dimensions: number of dimensions in the vector
      * @type dimensions: unsigned int
      */
-    double sigma = sqrt(1/dimensions);
+    double p = 1/dimensions;
+    double sigma = sqrt(p);
     unsigned int i;
     for (i = 0; i < dimensions; i++)
     {
@@ -283,8 +285,8 @@ void SparseSegmented(vector<T> &hypervector, unsigned int dimensions, float prob
      * @param probability: probability of the Bernoulli distribution, defaults to 1/sqrt(d)
      * @type probability: float, optional
      */
-    unsigned int s = ceil(dimensions * probability);
-    unsigned int seg_d = ceil(dimensions/s);
+    unsigned int s = ceil((double)(dimensions * probability));
+    unsigned int seg_d = ceil((double)(dimensions/s));
     unsigned int i;
     for (i = 0; i < dimensions; i++)
     {
@@ -322,9 +324,9 @@ void SparseSegmentedAuto(vector<T> &hypervector, unsigned int dimensions)
      * @param probability: probability of the Bernoulli distribution, defaults to 1/sqrt(d)
      * @type probability: float, optional
      */
-    double probability = 1/sqrt(dimensions);
-    unsigned int s = ceil(dimensions * probability);
-    unsigned int seg_d = ceil(dimensions/s);
+    double probability = 1/sqrt((double)dimensions);
+    unsigned int s = ceil((double)(dimensions * probability));
+    unsigned int seg_d = ceil((double)(dimensions/s));
     unsigned int i;
     for (i = 0; i < dimensions; i++)
     {

@@ -38,6 +38,8 @@
 /*******************************************************************************
 *   Includes
 *******************************************************************************/
+#include <vector>
+
 #include "components/elements.h"
 #include "components/bundling.h"
 #include "components/binding.h"

@@ -38,16 +38,23 @@
 /*******************************************************************************
 *   Includes
 *******************************************************************************/
+#include <vector>
+#include <algorithm>
+
 #include "hypervector.h"
 // #include "components/elements.h"
 // #include "components/bundling.h"
 // #include "components/binding.h"
 // #include "components/similarity.h"
 
+using namespace std;
+
 
 /*******************************************************************************
 *   Preprocessor Macros
 *******************************************************************************/
+#define MONTECARLO_RUNS     1
+#define PROGRESS_BAR_WIDTH  70
 
 
 /*******************************************************************************
@@ -58,6 +65,9 @@
 /*******************************************************************************
 *   Constant Definitions
 *******************************************************************************/
+unsigned int DefaultMemorySize = 1000;
+vector<unsigned int> DefaultDimensions{ 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400, 441, 484, 529, 576, 625, 676, 729, 784, 841, 900, 961, 1024, 1089 };
+vector<unsigned int> DefaultBundleNumbers{ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 };
 
 
 /*******************************************************************************
@@ -68,6 +78,8 @@
 /*******************************************************************************
 *   Global Variables
 *******************************************************************************/
+unsigned int BundleAccuracyProgress;
+unsigned int LengthOfLoop;
 
 
 /*******************************************************************************
@@ -80,7 +92,7 @@ void BuildItemMemory(vector<vector<T>> &memory_to_fill, unsigned int memory_size
     for (i = 0; i < memory_size; i++)
     {
         vector<T> v(hypervector_dimentions);
-        enc.generate(v);
+        enc.generate(v, hypervector_dimentions);
         memory_to_fill.push_back(v);
     }
 };
@@ -112,22 +124,121 @@ float BundleAccuracy(vector<vector<T>> &memory, unsigned int sample_size, Encodi
     // Randomly choose (sample_size) hypervectors without replacement from the full item memory
     vector<int> sample_indices = RandomSubset(memory, sample_size);
     // Build the sample memory
-    vector<vector<T>> sample(sample_size);
+    vector<vector<double>> sample(sample_size);
     unsigned int i;
     for (i = 0; i < sample_size; i++)
     {
-        sample.push_back(memory[sample_indices[i]]);
+        sample[i] = memory[sample_indices[i]];
     }
     // Bundle the sample vectors into a single hypervector
-    vector<T> bundled;
+    vector<double> bundled(memory[0].size());
     enc.bundle(bundled, sample);
     // Get the similarity between every hypervector in the item_memory and the bundled hypervector
-    vector<float> similarities(sample_size);
+    vector<float> similarities(memory.size());
+    for (i = 0; i < memory.size(); i++)
+    {
+        similarities[i] = enc.similarity(bundled, memory[i]);
+    }
+    // Get the indices of the top (sample_size) most similar hypervectors in the item_memory
+    vector<int> most_similar(sample_size);
     for (i = 0; i < sample_size; i++)
     {
-        similarities[i] = enc.similarity(bundled, sample[i]);
+        auto it = max_element(similarities.begin(), similarities.end());
+        int index = distance(similarities.begin(), it);
+        most_similar[i] = index;
+        similarities[index] = -100; // This works since similarity functions are normalized to [-1,1]
     }
-    
+    // Count how many of these top similar vectors appear in the input sample list
+    unsigned int correct_count = 0;
+    for (i = 0; i < sample_size; i++)
+    {
+        if(count(sample_indices.begin(), sample_indices.end(), most_similar[i]))
+        {
+            correct_count++;
+        }
+    }
+    // Calculate the accuracy as the ratio of (correct_count) / (sample_size)
+    return (double)correct_count / (double)sample_size;
+};
+
+
+template <typename T>
+float LoopBundleAccuracy(vector<vector<T>> &memory, unsigned int sample_size, Encoding<T> &enc)
+{
+    float total = 0;
+    unsigned int i;
+    for (i = 0; i < MONTECARLO_RUNS; i++)
+    {
+        total += BundleAccuracy(memory, sample_size, enc);
+    }
+    // Print the progress bar
+    BundleAccuracyProgress++;
+    cout << "[";
+    double progress = ((double)BundleAccuracyProgress / (double)LengthOfLoop);
+    unsigned int pos = (unsigned int) ( (double)PROGRESS_BAR_WIDTH * progress );
+    for (i = 0; i < PROGRESS_BAR_WIDTH; i++)
+    {
+        if (i < pos) cout << "=";
+        else if (i == pos) cout << ">";
+        else cout << " ";
+    }
+    cout << "] " << int(progress * 100.0) << "%\r";
+    cout.flush();
+    // Return the accuracy
+    return total / (double)MONTECARLO_RUNS;
+};
+
+
+template <typename T>
+vector<float> AllBundleAccuracyByDimension(unsigned int memory_size, Encoding<T> &enc, unsigned int hypervector_dimension, vector<unsigned int> &bundle_list)
+{
+    // Build the item memory to use in the test
+    vector<vector<T>> memory;
+    BuildItemMemory(memory, memory_size, hypervector_dimension, enc);
+    // Build the accuracies list
+    vector<float> accuracies(bundle_list.size());
+    unsigned int i;
+    for (i = 0; i < bundle_list.size(); i++)
+    {
+        accuracies[i] = LoopBundleAccuracy(memory, bundle_list[i], enc);
+    }
+    return accuracies;
+};
+
+
+template <typename T>
+vector<vector<float>> AllBundleAccuracies(unsigned int memory_size, Encoding<T> &enc, vector<unsigned int> &hypervector_dimension_list, vector<unsigned int> &bundle_list)
+{
+    BundleAccuracyProgress = 0;
+    LengthOfLoop = bundle_list.size() * hypervector_dimension_list.size();
+    cout.flush();
+    vector<vector<float>> all_accuracies;
+    unsigned int i;
+    for (i = 0; i < hypervector_dimension_list.size(); i++)
+    {
+        all_accuracies.push_back(AllBundleAccuracyByDimension(memory_size, enc, hypervector_dimension_list[i], bundle_list));
+    }
+    return all_accuracies;
+};
+
+
+// TODO: test!
+vector<unsigned int> GenerateDimensionsRequiredFor99PercentAccuracy(vector<vector<float>> &accuracy_data, vector<unsigned int> &hypervector_dimension_list, vector<unsigned int> &bundle_list)
+{
+    vector<unsigned int> req_dims(bundle_list.size(), 0);
+    unsigned int i, j;
+    for (j = 0; j < bundle_list.size(); j++)
+    {
+        for (i = 0; i < hypervector_dimension_list.size(); i++)
+        {
+            if (accuracy_data[i][j] >= 0.99)
+            {
+                req_dims[j] = hypervector_dimension_list[i];
+                break;
+            }
+        }
+    }
+    return req_dims;
 };
 
 
@@ -136,60 +247,3 @@ float BundleAccuracy(vector<vector<T>> &memory, unsigned int sample_size, Encodi
 *   DO NOT REMOVE
 *******************************************************************************/
 #endif /* HDC_HYPERVECTOR_H_ */
-/*
-
-def BundleAccuracy(item_memory: List[np.ndarray], sample_size: int, encoding: Encoding) -> float:
-    # Randomly choose (sample_size) hypervectors without replacement from the full item memory
-    sample_indices = np.random.choice(len(item_memory), sample_size)
-    # sample = np.asarray(RandomSubset(item_memory, sample_size))
-    sample = np.asarray(item_memory)[sample_indices]
-    # Bundle the sample vectors into a single hypervector
-    bunled = encoding.bundle(sample)
-    # Get the similarity between every hypervector in the item_memory and the bundled hypervector
-    similarities = [encoding.similarity(bunled, vector) for vector in item_memory]
-    # Get the indices of the top (sample_size) most similar hypervectors in the item_memory
-    indices = np.argsort(similarities)[-sample_size:]
-    # Count how many of these top similar vectors appear in the input sample list
-    correct_count = 0
-    for index in indices:
-        if index in sample_indices:
-            correct_count += 1
-    # Calculate the accuracy as the ratio of (correct_count) / (sample_size)
-    return (correct_count / sample_size)
-
-
-def LoopBundleAccuracy(item_memory: List[np.ndarray], sample_size: int, encoding: Encoding, bar = None) -> float:
-    total = 0
-    for i in range(MONTECARLO_RUNS):
-        total += BundleAccuracy(item_memory, sample_size, encoding)
-    if bar:
-        bar.update(1)
-    return (total / MONTECARLO_RUNS)
-
-
-def AllBundleAccuracyByDimension(memory_size: int, encoding: Encoding, hypervector_dimension: int, bundle_list: List[int], bar = None) -> List[float]:
-    item_memory = BuildItemMemory(memory_size, hypervector_dimension, encoding)
-    accuracies = [LoopBundleAccuracy(item_memory, sample_size, encoding, bar=bar) for sample_size in bundle_list]
-    return accuracies
-
-
-def AllBundleAccuracy(memory_size: int, encoding: Encoding, hypervector_dimension_list: List[int], bundle_list: List[int]) -> List[List[float]]:
-    if PROCESS_BAR:
-        print("######  \/ SURVEY SWEEP PARAMETERS \/  ######")
-        print(f"MEMORY_SIZE: {MEMORY_SIZE}")
-        print(f"DIMENSIONS: {DIMENSIONS}")
-        print(f"BUNDLE_NUMBER: {BUNDLE_NUMBER}")
-        print("######  /\ SURVEY SWEEP PARAMETERS /\  ######")
-        print("\n")
-        with tqdm(total=len(hypervector_dimension_list)*len(bundle_list)) as bar:
-            accuracies = [AllBundleAccuracyByDimension(memory_size, encoding, dimension, bundle_list, bar=bar) for dimension in hypervector_dimension_list]
-    else:
-        accuracies = [AllBundleAccuracyByDimension(memory_size, encoding, dimension, bundle_list, bar=None) for dimension in hypervector_dimension_list]
-    # num_proc = 2
-    # print(f"Allocating Pool With {num_proc} Processes")
-    # p = Pool(processes=num_proc)
-    # l2 = hypervector_dimension_list#[:2]
-    # accuracies = p.starmap(AllBundleAccuracyByDimension, [(memory_size, encoding, dimension, bundle_list,) for dimension in l2])
-    # p.close()
-    return accuracies
-*/

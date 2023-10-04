@@ -1,0 +1,52 @@
+{ 
+	"name": "Test",
+	"dimension_list": [ 
+		4, 
+		9, 
+		16, 
+		25 
+	], 
+	"bundle_list": [ 
+		2, 
+		3, 
+		4, 
+		5 
+	], 
+	"bundle_heatmap": [ 
+		[ 
+			1, 
+			0.666667, 
+			0.75, 
+			0.8 
+		], 
+		[ 
+			1, 
+			0.666667, 
+			0.75, 
+			0.6 
+		], 
+		[ 
+			1, 
+			1, 
+			0.5, 
+			0.6 
+		], 
+		[ 
+			1, 
+			1, 
+			1, 
+			1 
+		] 
+	],
+	"reqdims_vs_bundle": [ 
+		4, 
+		16, 
+		25, 
+		25 
+	], 
+	"reqdims_vs_memsize": [],
+	"sim_vs_bindreps": [],
+	"bundlepair_heatmap": [],
+	"reqdims_vs_bundlepair": [],
+	"reqdims_15bundles": []
+}

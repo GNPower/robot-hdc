@@ -39,6 +39,7 @@
 *   Includes
 *******************************************************************************/
 #include <vector>
+#include <string>
 
 #include "components/elements.h"
 #include "components/bundling.h"
@@ -77,6 +78,7 @@
 template <typename T>
 class Encoding {
     private:
+        string name;
         int dimensions;
         void (*element_func)(vector<T> &hypervector, unsigned int dimensions);
         float (*similarity_func)(vector<T> a, vector<T> b);
@@ -86,6 +88,7 @@ class Encoding {
 
     public:
         Encoding(
+            string name,
             int dimensions,
             void (*element_func)(vector<T> &hypervector, unsigned int dimensions),
             float (*similarity_func)(vector<T> a, vector<T> b),
@@ -142,6 +145,7 @@ class Encoding {
 class MAP_C : public Encoding<double> {
     public:
         MAP_C(unsigned int dimensions) : Encoding<double>(
+            "MAP-C",
             dimensions,
             UniformBipolar<double>,
             CosineSimilarity<double>,
@@ -155,6 +159,7 @@ class MAP_C : public Encoding<double> {
 class MAP_I : public Encoding<int> {
     public:
         MAP_I(unsigned int dimensions) : Encoding<int>(
+            "MAP-I",
             dimensions,
             BernoulliBiploar<int>,
             CosineSimilarity<int>,
@@ -168,6 +173,7 @@ class MAP_I : public Encoding<int> {
 class HRR : public Encoding<double> {
     public:
         HRR(unsigned int dimensions) : Encoding<double>(
+            "HRR",
             dimensions,
             NormalReal<double>,
             CosineSimilarity<double>,
@@ -181,6 +187,7 @@ class HRR : public Encoding<double> {
 class VTB : public Encoding<double> {
     public:
         VTB(unsigned int dimensions) : Encoding<double>(
+            "VTB",
             dimensions,
             NormalReal<double>,
             CosineSimilarity<double>,
@@ -194,6 +201,7 @@ class VTB : public Encoding<double> {
 class MBAT : public Encoding<double> {
     public:
         MBAT(unsigned int dimensions) : Encoding<double>(
+            "MBAT",
             dimensions,
             NormalReal<double>,
             CosineSimilarity<double>,
@@ -207,6 +215,7 @@ class MBAT : public Encoding<double> {
 class MAP_B : public Encoding<int> {
     public:
         MAP_B(unsigned int dimensions) : Encoding<int>(
+            "MAP-B",
             dimensions,
             BernoulliBiploar<int>,
             CosineSimilarity<int>,
@@ -220,6 +229,7 @@ class MAP_B : public Encoding<int> {
 class BSC : public Encoding<unsigned int> {
     public:
         BSC(unsigned int dimensions) : Encoding<unsigned int>(
+            "BSC",
             dimensions,
             BernoulliBiploar<unsigned int>,
             HammingDistance<unsigned int>,
@@ -233,6 +243,7 @@ class BSC : public Encoding<unsigned int> {
 class BSDC_CDT : public Encoding<unsigned int> {
     public:
         BSDC_CDT(unsigned int dimensions) : Encoding<unsigned int>(
+            "BSDC-CDT",
             dimensions,
             BernoulliSparseAuto<unsigned int>,
             Overlap<unsigned int>,
@@ -246,6 +257,7 @@ class BSDC_CDT : public Encoding<unsigned int> {
 class BSDC_S : public Encoding<unsigned int> {
     public:
         BSDC_S(unsigned int dimensions) : Encoding<unsigned int>(
+            "BSDC-S",
             dimensions,
             BernoulliSparseAuto<unsigned int>,
             Overlap<unsigned int>,
@@ -259,6 +271,7 @@ class BSDC_S : public Encoding<unsigned int> {
 class BSDC_SEG : public Encoding<unsigned int> {
     public:
         BSDC_SEG(unsigned int dimensions) : Encoding<unsigned int>(
+            "BSDC-SEG",
             dimensions,
             SparseSegmentedAuto<unsigned int>,
             Overlap<unsigned int>,
@@ -272,6 +285,7 @@ class BSDC_SEG : public Encoding<unsigned int> {
 class FHRR : public Encoding<double> {
     public:
         FHRR(unsigned int dimensions) : Encoding<double>(
+            "FHRR",
             dimensions,
             UniformAngles<double>,
             AngleDistance<double>,

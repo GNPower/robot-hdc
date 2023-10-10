@@ -162,6 +162,8 @@ void OutputAllData(
     oss << "\t\"reqdims_vs_bundlepair\": " << "[],\n";
     // Add required dimensions for 15 bundled pairs
     oss << "\t\"reqdims_15bundles\": " << "[]\n";
+    // Add required bitwidth vs. bundle
+    // oss << "\t\"reqbits_vs_bundle\": " << "[]\n";
     // Close the json dict
     oss << "}";
     // Write to the file and close it off

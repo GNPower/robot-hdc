@@ -40,6 +40,7 @@
 *******************************************************************************/
 #include <vector>
 #include <algorithm>
+#include <chrono>
 
 #include "hypervector.h"
 // #include "components/elements.h"
@@ -81,13 +82,44 @@ vector<unsigned int> DefaultBundleNumbers{ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1
 unsigned int BundleAccuracyProgress;
 unsigned int LengthOfLoop;
 
+std::chrono::steady_clock::time_point Tglobal_begin;
+std::chrono::steady_clock::time_point Tbegin;
+std::chrono::steady_clock::time_point Tglobal_end;
+std::chrono::steady_clock::time_point Tend;
+
+float BuildMemTime;
+unsigned int BuildMemCount;
+
+float GetSubsetTime;
+unsigned int GetSubsetCount;
+
+float BundleTime;
+unsigned int BundleCount;
+
+float SimilarityTime;
+unsigned int SimilarityCount;
+
+float ResultsTime;
+unsigned int ResultsCount;
+
 
 /*******************************************************************************
 *   Functions
 *******************************************************************************/
+auto TimeDifference(std::chrono::steady_clock::time_point start, std::chrono::steady_clock::time_point end)
+{
+    return std::chrono::duration_cast<std::chrono::nanoseconds> (end - start).count();
+};
+
+auto TimeNow()
+{
+    return std::chrono::steady_clock::now();
+};
+
 template <typename T>
 void BuildItemMemory(vector<vector<T>> &memory_to_fill, unsigned int memory_size, unsigned int hypervector_dimentions, Encoding<T> &enc)
 {
+    Tbegin = TimeNow();
     unsigned int i;
     for (i = 0; i < memory_size; i++)
     {
@@ -95,6 +127,9 @@ void BuildItemMemory(vector<vector<T>> &memory_to_fill, unsigned int memory_size
         enc.generate(v, hypervector_dimentions);
         memory_to_fill.push_back(v);
     }
+    Tend = TimeNow();
+    BuildMemTime += TimeDifference(Tbegin, Tend);
+    BuildMemCount++;
 };
 
 
@@ -122,24 +157,37 @@ template <typename T>
 float BundleAccuracy(vector<vector<T>> &memory, unsigned int sample_size, Encoding<T> &enc)
 {
     // Randomly choose (sample_size) hypervectors without replacement from the full item memory
+    Tbegin = TimeNow();
     vector<int> sample_indices = RandomSubset(memory, sample_size);
     // Build the sample memory
-    vector<vector<double>> sample(sample_size);
+    vector<vector<T>> sample(sample_size);
     unsigned int i;
     for (i = 0; i < sample_size; i++)
     {
         sample[i] = memory[sample_indices[i]];
     }
+    Tend = TimeNow();
+    GetSubsetTime += TimeDifference(Tbegin, Tend);
+    GetSubsetCount++;
     // Bundle the sample vectors into a single hypervector
-    vector<double> bundled(memory[0].size());
+    Tbegin = TimeNow();
+    vector<T> bundled(memory[0].size());
     enc.bundle(bundled, sample);
+    Tend = TimeNow();
+    BundleTime += TimeDifference(Tbegin, Tend);
+    BundleCount++;
     // Get the similarity between every hypervector in the item_memory and the bundled hypervector
+    Tbegin = TimeNow();
     vector<float> similarities(memory.size());
     for (i = 0; i < memory.size(); i++)
     {
         similarities[i] = enc.similarity(bundled, memory[i]);
     }
+    Tend = TimeNow();
+    SimilarityTime += TimeDifference(Tbegin, Tend);
+    SimilarityCount++;
     // Get the indices of the top (sample_size) most similar hypervectors in the item_memory
+    Tbegin = TimeNow();
     vector<int> most_similar(sample_size);
     for (i = 0; i < sample_size; i++)
     {
@@ -157,6 +205,9 @@ float BundleAccuracy(vector<vector<T>> &memory, unsigned int sample_size, Encodi
             correct_count++;
         }
     }
+    Tend = TimeNow();
+    ResultsTime += TimeDifference(Tbegin, Tend);
+    ResultsCount++;
     // Calculate the accuracy as the ratio of (correct_count) / (sample_size)
     return (double)correct_count / (double)sample_size;
 };
@@ -209,15 +260,41 @@ vector<float> AllBundleAccuracyByDimension(unsigned int memory_size, Encoding<T>
 template <typename T>
 vector<vector<float>> AllBundleAccuracies(unsigned int memory_size, Encoding<T> &enc, vector<unsigned int> &hypervector_dimension_list, vector<unsigned int> &bundle_list)
 {
+    Tglobal_begin = TimeNow();
+    // Set All Timers to 0
+    BuildMemTime = 0;
+    BuildMemCount = 0;
+    GetSubsetTime = 0;
+    GetSubsetCount = 0;
+    BundleTime = 0;
+    BundleCount = 0;
+    SimilarityTime = 0;
+    SimilarityCount = 0;
+    ResultsTime = 0;
+    ResultsCount = 0;
+
     BundleAccuracyProgress = 0;
     LengthOfLoop = bundle_list.size() * hypervector_dimension_list.size();
     cout.flush();
-    vector<vector<float>> all_accuracies;
+    vector<vector<float>> all_accuracies;    
     unsigned int i;
     for (i = 0; i < hypervector_dimension_list.size(); i++)
     {
         all_accuracies.push_back(AllBundleAccuracyByDimension(memory_size, enc, hypervector_dimension_list[i], bundle_list));
     }
+
+    Tglobal_end = TimeNow();
+    float global_timediff = TimeDifference(Tglobal_begin, Tglobal_end);
+    float global_diffsum = BuildMemTime + GetSubsetTime + BundleTime + SimilarityTime + ResultsTime;
+    cout << endl << endl;
+    cout << "Total Execution Time:  " << global_timediff << " ns  (" << (global_timediff - global_diffsum) / global_timediff * 100.0 << "% overhead)" << endl;
+    cout << "\tBuild Mem Time:  " << BuildMemTime << " ns (" << BuildMemTime / BuildMemCount << " ns/iter, " << BuildMemTime / global_timediff * 100.0 << "% total)" << endl;
+    cout << "\tGet Subset Time:  " << GetSubsetTime << " ns (" << GetSubsetTime / GetSubsetCount << " ns/iter, " << GetSubsetTime / global_timediff * 100.0 << "% total)" << endl;
+    cout << "\tBundle Time:  " << BundleTime << " ns (" << BundleTime / BundleCount << " ns/iter, " << BundleTime / global_timediff * 100.0 << "% total)" << endl;
+    cout << "\tSimilarity Time:  " << SimilarityTime << " ns (" << SimilarityTime / SimilarityCount << " ns/iter, " << SimilarityTime / global_timediff * 100.0 << "% total)" << endl;
+    cout << "\tResults Time:  " << ResultsTime << " ns (" << ResultsTime / ResultsCount << " ns/iter, " << ResultsTime / global_timediff * 100.0 << "% total)" << endl;
+    cout << endl << endl << endl;
+
     return all_accuracies;
 };
 

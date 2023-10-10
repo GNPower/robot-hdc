@@ -16,6 +16,9 @@
 #include "bundle_accuracies.h"
 #include "savedata.h"
 
+#include "percision/custom_int.h"
+#include "percision/floatx.hpp"
+
 using namespace std;
 
 template <typename T>
@@ -52,55 +55,79 @@ int main()
     vector<unsigned int> bundlist{ 2, 3, 4, 5 };
     vector<unsigned int> dimlist{ 4, 9, 16, 25 };
 
-    MAP_C enc(dim);
+    vMAP_I<17> enc(dim);
+
+    vector<vector<float>> all_acc2 = AllBundleAccuracies(DefaultMemorySize, enc, dimlist, bundlist);
+    cout << "All Accuracies: " << endl;
+    printVec2d(all_acc2);
+    cout << endl << endl << endl;
+
+    // Int5 a = 3;
+    // Int5 b = 2;
+    // float c;
+    // cout << "a: " << a << endl;
+    // cout << "b: " << b << endl;
+    
+    // c = (int) (a * b);
+    // cout << "c: " << c << endl;
+
+    flx::floatx<7, 12> a = 1.2;
+    flx::floatx<7, 12> b = 2;
+    float c;
+    // cout << "a: " << a << endl;
+    // cout << "b: " << b << endl;
+
+
+
+    // MAP_C enc(dim);
 
     // Test building Item Memory
-    vector<vector<double>> memory;
-    unsigned int sample_size = 5;
-    BuildItemMemory(memory, memsize, dim, enc);
+    // vector<vector<double>> memory;
+    // unsigned int sample_size = 5;
+    // BuildItemMemory(memory, memsize, dim, enc);
 
-    cout << "Memory:" << endl;
-    printVec2d(memory);
-    cout << endl << endl << endl;
+    // cout << "Memory:" << endl;
+    // printVec2d(memory);
+    // cout << endl << endl << endl;
 
-    float bundle_accuracy = BundleAccuracy(memory, sample_size, enc);
-    cout << "Bundle Accuracy: " << bundle_accuracy << endl;
+    // float bundle_accuracy = BundleAccuracy(memory, sample_size, enc);
+    // cout << "Bundle Accuracy: " << bundle_accuracy << endl;
 
-    float loop_bundle_accuracy = LoopBundleAccuracy(memory, sample_size, enc);
-    cout << "Looped Bundle Accuracy: " << loop_bundle_accuracy << endl;
-    cout << endl << endl << endl;
+    // float loop_bundle_accuracy = LoopBundleAccuracy(memory, sample_size, enc);
+    // cout << "Looped Bundle Accuracy: " << loop_bundle_accuracy << endl;
+    // cout << endl << endl << endl;
 
-    vector<float> acc_by_dim = AllBundleAccuracyByDimension(memsize, enc, dim, bundlist);
-    cout << "Accuracy By Dimension: " << endl;
-    printVec(bundlist);
-    printVec(acc_by_dim);
-    cout << endl << endl << endl;
+    // vector<float> acc_by_dim = AllBundleAccuracyByDimension(memsize, enc, dim, bundlist);
+    // cout << "Accuracy By Dimension: " << endl;
+    // printVec(bundlist);
+    // printVec(acc_by_dim);
+    // cout << endl << endl << endl;
 
-    vector<vector<float>> all_acc = AllBundleAccuracies(memsize, enc, dimlist, bundlist);
-    cout << "All Accuracies: " << endl;
-    printVec2d(all_acc);
-    cout << endl << endl << endl;
+    // vector<vector<float>> all_acc = AllBundleAccuracies(memsize, enc, dimlist, bundlist);
+    // cout << "All Accuracies: " << endl;
+    // printVec2d(all_acc);
+    // cout << endl << endl << endl;
 
     // vector<vector<float>> all_acc2 = AllBundleAccuracies(DefaultMemorySize, enc, DefaultDimensions, DefaultBundleNumbers);
     // cout << "All Accuracies: " << endl;
     // printVec2d(all_acc2);
     // cout << endl << endl << endl;
 
-    vector<unsigned int> reqdims = GenerateDimensionsRequiredFor99PercentAccuracy(all_acc, dimlist, bundlist);
-    cout << "Required Dimensions for 99%" << endl;
-    printVec(reqdims);
-    cout << endl << endl << endl;
+    // vector<unsigned int> reqdims = GenerateDimensionsRequiredFor99PercentAccuracy(all_acc, dimlist, bundlist);
+    // cout << "Required Dimensions for 99%" << endl;
+    // printVec(reqdims);
+    // cout << endl << endl << endl;
 
     // vector<unsigned int> reqdims = GenerateDimensionsRequiredFor99PercentAccuracy(all_acc2, DefaultDimensions, DefaultBundleNumbers);
     // cout << "Required Dimensions for 99%" << endl;
     // printVec(reqdims);
     // cout << endl << endl << endl;
 
-    OutputAllData(
-    all_acc,
-    reqdims,
-    dimlist,
-    bundlist,
-    "Test"
-    );
+    // OutputAllData(
+    // all_acc,
+    // reqdims,
+    // dimlist,
+    // bundlist,
+    // "Test"
+    // );
 };

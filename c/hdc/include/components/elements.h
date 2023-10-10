@@ -45,6 +45,8 @@
 #include <vector>
 #include <random>
 
+#include "percision/custom_int.h"
+
 using namespace std;
 
 /*******************************************************************************
@@ -75,6 +77,13 @@ using namespace std;
 /*******************************************************************************
 *   Functions
 *******************************************************************************/
+template <typename T>
+class BaseElement {
+    public:
+        T i;
+};
+
+
 double randn(double mu, double sigma)
 {
     /**

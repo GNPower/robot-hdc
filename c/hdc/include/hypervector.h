@@ -41,6 +41,9 @@
 #include <vector>
 #include <string>
 
+#include "percision/custom_int.h"
+#include "percision/floatx.hpp"
+
 #include "components/elements.h"
 #include "components/bundling.h"
 #include "components/binding.h"
@@ -147,11 +150,26 @@ class MAP_C : public Encoding<double> {
         MAP_C(unsigned int dimensions) : Encoding<double>(
             "MAP-C",
             dimensions,
-            UniformBipolar<double>,
-            CosineSimilarity<double>,
-            ElementAdditionCutBipolar<double>,
-            ElementMultiplication<double>,
-            ElementMultiplication<double>
+            UniformBipolar,
+            CosineSimilarity,
+            ElementAdditionCutBipolar,
+            ElementMultiplication,
+            ElementMultiplication
+        ) {};
+};
+
+
+template <unsigned int ExpBits, unsigned int SigBits>
+class vMAP_C : public Encoding<flx::floatx<ExpBits, SigBits>> {
+    public:
+        vMAP_C(unsigned int dimensions) : Encoding<flx::floatx<ExpBits, SigBits>>(
+            "MAP-C",
+            dimensions,
+            UniformBipolar,
+            CosineSimilarity,
+            ElementAdditionCutBipolar,
+            ElementMultiplication,
+            ElementMultiplication
         ) {};
 };
 
@@ -161,11 +179,26 @@ class MAP_I : public Encoding<int> {
         MAP_I(unsigned int dimensions) : Encoding<int>(
             "MAP-I",
             dimensions,
-            BernoulliBiploar<int>,
-            CosineSimilarity<int>,
-            ElementAddition<int>,
-            ElementMultiplication<int>,
-            ElementMultiplication<int>
+            BernoulliBiploar,
+            CosineSimilarity,
+            ElementAddition,
+            ElementMultiplication,
+            ElementMultiplication
+        ) {};
+};
+
+// TODO: fix!
+template <unsigned int IntBits>
+class vMAP_I : public Encoding<Int<IntBits>> {
+    public:
+        vMAP_I(unsigned int dimensions) : Encoding<Int<IntBits>>(
+            "MAP-I",
+            dimensions,
+            BernoulliBiploar,
+            CosineSimilarity,
+            ElementAddition,
+            ElementMultiplication,
+            ElementMultiplication
         ) {};
 };
 
@@ -184,6 +217,21 @@ class HRR : public Encoding<double> {
 };
 
 
+template <unsigned int ExpBits, unsigned int SigBits>
+class vHRR : public Encoding<flx::floatx<ExpBits, SigBits>> {
+    public:
+        HRR(unsigned int dimensions) : Encoding<flx::floatx<ExpBits, SigBits>>(
+            "HRR",
+            dimensions,
+            NormalReal,
+            CosineSimilarity,
+            ElementAdditionNormalized,
+            CircularConvolution,
+            CircularCorrelation
+        ) {};
+};
+
+
 class VTB : public Encoding<double> {
     public:
         VTB(unsigned int dimensions) : Encoding<double>(
@@ -198,6 +246,21 @@ class VTB : public Encoding<double> {
 };
 
 
+template <unsigned int ExpBits, unsigned int SigBits>
+class vVTB : public Encoding<flx::floatx<ExpBits, SigBits>> {
+    public:
+        vVTB(unsigned int dimensions) : Encoding<flx::floatx<ExpBits, SigBits>>(
+            "vVTB",
+            dimensions,
+            NormalReal,
+            CosineSimilarity,
+            ElementAdditionNormalized,
+            VectorDerivedTransformation,
+            TransposeVectorDerivedTransformation
+        ) {};
+};
+
+
 class MBAT : public Encoding<double> {
     public:
         MBAT(unsigned int dimensions) : Encoding<double>(
@@ -208,6 +271,21 @@ class MBAT : public Encoding<double> {
             ElementAdditionNormalized<double>,
             MatrixMultiplication<double>,
             InverseMatrixMultiplication<double>
+        ) {};
+};
+
+
+template <unsigned int ExpBits, unsigned int SigBits>
+class vMBAT : public Encoding<flx::floatx<ExpBits, SigBits>> {
+    public:
+        vMBAT(unsigned int dimensions) : Encoding<flx::floatx<ExpBits, SigBits>>(
+            "vMBAT",
+            dimensions,
+            NormalReal,
+            CosineSimilarity,
+            ElementAdditionNormalized,
+            MatrixMultiplication,
+            InverseMatrixMultiplication
         ) {};
 };
 
@@ -292,6 +370,21 @@ class FHRR : public Encoding<double> {
             AnglesOfElementAddition<double>,
             ElementAngleAddition<double>,
             ElementAngleSubtraction<double>
+        ) {};
+};
+
+
+template <unsigned int ExpBits, unsigned int SigBits>
+class vFHRR : public Encoding<flx::floatx<ExpBits, SigBits>> {
+    public:
+        vFHRR(unsigned int dimensions) : Encoding<flx::floatx<ExpBits, SigBits>>(
+            "vFHRR",
+            dimensions,
+            UniformAngles,
+            AngleDistance,
+            AnglesOfElementAddition,
+            ElementAngleAddition,
+            ElementAngleSubtraction
         ) {};
 };
 

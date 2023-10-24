@@ -1,0 +1,15 @@
+`timescale 1ns/100ps
+
+// Reference:
+// https://people.ece.cornell.edu/land/courses/ece5760/StudentWork/ss868/fp/Reg27FP/FpAdd.v
+
+module FloatAdder
+#(
+	parameter EXPONENT_WIDTH = 8,
+	parameter MANTISSA_WIDTH = 23
+)
+(
+	
+);
+
+endmodule

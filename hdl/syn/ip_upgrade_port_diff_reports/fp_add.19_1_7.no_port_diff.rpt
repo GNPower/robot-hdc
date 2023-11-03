@@ -1,0 +1,23 @@
+IP Ports Diff Report for fp_add
+Wed Nov  1 17:44:57 2023
+Quartus Prime Version 23.3.0 Build 104 09/20/2023 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. IP Information
+
+
+
++------------------------------------------------------------------------------------------------+
+; IP Information                                                                                 ;
++----------------------+-------------------------------------------------------------------------+
+; IP Variation Name    ; fp_add                                                                  ;
+; Prior Version        ; 19.1                                                                    ;
+; New Version          ; 19.1.7                                                                  ;
+; New File             ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/synth/fp_add.v ;
+; Has Port Differences ; No                                                                      ;
++----------------------+-------------------------------------------------------------------------+
+
+

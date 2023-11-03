@@ -1,0 +1,166 @@
+IP Upgrade report for hdl
+Wed Nov  1 17:44:55 2023
+Quartus Prime Version 23.3.0 Build 104 09/20/2023 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. IP Upgrade Summary
+  3. Successfully Upgraded IP Components
+  4. IP Upgrade Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the Intel FPGA Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++---------------------------------------------------------------------------+
+; IP Upgrade Summary                                                        ;
++------------------------------+--------------------------------------------+
+; IP Components Upgrade Status ; Passed - Wed Nov  1 17:44:55 2023          ;
+; Quartus Prime Version        ; 23.3.0 Build 104 09/20/2023 SC Pro Edition ;
+; Revision Name                ; hdl                                        ;
+; Top-level Entity Name        ; ElementAdditionCutBipolar_F                ;
+; Family                       ; Cyclone 10 GX                              ;
++------------------------------+--------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Successfully Upgraded IP Components                                                                                                         ;
++-------------+---------------------+---------+---------------------------------+---------------------------------+-----------------+---------+
+; Entity Name ; Component Name      ; Version ; Original Source File            ; Generation File Path            ; New Source File ; Message ;
++-------------+---------------------+---------+---------------------------------+---------------------------------+-----------------+---------+
+; fp_add      ; altera_fp_functions ; 19.1    ; ../rtl/floating_point/fp_add.ip ; ../rtl/floating_point/fp_add.ip ;                 ;         ;
++-------------+---------------------+---------+---------------------------------+---------------------------------+-----------------+---------+
+
+
++---------------------+
+; IP Upgrade Messages ;
++---------------------+
+Info (11902): Backing up file "D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add.ip" to "D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add.BAK.ip"
+Info (11902): Backing up file "../rtl/floating_point/fp_add/synth/fp_add.v" to "D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add.BAK.v"
+Info (20325): ***************************************************************
+Info (20325): Quartus is a registered trademark of Intel Corporation in the
+Info (20325): US and other countries.  Portions of the Quartus Prime software
+Info (20325): code, and other portions of the code included in this download
+Info (20325): or on this DVD, are licensed to Intel Corporation and are the
+Info (20325): copyrighted property of third parties. For license details,
+Info (20325): refer to the End User License Agreement at
+Info (20325): http://fpgasoftware.intel.com/eula.
+Info (20325): ***************************************************************
+Info (20325): 2023.11.01.17:43:52 Info: Starting to upgrade the IP cores in the Platform Designer system
+Info (20325): 2023.11.01.17:43:53 Info: Finished upgrading the ip cores
+Info (20325): ***************************************************************
+Info (20325): Quartus is a registered trademark of Intel Corporation in the
+Info (20325): US and other countries.  Portions of the Quartus Prime software
+Info (20325): code, and other portions of the code included in this download
+Info (20325): or on this DVD, are licensed to Intel Corporation and are the
+Info (20325): copyrighted property of third parties. For license details,
+Info (20325): refer to the End User License Agreement at
+Info (20325): http://fpgasoftware.intel.com/eula.
+Info (20325): ***************************************************************
+Info (20325): 2023.11.01.17:44:15 Info: Saving generation log to D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/fp_add_generation.rpt
+Info (20325): 2023.11.01.17:44:15 Info: Generated by version: 23.3 build 104
+Info (20325): 2023.11.01.17:44:15 Info: Starting: Create simulation model
+Info (20325): 2023.11.01.17:44:15 Info: qsys-generate D:\School\Grad\Code\my_hdc\hdl\rtl\floating_point\fp_add.ip --simulation=VERILOG --allow-mixed-language-simulation --output-directory=D:\School\Grad\Code\my_hdc\hdl\rtl\floating_point\fp_add --family="Cyclone 10 GX" --part=10CX220YF780I5G
+Info (20325): 2023.11.01.17:44:16 Info: fp_add: "Transforming system: fp_add"
+Info (20325): 2023.11.01.17:44:17 Info: fp_add: "Naming system components in system: fp_add"
+Info (20325): 2023.11.01.17:44:17 Info: fp_add: "Processing generation queue"
+Info (20325): 2023.11.01.17:44:17 Info: fp_add: "Generating: fp_add"
+Info (20325): 2023.11.01.17:44:17 Info: fp_add: "Generating: fp_add_altera_fp_functions_1917_vbqzuli"
+Info (20325): 2023.11.01.17:44:17 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 400 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Warning (20326): 2023.11.01.17:44:19 Warning: fp_functions_0: Frequency search for this target may take up to 10 seconds
+Info (20325): 2023.11.01.17:44:19 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 200 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:19 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 100 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:20 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 150 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:20 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 125 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:21 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 138 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:21 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 145 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:22 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 141 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:23 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 143 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:23 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 144 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:24 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 145 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:24 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 144 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:26 Info: fp_functions_0: Could achieve 3 cycles latency maximum at Frequency 145 MHz, padding with registers to reach requested 3 cycles latency
+Info (20325): 2023.11.01.17:44:26 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 144 -name fp_add_altera_fp_functions_1917_vbqzuli -noChanValid -enableHardFP 0 -printMachineReadable -lang VHDL -constrainLatency 3 -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:27 Info: fp_functions_0: DSP Blocks Used: 0
+Info (20325): 2023.11.01.17:44:27 Info: fp_functions_0: LUTs Used: 961
+Info (20325): 2023.11.01.17:44:27 Info: fp_functions_0: Memory Bits Used: 0
+Info (20325): 2023.11.01.17:44:27 Info: fp_functions_0: Memory Blocks Used: 0
+Info (20325): 2023.11.01.17:44:27 Info: fp_add: Done "fp_add" with 2 modules, 4 files
+Info (20325): 2023.11.01.17:44:27 Info: Generating the following file(s) for RIVIERA simulator in D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/sim/ directory:
+Info (20325): 2023.11.01.17:44:27 Info:     common/riviera_files.tcl
+Info (20325): 2023.11.01.17:44:27 Info: Generating the following file(s) for MODELSIM simulator in D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/sim/ directory:
+Info (20325): 2023.11.01.17:44:27 Info:     common/modelsim_files.tcl
+Info (20325): 2023.11.01.17:44:27 Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/sim/.
+Info (20325): 2023.11.01.17:44:27 Info: Regenerate these scripts whenever you make any change to any Quartus-generated IP in your project.
+Info (20325): 2023.11.01.17:44:27 Info: Finished: Create simulation model
+Info (20325): 2023.11.01.17:44:27 Info: Starting: Create simulation script
+Info (20325): 2023.11.01.17:44:27 Info: sim-script-gen --system-file=D:\School\Grad\Code\my_hdc\hdl\rtl\floating_point\fp_add.ip --output-directory=D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/sim/ --use-relative-paths=true
+Info (20325): 2023.11.01.17:44:41 Info: Generating the following file(s) for RIVIERA simulator in D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/sim/ directory:
+Info (20325): 2023.11.01.17:44:41 Info:     aldec/rivierapro_setup.tcl
+Info (20325): 2023.11.01.17:44:41 Info: Generating the following file(s) for MODELSIM simulator in D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/sim/ directory:
+Info (20325): 2023.11.01.17:44:41 Info:     mentor/msim_setup.tcl
+Info (20325): 2023.11.01.17:44:41 Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/sim/.
+Info (20325): 2023.11.01.17:44:41 Info: Regenerate these scripts whenever you make any change to any Quartus-generated IP in your project.
+Info (20325): 2023.11.01.17:44:41 Info: Finished: Create simulation script
+Info (20325): 2023.11.01.17:44:41 Info: Starting: Create block symbol file (.bsf)
+Info (20325): 2023.11.01.17:44:41 Info: qsys-generate D:\School\Grad\Code\my_hdc\hdl\rtl\floating_point\fp_add.ip --block-symbol-file --output-directory=D:\School\Grad\Code\my_hdc\hdl\rtl\floating_point\fp_add --family="Cyclone 10 GX" --part=10CX220YF780I5G
+Info (20325): 2023.11.01.17:44:46 Info: Finished: Create block symbol file (.bsf)
+Info (20325): 2023.11.01.17:44:46 Info:
+Info (20325): 2023.11.01.17:44:46 Info: Starting: Create HDL design files for synthesis
+Info (20325): 2023.11.01.17:44:46 Info: qsys-generate D:\School\Grad\Code\my_hdc\hdl\rtl\floating_point\fp_add.ip --synthesis=VERILOG --output-directory=D:\School\Grad\Code\my_hdc\hdl\rtl\floating_point\fp_add --family="Cyclone 10 GX" --part=10CX220YF780I5G
+Info (20325): 2023.11.01.17:44:47 Info: fp_add: "Transforming system: fp_add"
+Info (20325): 2023.11.01.17:44:47 Info: fp_add: "Naming system components in system: fp_add"
+Info (20325): 2023.11.01.17:44:47 Info: fp_add: "Processing generation queue"
+Info (20325): 2023.11.01.17:44:47 Info: fp_add: "Generating: fp_add"
+Info (20325): 2023.11.01.17:44:47 Info: fp_add: "Generating: fp_add_altera_fp_functions_1917_vbqzuli"
+Info (20325): 2023.11.01.17:44:47 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 400 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:48 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 200 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:48 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 100 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:49 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 150 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:49 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 125 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:50 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 138 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:50 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 145 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:51 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 141 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:52 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 143 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:52 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 144 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:53 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 145 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:53 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 144 -name none -noChanValid -enableHardFP 0 -printMachineReadable -noFileGenerate -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:54 Info: fp_functions_0: Could achieve 3 cycles latency maximum at Frequency 145 MHz, padding with registers to reach requested 3 cycles latency
+Info (20325): 2023.11.01.17:44:54 Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 144 -name fp_add_altera_fp_functions_1917_vbqzuli -noChanValid -enableHardFP 0 -printMachineReadable -lang VHDL -constrainLatency 3 -correctRounding -speedgrade 5 FPAdd 8 23
+Info (20325): 2023.11.01.17:44:54 Info: fp_functions_0: DSP Blocks Used: 0
+Info (20325): 2023.11.01.17:44:54 Info: fp_functions_0: LUTs Used: 961
+Info (20325): 2023.11.01.17:44:54 Info: fp_functions_0: Memory Bits Used: 0
+Info (20325): 2023.11.01.17:44:54 Info: fp_functions_0: Memory Blocks Used: 0
+Info (20325): 2023.11.01.17:44:54 Info: fp_add: Done "fp_add" with 2 modules, 4 files
+Info (20325): 2023.11.01.17:44:55 Info: Finished: Create HDL design files for synthesis
+Info (20325): 2023.11.01.17:44:55 Info: Generation of D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add.ip (fp_add) took 40119 ms
+Info (11131): Completed upgrading IP component altera_fp_functions with file "../rtl/floating_point/fp_add.ip"
+Info (23030): Evaluation of Tcl script d:/programs/intelfpga_pro/23.3/quartus/common/tcl/internal/ip_regen/ip_regen.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 442 megabytes
+    Info: Processing ended: Wed Nov  1 17:44:57 2023
+    Info: Elapsed time: 00:02:19
+    Info: System process ID: 1016
+
+

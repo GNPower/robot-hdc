@@ -1,0 +1,89 @@
+m255
+K4
+z2
+!s11f vlog 2021.1 2021.02, Feb  3 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/School/Grad/Code/my_hdc/hdl/sim
+vAddTestSim
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z2 !s110 1698959199
+!i10b 1
+!s100 n9M10BCDUdEi1bQ@IG^2B2
+IhUXV:]BaAh`6NE=BS1N3G3
+S1
+R0
+w1698955556
+8../tb/add_test.sv
+F../tb/add_test.sv
+!i122 2
+L0 7 85
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+Z4 OV;L;2021.1;73
+r1
+!s85 0
+31
+Z5 !s108 1698959199.000000
+!s107 ../tb/./test_data.h|../tb/add_test.sv|
+!s90 -reportprogress|300|-sv|-work|my_work|+define+DISABLE_DEFAULT_NET|../tb/add_test.sv|
+!i113 1
+Z6 o-sv -work my_work
+Z7 !s92 -sv -work my_work +define+DISABLE_DEFAULT_NET
+Z8 tCvgOpt 0
+n@add@test@sim
+vdpRamEmulator
+R1
+R2
+!i10b 1
+!s100 z`=4879COB3Yjcd6@VJ250
+IRRD5d_3Xo:Al?]?6OMY9B2
+S1
+R0
+w1698952854
+8../tb/memoryEmulator.sv
+F../tb/memoryEmulator.sv
+!i122 1
+L0 9 40
+R3
+R4
+r1
+!s85 0
+31
+R5
+!s107 ../tb/memoryEmulator.sv|
+!s90 -reportprogress|300|-sv|-work|my_work|+define+DISABLE_DEFAULT_NET|../tb/memoryEmulator.sv|
+!i113 1
+R6
+R7
+R8
+ndp@ram@emulator
+vElementAdditionCutBipolar_F
+R1
+R2
+!i10b 1
+!s100 HBIVFXhbD@gF1PMIZ_hE]1
+IN`_9M5]`?m[Z@4h41aAB?0
+S1
+R0
+w1698718421
+8../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv
+F../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv
+!i122 0
+L0 3 79
+R3
+R4
+r1
+!s85 0
+31
+R5
+!s107 ../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv|
+!s90 -reportprogress|300|-sv|-work|my_work|+define+DISABLE_DEFAULT_NET|../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv|
+!i113 1
+R6
+R7
+R8
+n@element@addition@cut@bipolar_@f

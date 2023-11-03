@@ -145,7 +145,7 @@ def Disjunction(*hypervectors: np.ndarray) -> np.ndarray:
     :rtype: np.ndarray
     """
     hvs = __GetHypervectorAsList(*hypervectors)
-    return np.bitwise_xor.reduce(hvs)   
+    return np.bitwise_or.reduce(hvs)   
 
 
 def AnglesOfElementAddition(*hypervectors: np.ndarray)  -> np.ndarray:

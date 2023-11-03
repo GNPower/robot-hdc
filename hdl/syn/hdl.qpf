@@ -1,6 +1,6 @@
 # -------------------------------------------------------------------------- #
 #
-# Copyright (C) 2019  Intel Corporation. All rights reserved.
+# Copyright (C) 2023  Intel Corporation. All rights reserved.
 # Your use of Intel Corporation's design tools, logic functions 
 # and other software and tools, and any partner logic 
 # functions, and any output files from any of the foregoing 
@@ -12,19 +12,19 @@
 # agreement, including, without limitation, that your use is for
 # the sole purpose of programming logic devices manufactured by
 # Intel and sold by Intel or its authorized distributors.  Please
-# refer to the applicable agreement for further details, at
-# https://fpgasoftware.intel.com/eula.
+# refer to the Intel FPGA Software License Subscription Agreements 
+# on the Quartus Prime software download page.
 #
 # -------------------------------------------------------------------------- #
 #
 # Quartus Prime
-# Version 19.1.0 Build 670 09/22/2019 Patches 0.02std SJ Lite Edition
-# Date created = 15:14:50  October 18, 2023
+# Version 23.3.0 Build 104 09/20/2023 SC Pro Edition
+# Date created = 16:27:20  October 30, 2023
 #
 # -------------------------------------------------------------------------- #
 
-QUARTUS_VERSION = "19.1"
-DATE = "15:14:50  October 18, 2023"
+QUARTUS_VERSION = "23.3"
+DATE = "16:27:20  October 30, 2023"
 
 # Revisions
 

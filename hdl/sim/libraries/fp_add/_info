@@ -1,0 +1,33 @@
+m255
+K4
+z2
+!s11f vlog 2021.1 2021.02, Feb  3 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/School/Grad/Code/my_hdc/hdl/sim
+vfp_add
+!s110 1698959199
+!i10b 1
+!s100 dO=TcX8_F:c?@lMz4i?Z_0
+I9UfagPT<a28l[6_fh4WF63
+R0
+w1698876358
+8D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/sim/fp_add.v
+FD:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/sim/fp_add.v
+!i122 18
+L0 6 17
+VDg1SIo80bB@j0V0VzS_@n1
+OV;L;2021.1;73
+r1
+!s85 0
+31
+!s108 1698959199.000000
+!s107 D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/sim/fp_add.v|
+!s90 -reportprogress|300|D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/sim/fp_add.v|-work|fp_add|
+!i113 1
+o-work fp_add
+tCvgOpt 0

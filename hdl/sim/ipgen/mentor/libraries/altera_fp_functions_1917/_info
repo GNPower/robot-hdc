@@ -1,0 +1,354 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/School/Grad/Code/my_hdc/hdl/sim/ipgen/mentor
+Edspba_dcfifo_mixed_widths
+Z1 w1698876367
+Z2 DPx9 altera_mf 20 altera_mf_components 0 22 MILGFK[L`bXcS4=YT<HBH2
+Z3 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 45
+R0
+Z6 8D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/sim/dspba_library.vhd
+Z7 FD:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/sim/dspba_library.vhd
+l0
+L450 1
+V=]B0l2Wzb^NJ5d5Y5nmj?0
+!s100 8hGKG>I1>cV^KF>7jHGa73
+Z8 OV;C;2021.1;73
+32
+Z9 !s110 1698956363
+!i10b 1
+Z10 !s108 1698956363.000000
+Z11 !s90 -reportprogress|300|D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/sim/dspba_library.vhd|-work|altera_fp_functions_1917|
+Z12 !s107 D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/sim/dspba_library.vhd|
+!i113 1
+Z13 o-work altera_fp_functions_1917
+Z14 tExplicit 1 CvgOpt 0
+Artl
+R2
+R3
+R4
+R5
+DEx4 work 25 dspba_dcfifo_mixed_widths 0 22 =]B0l2Wzb^NJ5d5Y5nmj?0
+!i122 45
+l484
+L483 36
+V=mH?Hz[Wi^U`[1aO6[nRb3
+!s100 <EaQoz@<R^?ba=8iT1U@40
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Edspba_delay
+R1
+Z15 DPx4 work 21 dspba_library_package 0 22 `6DXc3<FTKD`?9IK4lHdS0
+R4
+R5
+!i122 45
+R0
+R6
+R7
+l0
+L145 1
+Vfog9Z?c3IDYYNj<HZSGZ=2
+!s100 IMoK5_iljP<R`O9mX=ZZb3
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Adelay
+R15
+R4
+R5
+DEx4 work 11 dspba_delay 0 22 fog9Z?c3IDYYNj<HZSGZ=2
+!i122 45
+l167
+L163 35
+VioTk1moE:I0W:<zcjF^CA1
+!s100 b9d26VmYYQd3Qo[@?4<i31
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Pdspba_library_package
+R4
+R5
+!i122 44
+R1
+R0
+8D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/sim/dspba_library_package.vhd
+FD:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/sim/dspba_library_package.vhd
+l0
+L17 1
+V`6DXc3<FTKD`?9IK4lHdS0
+!s100 VHNYPdH77?0XQ62f6UGf31
+R8
+32
+R9
+!i10b 1
+R10
+!s90 -reportprogress|300|D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/sim/dspba_library_package.vhd|-work|altera_fp_functions_1917|
+!s107 D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/sim/dspba_library_package.vhd|
+!i113 1
+R13
+R14
+Edspba_pipe
+R1
+R3
+R4
+R5
+!i122 45
+R0
+R6
+R7
+l0
+L404 1
+VI`neI[Rj1k2OZMO_kQVf[3
+!s100 g>XNg>[BADYBAmzGA@niG1
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Artl
+R3
+R4
+R5
+DEx4 work 10 dspba_pipe 0 22 I`neI[Rj1k2OZMO_kQVf[3
+!i122 45
+l423
+L417 21
+VI6K<AcmTk@3CEOfUEo_oN0
+!s100 JD:O]h`8PY@a;2[kza33R2
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Edspba_reg
+R1
+R15
+R4
+R5
+!i122 45
+R0
+R6
+R7
+l0
+L19 1
+V6WG4>nnRjm;`l7L8LhHWJ0
+!s100 oQ7UFd>`]YK><QTfQ`:L10
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Areg
+R15
+R4
+R5
+DEx4 work 9 dspba_reg 0 22 6WG4>nnRjm;`l7L8LhHWJ0
+!i122 45
+l37
+L35 38
+ViRAU[WQKP=5jTJnb`UM]D2
+!s100 fSD]C<LFK7a?I5da`lYDM0
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Edspba_reg_w_attributes
+R1
+R15
+R4
+R5
+!i122 45
+R0
+R6
+R7
+l0
+L80 1
+VMk>AZ2LPN[7:PJB;4cMl`1
+!s100 _lW?FKR6g@Vg7=EeB;O1j0
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Aa1
+R15
+R4
+R5
+DEx4 work 22 dspba_reg_w_attributes 0 22 Mk>AZ2LPN[7:PJB;4cMl`1
+!i122 45
+l102
+L97 42
+V;OC]6oX]:D;?c[llYHCiZ2
+!s100 Cl:]m3V0:V4Z`j6mMohQ51
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Edspba_sync_reg
+R1
+R15
+R3
+R4
+R5
+!i122 45
+R0
+R6
+R7
+l0
+L206 1
+VUeVHi?GJZ5^n`?`JhNBhC0
+!s100 YMfo4V27;4e6j1GBN@73e0
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Async_reg
+R15
+R3
+R4
+R5
+DEx4 work 14 dspba_sync_reg 0 22 UeVHi?GJZ5^n`?`JhNBhC0
+!i122 45
+l244
+L231 166
+VE`9cm@ggcUh?e]lhV<Hg>2
+!s100 QlS<GKQSmhi6nDMQ[dj`>3
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Efp_add_altera_fp_functions_1917_vbqzuli
+R1
+Z16 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z17 DPx11 cyclone10gx 21 cyclone10gx_atom_pack 0 22 38STiFiZkeiMii]b=G2VD2
+Z18 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z19 DPx11 cyclone10gx 22 cyclone10gx_components 0 22 [Vjo=;hdU<IW?0P7lj>?d3
+Z20 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 X2XR?@6AaBM@KJzIKlE_b3
+R2
+R15
+Z21 DPx4 ieee 9 math_real 0 22 gNk<PdFJ<XNPcfef`f?Z81
+R3
+R4
+R5
+!i122 46
+R0
+Z22 8D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/sim/fp_add_altera_fp_functions_1917_vbqzuli.vhd
+Z23 FD:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/sim/fp_add_altera_fp_functions_1917_vbqzuli.vhd
+l0
+L37 1
+VDW]i@Pc2[^<9j3ESbjPSY3
+!s100 efSelM4AjI]2nf2F:CgWS2
+R8
+32
+R9
+!i10b 1
+R10
+Z24 !s90 -reportprogress|300|D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/sim/fp_add_altera_fp_functions_1917_vbqzuli.vhd|-work|altera_fp_functions_1917|
+Z25 !s107 D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/sim/fp_add_altera_fp_functions_1917_vbqzuli.vhd|
+!i113 1
+R13
+R14
+Anormal
+R16
+R17
+R18
+R19
+R20
+R2
+R15
+R21
+R3
+R4
+R5
+Z26 DEx4 work 39 fp_add_altera_fp_functions_1917_vbqzuli 0 22 DW]i@Pc2[^<9j3ESbjPSY3
+!i122 46
+l344
+Z27 L47 1427
+Z28 V:@N46QF`A4O6NLAZ=FWzH1
+Z29 !s100 2F;JannW8M=YE8[nCHnSA1
+R8
+32
+R9
+!i10b 1
+R10
+R24
+R25
+!i113 1
+R13
+R14

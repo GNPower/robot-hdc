@@ -1,0 +1,14 @@
+`ifndef ELEMENT_ADDITION_CUT_BIPOLAR_DEFINE_STATE
+`define ELEMENT_ADDITION_CUT_BIPOLAR_DEFINE_STATE
+
+
+typedef enum logic[3:0] {
+	S_IDLE,
+	S_FPADD_0,
+	S_FPADD_1,
+	S_FPADD_2
+	S_FPADD_3,
+} ElemAdd_State_t;
+
+
+`endif

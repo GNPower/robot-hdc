@@ -1,0 +1,571 @@
+Synthesis report
+Wed Nov  1 18:07:56 2023
+Quartus Prime Version 23.3.0 Build 104 09/20/2023 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Synthesis Summary
+  2. Synthesis Settings
+  3. Synthesis Source Files Read
+  4. Synthesis IP Cores Summary
+  5. Synthesis Partition Summary
+  6. Source Assignments for User Entity fp_add_altera_fp_functions_1917_vbqzuli Instance: fp_add_inst|fp_functions_0
+  7. Parameter Settings for Top-Level Entity
+  8. Parameter Settings for User Entity dspba_delay Instance: fp_add_inst|fp_functions_0|regInputs_uid118_fpAddTest_delay
+  9. Parameter Settings for User Entity dspba_reg Instance: fp_add_inst|fp_functions_0|regInputs_uid118_fpAddTest_delay|delay_block.delay_loop[0].with_reset.reg
+ 10. Partition "root_partition" Resource Utilization by Entity
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics for Partition "root_partition"
+ 13. Preserve for Debug Assignments for Partition "root_partition"
+ 14. Post-Synthesis Netlist Statistics for Partition "root_partition"
+ 15. Synthesis Resource Usage Summary for Partition "root_partition"
+ 16. Top Causes of Logic Optimized Away During Sweep
+ 17. Warnings for ../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv
+ 18. Synthesis Messages
+
+
+
++---------------------------------------------------------------+
+; Synthesis Summary                                             ;
++-----------------------+---------------------------------------+
+; Synthesis Status      ; Successful - Wed Nov  1 18:07:54 2023 ;
+; Revision Name         ; hdl                                   ;
+; Top-level Entity Name ; ElementAdditionCutBipolar_F           ;
+; Family                ; Cyclone 10 GX                         ;
++-----------------------+---------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Synthesis Settings                                                                                                                      ;
++---------------------------------------------------------------------------------+-----------------------------+-------------------------+
+; Option                                                                          ; Setting                     ; Default Value           ;
++---------------------------------------------------------------------------------+-----------------------------+-------------------------+
+; Device                                                                          ; 10CX220YF780I5G             ;                         ;
+; Top-level entity name                                                           ; ElementAdditionCutBipolar_F ; hdl                     ;
+; Family name                                                                     ; Cyclone 10 GX               ; Cyclone 10 GX           ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                          ; On                      ;
+; Enable compact report table                                                     ; Off                         ; Off                     ;
+; Design Assistant include IP blocks                                              ; Off                         ; Off                     ;
+; High fanout net threshold for RAM inference                                     ; 15                          ; 15                      ;
+; Design Assistant limit on reported violations per rule                          ; 5000                        ; 5000                    ;
+; Optimization Mode                                                               ; Balanced                    ; Balanced                ;
+; Allow Register Merging                                                          ; On                          ; On                      ;
+; Allow Register Duplication                                                      ; On                          ; On                      ;
+; Allow Register Retiming                                                         ; On                          ; On                      ;
+; Allow RAM Retiming                                                              ; Off                         ; Off                     ;
+; Allow DSP Retiming                                                              ; Off                         ; Off                     ;
+; Restructure Multiplexers                                                        ; Auto                        ; Auto                    ;
+; Waive gated clock synchronizer check                                            ; On                          ; On                      ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                         ; Off                     ;
+; Preserve fewer node names                                                       ; On                          ; On                      ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable                      ; Enable                  ;
+; Verilog Version                                                                 ; Verilog_2001                ; Verilog_2001            ;
+; VHDL Version                                                                    ; VHDL_1993                   ; VHDL_1993               ;
+; State Machine Processing                                                        ; Auto                        ; Auto                    ;
+; Safe State Machine                                                              ; Auto                        ; Auto                    ;
+; Iteration limit for constant Verilog loops                                      ; 5000                        ; 5000                    ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                         ; 250                     ;
+; Infer RAMs from Raw Logic                                                       ; On                          ; On                      ;
+; DSP Block Balancing                                                             ; Auto                        ; Auto                    ;
+; NOT Gate Push-Back                                                              ; On                          ; On                      ;
+; Power-Up Don't Care                                                             ; On                          ; On                      ;
+; Remove Redundant Logic Cells                                                    ; Off                         ; Off                     ;
+; Remove Duplicate Registers                                                      ; On                          ; On                      ;
+; Ignore GLOBAL Buffers                                                           ; Off                         ; Off                     ;
+; Ignore LCELL Buffers                                                            ; Off                         ; Off                     ;
+; Ignore SOFT Buffers                                                             ; On                          ; On                      ;
+; Optimization Technique                                                          ; Balanced                    ; Balanced                ;
+; Auto Open-Drain Pins                                                            ; On                          ; On                      ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                         ; Off                     ;
+; Auto ROM Replacement                                                            ; On                          ; On                      ;
+; Auto RAM Replacement                                                            ; On                          ; On                      ;
+; Auto DSP Block Replacement                                                      ; On                          ; On                      ;
+; Auto Shift Register Replacement                                                 ; Auto                        ; Auto                    ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                        ; Auto                    ;
+; Auto Clock Enable Replacement                                                   ; On                          ; On                      ;
+; Strict RAM Replacement                                                          ; Off                         ; Off                     ;
+; Allow Synchronous Control Signals                                               ; On                          ; On                      ;
+; Force Use of Synchronous Clear Signals                                          ; Off                         ; Off                     ;
+; Auto Resource Sharing                                                           ; Off                         ; Off                     ;
+; Allow Any RAM Size For Recognition                                              ; Off                         ; Off                     ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                         ; Off                     ;
+; Ignore translate_off and synthesis_off directives                               ; Off                         ; Off                     ;
+; Timing-Driven Synthesis                                                         ; On                          ; On                      ;
+; Report Propagation of Constraints                                               ; On                          ; On                      ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                         ; Off                     ;
+; Synchronization Register Chain Length                                           ; 3                           ; 3                       ;
+; Power Optimization During Synthesis                                             ; Normal compilation          ; Normal compilation      ;
+; HDL message level                                                               ; Level2                      ; Level2                  ;
+; Number of Protected Registers Reported in Synthesis Report                      ; 100                         ; 100                     ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                        ; 5000                    ;
+; Number of Optimized Away Hierarchies Reported in Synthesis Report               ; 100                         ; 100                     ;
+; Group Identical Hierarchies in Optimized Away Hierarchies Report                ; On                          ; On                      ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                        ; 5000                    ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                         ; 100                     ;
+; Clock MUX Protection                                                            ; On                          ; On                      ;
+; Auto Gated Clock Conversion                                                     ; Off                         ; Off                     ;
+; Block Design Naming                                                             ; Auto                        ; Auto                    ;
+; SDC constraint protection                                                       ; Off                         ; Off                     ;
+; Optimization and Constraint Precedence                                          ; Prioritize Optimization     ; Prioritize Optimization ;
+; Synthesis Effort                                                                ; Auto                        ; Auto                    ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                          ; On                      ;
+; Analysis & Synthesis Message Level                                              ; Medium                      ; Medium                  ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                        ; Auto                    ;
+; Resource Aware Inference For Block RAM                                          ; On                          ; On                      ;
+; Automatic Parallel Synthesis                                                    ; On                          ; On                      ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                         ; Off                     ;
+; Disable DSP Negate Inferencing                                                  ; Off                         ; Off                     ;
+; Report Parameter Settings                                                       ; On                          ; On                      ;
+; Report Parameter Settings to ASCII                                              ; On                          ; On                      ;
+; Report Source Assignments                                                       ; On                          ; On                      ;
+; Report Source Assignments to ASCII                                              ; On                          ; On                      ;
+; Report Resource Utilization by Entity to ASCII                                  ; On                          ; On                      ;
+; Size of the Latch Report                                                        ; 100                         ; 100                     ;
+; Enable VHDL static assertion support                                            ; Off                         ; Off                     ;
+; Enable SystemVerilog static assertion support                                   ; Off                         ; Off                     ;
+; Enable State Machines Inference                                                 ; On                          ; On                      ;
+; Allow RAMs Inferred In Generate-For Loop For Verilog                            ; Off                         ; Off                     ;
+; Enable formal verification support during compilation                           ; Off                         ; Off                     ;
+; Size of the PR Initial Conditions Report                                        ; 100                         ; 100                     ;
+; Number of Registers with Ignored Power-Up Settings Reported in Synthesis Report ; 500                         ; 500                     ;
+; Report PR Initial Values as Errors                                              ; Off                         ; Off                     ;
+; Fractal Synthesis                                                               ; Off                         ; Off                     ;
+; Synthesis Available Resource Multiplier                                         ; 1                           ; 1                       ;
+; Message Level for Unconnected Output Ports                                      ; Warning                     ; Warning                 ;
+; Pack Barrelshifters into Carry Chains for Better Area                           ; Auto                        ; Auto                    ;
+; Initialize Verilog enums to X                                                   ; Off                         ; Off                     ;
+; Enable dynamic report                                                           ; Off                         ; Off                     ;
+; Show Collapsible Rows in Ascii Report for Warning Summary Reports               ; On                          ; On                      ;
+; Enable preserve for debug assignments                                           ; Off                         ; Off                     ;
++---------------------------------------------------------------------------------+-----------------------------+-------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Synthesis Source Files Read                                                                                                                                                                                                                                                                                                                                                            ;
++---------------------------------------------------------------------------------------------------------+----------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+--------------------------+---------------------------------+----------------------------------+
+; File Name with User-Entered Path                                                                        ; File Type                              ; File Name with Absolute Path                                                                                                        ; Library                  ; IP Source                       ; MD5                              ;
++---------------------------------------------------------------------------------------------------------+----------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+--------------------------+---------------------------------+----------------------------------+
+; ../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv                                     ; User-Specified SystemVerilog HDL File  ; D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv                                     ;                          ;                                 ; 3138454ea4c12038986da16ddd9b0cd2 ;
+; ../rtl/floating_point/fp_add.ip                                                                         ; User-Specified IP File                 ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add.ip                                                                         ;                          ;                                 ; 2c6a5fc342f5694912e771af373704d4 ;
+; ../rtl/floating_point/fp_add/altera_fp_functions_1917/synth/dspba_library_package.vhd                   ; User-Specified VHDL File               ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/synth/dspba_library_package.vhd                   ; altera_fp_functions_1917 ; ../rtl/floating_point/fp_add.ip ; 0d452ce175c471c7cd001a454c77d335 ;
+; ../rtl/floating_point/fp_add/altera_fp_functions_1917/synth/dspba_library.vhd                           ; User-Specified VHDL File               ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/synth/dspba_library.vhd                           ; altera_fp_functions_1917 ; ../rtl/floating_point/fp_add.ip ; f8c9cdc2c6a0cc87f0c9067934f77b8c ;
+; ../rtl/floating_point/fp_add/altera_fp_functions_1917/synth/fp_add_altera_fp_functions_1917_vbqzuli.vhd ; User-Specified VHDL File               ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/synth/fp_add_altera_fp_functions_1917_vbqzuli.vhd ; altera_fp_functions_1917 ; ../rtl/floating_point/fp_add.ip ; 5a65f610eb61213d45037bde2c795e34 ;
+; ../rtl/floating_point/fp_add/synth/fp_add.v                                                             ; User-Specified Verilog HDL File        ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/synth/fp_add.v                                                             ; fp_add                   ; ../rtl/floating_point/fp_add.ip ; 743ce387db9356dd805da474759c6014 ;
++---------------------------------------------------------------------------------------------------------+----------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+--------------------------+---------------------------------+----------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Synthesis IP Cores Summary                                                                                                          ;
++-------------------+---------------------+---------+--------------+--------------+-----------------+---------------------------------+
+; Vendor            ; IP Core Name        ; Version ; Release Date ; License Type ; Entity Instance ; IP Include File                 ;
++-------------------+---------------------+---------+--------------+--------------+-----------------+---------------------------------+
+; Intel Corporation ; altera_fp_functions ; 19.1.7  ; N/A          ; N/A          ; fp_add_inst     ; ../rtl/floating_point/fp_add.ip ;
++-------------------+---------------------+---------+--------------+--------------+-----------------+---------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Synthesis Partition Summary                                                                ;
++----------------+----------------+---------+--------------+-------+-------------------------+
+; Partition Name ; Hierarchy Path ; Type    ; Preservation ; Empty ; Partition Database File ;
++----------------+----------------+---------+--------------+-------+-------------------------+
+; root_partition ; |              ; Default ;              ;       ;                         ;
++----------------+----------------+---------+--------------+-------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Source Assignments for User Entity fp_add_altera_fp_functions_1917_vbqzuli Instance: fp_add_inst|fp_functions_0 ;
++---------------------------------+--------+------+----+----------------------------------------------------------+
+; Assignment                      ; Value  ; From ; To ; Source Location                                          ;
++---------------------------------+--------+------+----+----------------------------------------------------------+
+; AUTO_SHIFT_REGISTER_RECOGNITION ; OFF    ; -    ; -  ; fp_add_altera_fp_functions_1917_vbqzuli.vhd:37           ;
+; MESSAGE_DISABLE                 ; 10036  ; -    ; -  ; fp_add_altera_fp_functions_1917_vbqzuli.vhd:37           ;
+; MESSAGE_DISABLE                 ; 10037  ; -    ; -  ; fp_add_altera_fp_functions_1917_vbqzuli.vhd:37           ;
+; MESSAGE_DISABLE                 ; 14130  ; -    ; -  ; fp_add_altera_fp_functions_1917_vbqzuli.vhd:37           ;
+; MESSAGE_DISABLE                 ; 14320  ; -    ; -  ; fp_add_altera_fp_functions_1917_vbqzuli.vhd:37           ;
+; MESSAGE_DISABLE                 ; 15400  ; -    ; -  ; fp_add_altera_fp_functions_1917_vbqzuli.vhd:37           ;
+; MESSAGE_DISABLE                 ; 14130  ; -    ; -  ; fp_add_altera_fp_functions_1917_vbqzuli.vhd:37           ;
+; MESSAGE_DISABLE                 ; 10036  ; -    ; -  ; fp_add_altera_fp_functions_1917_vbqzuli.vhd:37           ;
+; MESSAGE_DISABLE                 ; 12020  ; -    ; -  ; fp_add_altera_fp_functions_1917_vbqzuli.vhd:37           ;
+; MESSAGE_DISABLE                 ; 12030  ; -    ; -  ; fp_add_altera_fp_functions_1917_vbqzuli.vhd:37           ;
+; MESSAGE_DISABLE                 ; 12010  ; -    ; -  ; fp_add_altera_fp_functions_1917_vbqzuli.vhd:37           ;
+; MESSAGE_DISABLE                 ; 12110  ; -    ; -  ; fp_add_altera_fp_functions_1917_vbqzuli.vhd:37           ;
+; MESSAGE_DISABLE                 ; 14320  ; -    ; -  ; fp_add_altera_fp_functions_1917_vbqzuli.vhd:37           ;
+; MESSAGE_DISABLE                 ; 13410  ; -    ; -  ; fp_add_altera_fp_functions_1917_vbqzuli.vhd:37           ;
+; MESSAGE_DISABLE                 ; 113007 ; -    ; -  ; fp_add_altera_fp_functions_1917_vbqzuli.vhd:37           ;
++---------------------------------+--------+------+----+----------------------------------------------------------+
+All Instances:
+fp_add_inst|fp_functions_0
+
+
+
++-------------------------------------------------+
+; Parameter Settings for Top-Level Entity         ;
++------------------------+-------+----------------+
+; Parameter Name         ; Value ; Type           ;
++------------------------+-------+----------------+
+; CUT_NEG                ; -1    ; Untyped        ;
+; CUT_POS                ; 1     ; Signed Integer ;
+; HYPERVECTOR_DIMENSIONS ; 1000  ; Signed Integer ;
+; NUM_KERNELS            ; 1     ; Signed Integer ;
++------------------------+-------+----------------+
+All Instances:
+<top>
+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity dspba_delay Instance: fp_add_inst|fp_functions_0|regInputs_uid118_fpAddTest_delay ;
++----------------+-------+---------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                        ;
++----------------+-------+---------------------------------------------------------------------------------------------+
+; depth          ; 1     ; Untyped                                                                                     ;
+; modulus        ; 1     ; Untyped                                                                                     ;
+; phase          ; 0     ; Untyped                                                                                     ;
+; reset_high     ; '1'   ; Untyped                                                                                     ;
+; reset_kind     ; ASYNC ; String                                                                                      ;
+; width          ; 1     ; Untyped                                                                                     ;
++----------------+-------+---------------------------------------------------------------------------------------------+
+All Instances:
+fp_add_inst|fp_functions_0|vCount_uid152_lzCountVal_uid85_fpAddTest_delay
+fp_add_inst|fp_functions_0|expXIsMax_uid38_fpAddTest_delay
+fp_add_inst|fp_functions_0|fracXIsZero_uid39_fpAddTest_delay
+fp_add_inst|fp_functions_0|fracXIsZero_uid25_fpAddTest_delay
+fp_add_inst|fp_functions_0|signRInfRZRReg_uid137_fpAddTest_delay
+fp_add_inst|fp_functions_0|excN_bSig_uid42_fpAddTest_delay
+fp_add_inst|fp_functions_0|excN_aSig_uid28_fpAddTest_delay
+fp_add_inst|fp_functions_0|regInputs_uid118_fpAddTest_delay
+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity dspba_reg Instance: fp_add_inst|fp_functions_0|regInputs_uid118_fpAddTest_delay|delay_block.delay_loop[0].with_reset.reg ;
++----------------+-------+------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                               ;
++----------------+-------+------------------------------------------------------------------------------------------------------------------------------------+
+; init_value     ; 0     ; Unsigned Binary                                                                                                                    ;
+; reset_high     ; '1'   ; Untyped                                                                                                                            ;
+; reset_kind     ; ASYNC ; String                                                                                                                             ;
+; width          ; 1     ; Untyped                                                                                                                            ;
++----------------+-------+------------------------------------------------------------------------------------------------------------------------------------+
+All Instances:
+fp_add_inst|fp_functions_0|vCount_uid152_lzCountVal_uid85_fpAddTest_delay|delay_block.delay_loop[0].with_reset.reg
+fp_add_inst|fp_functions_0|expXIsMax_uid38_fpAddTest_delay|delay_block.delay_loop[0].with_reset.reg
+fp_add_inst|fp_functions_0|fracXIsZero_uid39_fpAddTest_delay|delay_block.delay_loop[0].with_reset.reg
+fp_add_inst|fp_functions_0|fracXIsZero_uid25_fpAddTest_delay|delay_block.delay_loop[0].with_reset.reg
+fp_add_inst|fp_functions_0|signRInfRZRReg_uid137_fpAddTest_delay|delay_block.delay_loop[0].with_reset.reg
+fp_add_inst|fp_functions_0|excN_bSig_uid42_fpAddTest_delay|delay_block.delay_loop[0].with_reset.reg
+fp_add_inst|fp_functions_0|excN_aSig_uid28_fpAddTest_delay|delay_block.delay_loop[0].with_reset.reg
+fp_add_inst|fp_functions_0|regInputs_uid118_fpAddTest_delay|delay_block.delay_loop[0].with_reset.reg
+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Partition "root_partition" Resource Utilization by Entity                                                                                                                                                       ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------+---------------------+-----------------------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; IOPLLs ; Full Hierarchy Name ; Entity Name                 ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------+---------------------+-----------------------------+--------------+
+; |                          ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 153  ; 0            ; 0 (0)  ; |                   ; ElementAdditionCutBipolar_F ; altera_work  ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------+---------------------+-----------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; we_n~reg0                             ; Stuck at VCC due to stuck port data_in ;
+; Total Number of Removed Registers = 1 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------------+
+; General Register Statistics for Partition "root_partition" ;
++----------------------------------------------+-------------+
+; Statistic                                    ; Value       ;
++----------------------------------------------+-------------+
+; Total registers                              ; 0           ;
+; Number of registers using Synchronous Clear  ; 0           ;
+; Number of registers using Synchronous Load   ; 0           ;
+; Number of registers using Asynchronous Clear ; 0           ;
+; Number of registers using Asynchronous Load  ; 0           ;
+; Number of registers using Clock Enable       ; 0           ;
+; Number of registers using Preset             ; 0           ;
++----------------------------------------------+-------------+
+
+
++---------------------------------------------------------------+
+; Preserve for Debug Assignments for Partition "root_partition" ;
++------+--------+-----------------------------------------------+
+; Name ; Status ; Notes                                         ;
++------+--------+-----------------------------------------------+
+Notes: Table created because there is an active PRESERVE_FOR_DEBUG_ENABLE in the project, even though there are no tagged names within the partition.
+
+
++------------------------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Partition "root_partition" ;
++------------------------+-----------------------------------------+
+; Type                   ; Count                                   ;
++------------------------+-----------------------------------------+
+; boundary_port          ; 153                                     ;
+; cyclone10gx_lcell_comb ; 2                                       ;
+;     normal             ; 2                                       ;
+;         0 data inputs  ; 2                                       ;
+;                        ;                                         ;
+; Number of carry chains ; 0                                       ;
+; Max carry chain length ; 0                                       ;
+;                        ;                                         ;
+; Max LUT depth          ; 0.00                                    ;
+; Average LUT depth      ; 0.00                                    ;
++------------------------+-----------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Synthesis Resource Usage Summary for Partition "root_partition" ;
++---------------------------------------------+-------------------+
+; Resource                                    ; Usage             ;
++---------------------------------------------+-------------------+
+; Estimate of Logic utilization (ALMs needed) ; 1                 ;
+;                                             ;                   ;
+; Combinational ALUT usage for logic          ; 2                 ;
+;     -- 7 input functions                    ; 0                 ;
+;     -- 6 input functions                    ; 0                 ;
+;     -- 5 input functions                    ; 0                 ;
+;     -- 4 input functions                    ; 0                 ;
+;     -- <=3 input functions                  ; 2                 ;
+;                                             ;                   ;
+; Dedicated logic registers                   ; 0                 ;
+;                                             ;                   ;
+; I/O pins                                    ; 153               ;
+;                                             ;                   ;
+; Total DSP Blocks                            ; 0                 ;
+;     -- [A] Total Fixed Point DSP Blocks     ; 0                 ;
+;     -- [B] Total Floating Point DSP Blocks  ; 0                 ;
+;                                             ;                   ;
+; Maximum fan-out node                        ; ~GND              ;
+; Maximum fan-out                             ; 75                ;
+; Total fan-out                               ; 76                ;
+; Average fan-out                             ; 0.49              ;
++---------------------------------------------+-------------------+
+
+
+Top root causes of logic optimization that have been identified during sweep. Go to the " Root Causes Tab " in the " Sweep Hints Viewer " tool in the " RTL Analyzer " for more details and filtering options.
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Top Causes of Logic Optimized Away During Sweep                                                                                                   ;
++----------------------------------------------------------------------+------------------+-----------------------------------+---------------------+
+; Root Object Path                                                     ; Root Object Type ; Root Reason                       ; Swept Objects Count ;
++----------------------------------------------------------------------+------------------+-----------------------------------+---------------------+
+; fp_add_inst|a[30]                                                    ; INPUT_INST_PORT  ; stuck at 0                        ; 608                 ;
+; fp_add_inst|fp_functions_0|i218                                      ; COMB (NOT)       ; stuck at 1 due to stuck port a[0] ; 547                 ;
+; fp_add_inst|b[30]                                                    ; INPUT_INST_PORT  ; stuck at 1                        ; 545                 ;
+; fp_add_inst|q[30]                                                    ; OUTPUT_INST_PORT ; lost_fanout                       ; 220                 ;
+; fp_add_inst|b[31]                                                    ; INPUT_INST_PORT  ; stuck at 0                        ; 77                  ;
+; fp_add_inst|a[31]                                                    ; INPUT_INST_PORT  ; stuck at 0                        ; 14                  ;
+; fp_add_inst|q[31]                                                    ; OUTPUT_INST_PORT ; lost_fanout                       ; 8                   ;
+; fp_add_inst|fp_functions_0|excN_aSig_uid28_fpAddTest_delay|ena       ; INPUT_INST_PORT  ; stuck at 1                        ; 2                   ;
+; fp_add_inst|fp_functions_0|signRInfRZRReg_uid137_fpAddTest_delay|ena ; INPUT_INST_PORT  ; stuck at 1                        ; 2                   ;
+; fp_add_inst|fp_functions_0|expXIsMax_uid38_fpAddTest_delay|ena       ; INPUT_INST_PORT  ; stuck at 1                        ; 2                   ;
++----------------------------------------------------------------------+------------------+-----------------------------------+---------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Warnings for ../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv                              ;
++-----------------+----------+-------+--------------------------------------------------------------------------+
+; Message ID      ; Severity ; Count ; Sample Warning                                                           ;
++-----------------+----------+-------+--------------------------------------------------------------------------+
+; 13024:13410     ; Warning  ; 76    ; Output pins are stuck at VCC or GND : Pin "we_n" is stuck at VCC         ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "we_n" is stuck at VCC         ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[0]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[1]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[2]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[3]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[4]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[5]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[6]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[7]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[8]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[9]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[10]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[11]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[12]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[13]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[14]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[15]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[16]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[17]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[18]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[19]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "waddress[20]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[0]" is stuck at GND   ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[1]" is stuck at GND   ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[2]" is stuck at GND   ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[3]" is stuck at GND   ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[4]" is stuck at GND   ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[5]" is stuck at GND   ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[6]" is stuck at GND   ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[7]" is stuck at GND   ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[8]" is stuck at GND   ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[9]" is stuck at GND   ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[10]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[11]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[12]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[13]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[14]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[15]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[16]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[17]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[18]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[19]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[20]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[21]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[22]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[23]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[24]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[25]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[26]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[27]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[28]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[29]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[30]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "data_wr[31]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[0]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[1]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[2]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[3]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[4]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[5]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[6]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[7]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[8]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[9]" is stuck at GND  ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[10]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[11]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[12]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[13]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[14]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[15]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[16]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[17]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[18]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[19]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "raddress[20]" is stuck at GND ;
+;     13024:13410 ;          ;       ; Output pins are stuck at VCC or GND : Pin "done" is stuck at GND         ;
++-----------------+----------+-------+--------------------------------------------------------------------------+
+
+
++--------------------+
+; Synthesis Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Synthesis
+    Info: Version 23.3.0 Build 104 09/20/2023 SC Pro Edition
+    Info: Processing started: Wed Nov  1 18:06:57 2023
+    Info: System process ID: 13760
+Info: Command: quartus_syn --dni --read_settings_files=on --write_settings_files=off hdl -c hdl
+Info: The application is running in 'DNI' mode.
+Info: qis_default_flow_script.tcl version: #3
+Info: Initializing Synthesis in DNI mode...
+Info: Project = "hdl"
+Info: Revision = "hdl"
+Info (21958): Initialized Quartus Message Database
+Info: Analyzing source files
+Info: Elaborating from top-level entity "ElementAdditionCutBipolar_F"
+Info (18235): Library search order is as follows: "fp_add; altera_fp_functions_1917". Quartus will look for undefined design units in your libraries in that order. To modify the ordering, please specify a semi-colon separated library list using the assignment LIBRARY_SEARCH_ORDER.
+Info (19337): VHDL info at fp_add_altera_fp_functions_1917_vbqzuli.vhd(37): executing entity "fp_add_altera_fp_functions_1917_vbqzuli" with architecture "normal" File: D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/synth/fp_add_altera_fp_functions_1917_vbqzuli.vhd Line: 37
+Info (19337): VHDL info at dspba_library.vhd(145): executing entity "dspba_delay(width=1)(1,5)" with architecture "delay" File: D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/synth/dspba_library.vhd Line: 145
+Info (19337): VHDL info at dspba_library.vhd(19): executing entity "dspba_reg(width=1,init_value="0")(0,0)(1,5)" with architecture "reg" File: D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/synth/dspba_library.vhd Line: 19
+Info: Found 9 design entities
+Info: There are 19 partitions after elaboration.
+Info: Synthesizing partition "root_partition"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "we_n" is stuck at VCC File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 40
+    Warning (13410): Pin "waddress[0]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[1]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[2]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[3]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[4]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[5]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[6]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[7]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[8]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[9]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[10]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[11]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[12]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[13]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[14]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[15]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[16]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[17]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[18]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[19]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "waddress[20]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 41
+    Warning (13410): Pin "data_wr[0]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[1]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[2]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[3]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[4]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[5]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[6]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[7]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[8]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[9]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[10]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[11]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[12]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[13]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[14]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[15]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[16]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[17]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[18]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[19]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[20]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[21]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[22]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[23]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[24]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[25]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[26]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[27]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[28]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[29]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[30]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "data_wr[31]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 42
+    Warning (13410): Pin "raddress[0]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[1]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[2]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[3]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[4]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[5]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[6]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[7]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[8]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[9]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[10]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[11]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[12]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[13]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[14]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[15]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[16]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[17]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[18]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[19]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "raddress[20]" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 43
+    Warning (13410): Pin "done" is stuck at GND File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 46
+Info (21057): Implemented 155 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 77 input pins
+    Info (21059): Implemented 76 output pins
+    Info (21061): Implemented 2 logic cells
+Info: Successfully synthesized partition
+Info: Saving post-synthesis snapshots for 1 partition(s)
+Info: Quartus Prime Synthesis was successful. 0 errors, 77 warnings
+    Info: Peak virtual memory: 632 megabytes
+    Info: Processing ended: Wed Nov  1 18:07:56 2023
+    Info: Elapsed time: 00:00:59
+    Info: System process ID: 13760
+
+

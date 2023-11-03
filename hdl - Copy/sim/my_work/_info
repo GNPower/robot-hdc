@@ -1,0 +1,31 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/School/Grad/Code/my_hdc/hdl/sim
+vfp_add_sub
+!s110 1698690037
+!i10b 1
+!s100 g]``golBG<YmBY3gXW9lh0
+IdDE:7aLQcM_o8J@5j7Q723
+VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1698432658
+8../rtl/floating_point/fp_add_sub.v
+F../rtl/floating_point/fp_add_sub.v
+L0 40
+OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1698690036.000000
+!s107 ../rtl/floating_point/fp_add_sub.v|
+!s90 -reportprogress|300|-v|+define+DISABLE_DEFAULT_NET|../rtl/floating_point/fp_add_sub.v|
+!i113 1
+!s92 -v +define+DISABLE_DEFAULT_NET
+tCvgOpt 0

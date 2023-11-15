@@ -1,0 +1,41 @@
+set_global_assignment -entity "fp_compare" -library "fp_compare" -name IP_TOOL_NAME "QsysPrimePro"
+set_global_assignment -entity "fp_compare" -library "fp_compare" -name IP_TOOL_VERSION "23.3"
+set_global_assignment -entity "fp_compare" -library "fp_compare" -name IP_TOOL_ENV "QsysPrimePro"
+set_global_assignment -entity "fp_compare" -library "fp_compare" -name IP_TOOL_VENDOR_NAME "Intel Corporation"
+set_global_assignment -entity "fp_compare" -library "fp_compare" -name IP_TOP_LEVEL_COMPONENT_NAME "altera_fp_functions"
+set_global_assignment -library "fp_compare" -name SOPCINFO_FILE [file join $::quartus(qip_path) "fp_compare.sopcinfo"]
+set_global_assignment -entity "fp_compare" -library "fp_compare" -name SLD_INFO "QSYS_NAME fp_compare HAS_SOPCINFO 1 GENERATION_ID 0"
+set_global_assignment -library "fp_compare" -name MISC_FILE [file join $::quartus(qip_path) "fp_compare.cmp"]
+set_global_assignment -entity "fp_compare" -library "fp_compare" -name IP_TARGETED_DEVICE_FAMILY "Cyclone 10 GX"
+set_global_assignment -entity "fp_compare" -library "fp_compare" -name IP_GENERATED_DEVICE_FAMILY "{Cyclone 10 GX}"
+set_global_assignment -entity "fp_compare" -library "fp_compare" -name IP_QSYS_MODE "STANDALONE"
+set_global_assignment -name SYNTHESIS_ONLY_QIP ON
+set_global_assignment -library "fp_compare" -name MISC_FILE [file join $::quartus(qip_path) "../fp_compare.ip"]
+
+set_global_assignment -entity "fp_compare_altera_fp_functions_1917_q54p7sy" -library "altera_fp_functions_1917" -name IP_COMPONENT_NAME "ZnBfY29tcGFyZV9hbHRlcmFfZnBfZnVuY3Rpb25zXzE5MTdfcTU0cDdzeQ=="
+set_global_assignment -entity "fp_compare_altera_fp_functions_1917_q54p7sy" -library "altera_fp_functions_1917" -name IP_COMPONENT_DISPLAY_NAME "RmxvYXRpbmcgUG9pbnQgRnVuY3Rpb25zIEludGVsIEZQR0EgSVA="
+set_global_assignment -entity "fp_compare_altera_fp_functions_1917_q54p7sy" -library "altera_fp_functions_1917" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
+set_global_assignment -entity "fp_compare_altera_fp_functions_1917_q54p7sy" -library "altera_fp_functions_1917" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "fp_compare_altera_fp_functions_1917_q54p7sy" -library "altera_fp_functions_1917" -name IP_COMPONENT_AUTHOR "SW50ZWwgQ29ycG9yYXRpb24="
+set_global_assignment -entity "fp_compare_altera_fp_functions_1917_q54p7sy" -library "altera_fp_functions_1917" -name IP_COMPONENT_VERSION "MTkuMS43"
+set_global_assignment -entity "fp_compare_altera_fp_functions_1917_q54p7sy" -library "altera_fp_functions_1917" -name IP_COMPONENT_DESCRIPTION "QSBjb2xsZWN0aW9uIG9mIGZsb2F0aW5nIHBvaW50IGZ1bmN0aW9ucw=="
+set_global_assignment -entity "fp_compare_altera_fp_functions_1917_q54p7sy" -library "altera_fp_functions_1917" -name IP_COMPONENT_GROUP "QmFzaWMgRnVuY3Rpb25zL0FyaXRobWV0aWM="
+set_global_assignment -entity "fp_compare_altera_fp_functions_1917_q54p7sy" -library "altera_fp_functions_1917" -name IP_COMPONENT_DOCUMENTATION_LINK "aHR0cHM6Ly93d3cuaW50ZWwuY29tL2NvbnRlbnQvd3d3L3VzL2VuL3Byb2dyYW1tYWJsZS9kb2N1bWVudGF0aW9uL2VpczE0MTA3NjQ4MTg5MjQuaHRtbA=="
+set_global_assignment -entity "fp_compare" -library "fp_compare" -name IP_COMPONENT_NAME "ZnBfY29tcGFyZQ=="
+set_global_assignment -entity "fp_compare" -library "fp_compare" -name IP_COMPONENT_DISPLAY_NAME "c3lzdGVt"
+set_global_assignment -entity "fp_compare" -library "fp_compare" -name IP_COMPONENT_REPORT_HIERARCHY "On"
+set_global_assignment -entity "fp_compare" -library "fp_compare" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "fp_compare" -library "fp_compare" -name IP_COMPONENT_AUTHOR "SW50ZWwgQ29ycG9yYXRpb24="
+set_global_assignment -entity "fp_compare" -library "fp_compare" -name IP_COMPONENT_VERSION "MS4w"
+
+
+set_global_assignment -library "altera_fp_functions_1917" -name VHDL_FILE [file join $::quartus(qip_path) "altera_fp_functions_1917/synth/dspba_library_package.vhd"]
+set_global_assignment -library "altera_fp_functions_1917" -name VHDL_FILE [file join $::quartus(qip_path) "altera_fp_functions_1917/synth/dspba_library.vhd"]
+set_global_assignment -library "altera_fp_functions_1917" -name VHDL_FILE [file join $::quartus(qip_path) "altera_fp_functions_1917/synth/fp_compare_altera_fp_functions_1917_q54p7sy.vhd"]
+set_global_assignment -library "fp_compare" -name VERILOG_FILE [file join $::quartus(qip_path) "synth/fp_compare.v"]
+
+
+set_global_assignment -entity "fp_compare_altera_fp_functions_1917_q54p7sy" -library "altera_fp_functions_1917" -name IP_TOOL_NAME "altera_fp_functions"
+set_global_assignment -entity "fp_compare_altera_fp_functions_1917_q54p7sy" -library "altera_fp_functions_1917" -name IP_TOOL_VERSION "19.1.7"
+set_global_assignment -entity "fp_compare_altera_fp_functions_1917_q54p7sy" -library "altera_fp_functions_1917" -name IP_TOOL_ENV "QsysPrimePro"
+

@@ -34,6 +34,7 @@ module AddTestSim;
 	logic valid;
 	logic [20:0] addr_a;
 	logic [20:0] addr_b;
+	logic [20:0] addr_c;
 	wire done;
 	
 	ElementAdditionCutBipolar_F
@@ -48,14 +49,18 @@ module AddTestSim;
 	(
 		.clk(clock),
 		.reset_n(reset_n),
+		
 		.valid(valid),
 		.addr_a(addr_a),
 		.addr_b(addr_b),
+		.addr_c(addr_c),
+		
 		.we_n(write_enable_n),
 		.waddress(write_address),
 		.data_wr(data_i),
 		.raddress(read_address),
 		.data_rd(data_o),
+		
 		.done(done)
 	);
 
@@ -68,20 +73,21 @@ module AddTestSim;
 	initial begin
 		// Initialize clock and reset
 		$timeformat(-6, 2, "us", 10);
-		clock = 1'b0;
+		clock = 1'b1;
 		reset_n = 1'b0;
 		// Initialize all other logic		
 		valid = 1'b0;
 		addr_a = 21'd0;
 		addr_b = 21'd1024;
+		addr_c = 21'd2048;		
 		// Raise reset_n after 2 clocks
-		#(CLOCK_PERIOD_NS*2);
+		#(CLOCK_PERIOD_NS);
 		reset_n = 1'b1;
-		#(CLOCK_PERIOD_NS*2);
 		// Set the initial memory
 		for (int i = 0; i < 2097152; i++)
 			emulated_DPRAM.DPRAM_data[i] = 32'd25;
-		// Read out the memory to check
+		// Start the UUT by setting valid
+		valid = 1'b1;
 		
 		#500
 		

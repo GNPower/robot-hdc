@@ -23,6 +23,3 @@ do waves.do
 run -all
 
 do save.do
-
-# print simulation statistics
-# simstats

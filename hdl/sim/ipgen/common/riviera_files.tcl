@@ -3,6 +3,7 @@ proc get_design_libraries {} {
   set libraries [dict create]
   dict set libraries altera_fp_functions_1917 1
   dict set libraries fp_add                   1
+  dict set libraries fp_compare               1
   return $libraries
 }
 
@@ -18,10 +19,14 @@ proc get_common_design_files {USER_DEFINED_COMPILE_OPTIONS USER_DEFINED_VERILOG_
 
 proc get_design_files {USER_DEFINED_COMPILE_OPTIONS USER_DEFINED_VERILOG_COMPILE_OPTIONS USER_DEFINED_VHDL_COMPILE_OPTIONS QSYS_SIMDIR} {
   set design_files [list]
-  lappend design_files "vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS  \"[normalize_path "$QSYS_SIMDIR/../../rtl/floating_point/fp_add/altera_fp_functions_1917/sim/dspba_library_package.vhd"]\"  -work altera_fp_functions_1917"                  
-  lappend design_files "vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS  \"[normalize_path "$QSYS_SIMDIR/../../rtl/floating_point/fp_add/altera_fp_functions_1917/sim/dspba_library.vhd"]\"  -work altera_fp_functions_1917"                          
-  lappend design_files "vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS  \"[normalize_path "$QSYS_SIMDIR/../../rtl/floating_point/fp_add/altera_fp_functions_1917/sim/fp_add_altera_fp_functions_1917_vbqzuli.vhd"]\"  -work altera_fp_functions_1917"
-  lappend design_files "vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS  \"[normalize_path "$QSYS_SIMDIR/../../rtl/floating_point/fp_add/sim/fp_add.v"]\"  -work fp_add"                                                                     
+  lappend design_files "vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS  \"[normalize_path "$QSYS_SIMDIR/../../rtl/floating_point/fp_add/altera_fp_functions_1917/sim/dspba_library_package.vhd"]\"  -work altera_fp_functions_1917"                          
+  lappend design_files "vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS  \"[normalize_path "$QSYS_SIMDIR/../../rtl/floating_point/fp_add/altera_fp_functions_1917/sim/dspba_library.vhd"]\"  -work altera_fp_functions_1917"                                  
+  lappend design_files "vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS  \"[normalize_path "$QSYS_SIMDIR/../../rtl/floating_point/fp_add/altera_fp_functions_1917/sim/fp_add_altera_fp_functions_1917_3lb67iq.vhd"]\"  -work altera_fp_functions_1917"        
+  lappend design_files "vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS  \"[normalize_path "$QSYS_SIMDIR/../../rtl/floating_point/fp_add/sim/fp_add.v"]\"  -work fp_add"                                                                             
+  lappend design_files "vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS  \"[normalize_path "$QSYS_SIMDIR/../../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/dspba_library_package.vhd"]\"  -work altera_fp_functions_1917"                      
+  lappend design_files "vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS  \"[normalize_path "$QSYS_SIMDIR/../../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/dspba_library.vhd"]\"  -work altera_fp_functions_1917"                              
+  lappend design_files "vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS  \"[normalize_path "$QSYS_SIMDIR/../../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/fp_compare_altera_fp_functions_1917_q54p7sy.vhd"]\"  -work altera_fp_functions_1917"
+  lappend design_files "vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS  \"[normalize_path "$QSYS_SIMDIR/../../rtl/floating_point/fp_compare/sim/fp_compare.v"]\"  -work fp_compare"                                                                 
   return $design_files
 }
 

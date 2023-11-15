@@ -11,41 +11,42 @@ cModel Technology
 Z0 dD:/School/Grad/Code/my_hdc/hdl/sim
 vAddTestSim
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1698959094
+Z2 !s110 1700026077
 !i10b 1
-!s100 n9M10BCDUdEi1bQ@IG^2B2
-I@RT<<[BZA:J^iQ>^cVz<13
+!s100 >>7Oem;2TmG29dcD;z:?R0
+Iloz4Ka[DSYYQJb0_^F`i73
 S1
 R0
-w1698955556
-8D:/School/Grad/Code/my_hdc/hdl/tb/add_test.sv
-FD:/School/Grad/Code/my_hdc/hdl/tb/add_test.sv
-!i122 6
-L0 7 85
+w1700026063
+8../tb/add_test.sv
+F../tb/add_test.sv
+!i122 2
+L0 7 91
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 Z4 OV;L;2021.1;73
 r1
 !s85 0
 31
-Z5 !s108 1698959094.000000
-!s107 D:/School/Grad/Code/my_hdc/hdl/tb/./test_data.h|D:/School/Grad/Code/my_hdc/hdl/tb/memoryEmulator.sv|D:/School/Grad/Code/my_hdc/hdl/tb/add_test.sv|D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv|
-Z6 !s90 -reportprogress|300|-sv|D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv|D:/School/Grad/Code/my_hdc/hdl/tb/add_test.sv|D:/School/Grad/Code/my_hdc/hdl/tb/memoryEmulator.sv|
+Z5 !s108 1700026077.000000
+!s107 ../tb/./test_data.h|../tb/add_test.sv|
+!s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../tb/add_test.sv|
 !i113 1
 o-sv
+Z6 !s92 -sv +define+DISABLE_DEFAULT_NET
 Z7 tCvgOpt 0
 n@add@test@sim
 vdpRamEmulator
 R1
 R2
 !i10b 1
-!s100 EB6b63N<c4Fe5eSP98i2l3
-IYN_XzgQWBcZ0fmh9M0XjG2
+!s100 z`=4879COB3Yjcd6@VJ250
+I9XM4U1lKVWcAa[_ziePZh3
 S1
 R0
 w1698952854
-8D:/School/Grad/Code/my_hdc/hdl/tb/memoryEmulator.sv
-FD:/School/Grad/Code/my_hdc/hdl/tb/memoryEmulator.sv
-!i122 6
+8../tb/memoryEmulator.sv
+F../tb/memoryEmulator.sv
+!i122 1
 L0 9 40
 R3
 R4
@@ -53,34 +54,66 @@ r1
 !s85 0
 31
 R5
-Z8 !s107 D:/School/Grad/Code/my_hdc/hdl/tb/./test_data.h|D:/School/Grad/Code/my_hdc/hdl/tb/memoryEmulator.sv|D:/School/Grad/Code/my_hdc/hdl/tb/add_test.sv|D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv|
-R6
+!s107 ../tb/memoryEmulator.sv|
+!s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../tb/memoryEmulator.sv|
 !i113 1
 o-sv
+R6
 R7
 ndp@ram@emulator
 vElementAdditionCutBipolar_F
 R1
+DXx4 work 35 ElementAdditionCutBipolar_F_sv_unit 0 22 ZQCN9b@2FC=K4CGV^8:]V2
 R2
-!i10b 1
-!s100 HBIVFXhbD@gF1PMIZ_hE]1
-IJbWhZ498eU>NO0V3G??>E3
-S1
-R0
-w1698718421
-8D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv
-FD:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv
-!i122 6
-L0 3 79
 R3
-R4
 r1
 !s85 0
+!i10b 1
+!s100 4zhM;MbIiCXdn[?NfR`CU1
+ITlNVDCb6[G=F:<;LJ^<Jj2
+!s105 ElementAdditionCutBipolar_F_sv_unit
+S1
+R0
+Z8 w1700022652
+Z9 8../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv
+Z10 F../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv
+!i122 0
+L0 5 185
+R4
 31
 R5
-R8
-R6
+Z11 !s107 ../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_State.h|../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv|
+Z12 !s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv|
 !i113 1
 o-sv
+R6
 R7
 n@element@addition@cut@bipolar_@f
+XElementAdditionCutBipolar_F_sv_unit
+R1
+R2
+VZQCN9b@2FC=K4CGV^8:]V2
+r1
+!s85 0
+!i10b 1
+!s100 @USo[19jnW@[;9@8nK1;b3
+IZQCN9b@2FC=K4CGV^8:]V2
+!i103 1
+S1
+R0
+R8
+R9
+R10
+F../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_State.h
+!i122 0
+L0 5 0
+R4
+31
+R5
+R11
+R12
+!i113 1
+o-sv
+R6
+R7
+n@element@addition@cut@bipolar_@f_sv_unit

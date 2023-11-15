@@ -12,3 +12,4 @@ set_global_assignment -name SOURCE_FILE ../rtl/bundling/element_addition_cut/Ele
 set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv
 set_global_assignment -name IP_FILE ../rtl/floating_point/fp_add.ip
 set_global_assignment -name BOARD default
+set_global_assignment -name IP_FILE ../rtl/floating_point/fp_compare.ip

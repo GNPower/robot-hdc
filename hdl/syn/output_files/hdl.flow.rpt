@@ -1,5 +1,5 @@
 Flow report for hdl
-Wed Nov  1 18:07:56 2023
+Wed Nov  8 13:59:20 2023
 Quartus Prime Version 23.3.0 Build 104 09/20/2023 SC Pro Edition
 
 
@@ -39,7 +39,7 @@ on the Quartus Prime software download page.
 +-----------------------------------------------------+
 ; Flow Summary                                        ;
 +-------------+---------------------------------------+
-; Flow Status ; Successful - Wed Nov  1 18:07:56 2023 ;
+; Flow Status ; Successful - Wed Nov  8 13:59:20 2023 ;
 +-------------+---------------------------------------+
 
 
@@ -48,27 +48,30 @@ on the Quartus Prime software download page.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/01/2023 18:07:12 ;
+; Start date & time ; 11/08/2023 13:58:23 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; hdl                 ;
 +-------------------+---------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                                 ;
-+--------------------------+--------------------------------------------------------------------------+-----------------------------+-------------+----------------+
-; Assignment Name          ; Value                                                                    ; Default Value               ; Entity Name ; Section Id     ;
-+--------------------------+--------------------------------------------------------------------------+-----------------------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID    ; 49410864350819.169887647113760                                           ; --                          ; --          ; --             ;
-; EDA_OUTPUT_DATA_FORMAT   ; Verilog Hdl                                                              ; --                          ; --          ; eda_simulation ;
-; EDA_SIMULATION_TOOL      ; QuestaSim (Verilog)                                                      ; Questa Intel FPGA (Verilog) ; --          ; --             ;
-; EDA_TIME_SCALE           ; 1 ps                                                                     ; --                          ; --          ; eda_simulation ;
-; MISC_FILE                ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/fp_add.cmp      ; --                          ; --          ; --             ;
-; MISC_FILE                ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add.ip              ; --                          ; --          ; --             ;
-; PROJECT_OUTPUT_DIRECTORY ; D:/School/Grad/Code/my_hdc/hdl/syn/output_files                          ; --                          ; --          ; --             ;
-; SOPCINFO_FILE            ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/fp_add.sopcinfo ; --                          ; --          ; --             ;
-; TOP_LEVEL_ENTITY         ; ElementAdditionCutBipolar_F                                              ; hdl                         ; --          ; --             ;
-+--------------------------+--------------------------------------------------------------------------+-----------------------------+-------------+----------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                         ;
++--------------------------+----------------------------------------------------------------------------------+-----------------------------+-------------+----------------+
+; Assignment Name          ; Value                                                                            ; Default Value               ; Entity Name ; Section Id     ;
++--------------------------+----------------------------------------------------------------------------------+-----------------------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID    ; 49410864350819.169946995024132                                                   ; --                          ; --          ; --             ;
+; EDA_OUTPUT_DATA_FORMAT   ; Verilog Hdl                                                                      ; --                          ; --          ; eda_simulation ;
+; EDA_SIMULATION_TOOL      ; QuestaSim (Verilog)                                                              ; Questa Intel FPGA (Verilog) ; --          ; --             ;
+; EDA_TIME_SCALE           ; 1 ps                                                                             ; --                          ; --          ; eda_simulation ;
+; MISC_FILE                ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/fp_add.cmp              ; --                          ; --          ; --             ;
+; MISC_FILE                ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add.ip                      ; --                          ; --          ; --             ;
+; MISC_FILE                ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_compare/fp_compare.cmp      ; --                          ; --          ; --             ;
+; MISC_FILE                ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_compare.ip                  ; --                          ; --          ; --             ;
+; PROJECT_OUTPUT_DIRECTORY ; D:/School/Grad/Code/my_hdc/hdl/syn/output_files                                  ; --                          ; --          ; --             ;
+; SOPCINFO_FILE            ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/fp_add.sopcinfo         ; --                          ; --          ; --             ;
+; SOPCINFO_FILE            ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_compare/fp_compare.sopcinfo ; --                          ; --          ; --             ;
+; TOP_LEVEL_ENTITY         ; ElementAdditionCutBipolar_F                                                      ; hdl                         ; --          ; --             ;
++--------------------------+----------------------------------------------------------------------------------+-----------------------------+-------------+----------------+
 
 
 +--------------------------------------------------+
@@ -76,8 +79,8 @@ on the Quartus Prime software download page.
 +-------------+--------------+---------------------+
 ; Module Name ; Elapsed Time ; Peak Virtual Memory ;
 +-------------+--------------+---------------------+
-; Synthesis   ; 00:00:59     ; 632 MB              ;
-; Total       ; 00:00:59     ; --                  ;
+; Synthesis   ; 00:01:15     ; 656 MB              ;
+; Total       ; 00:01:15     ; --                  ;
 +-------------+--------------+---------------------+
 
 
@@ -93,7 +96,7 @@ on the Quartus Prime software download page.
 ------------
 ; Flow Log ;
 ------------
-quartus_syn --dni --read_settings_files=on --write_settings_files=off hdl -c hdl
+quartus_syn --dni --read_settings_files=on --write_settings_files=off --analysis_and_elaboration hdl -c hdl --synthesis
 
 
 

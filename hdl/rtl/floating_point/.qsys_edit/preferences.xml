@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <preferences>
  <debug showDebugMenu="0" />
- <window width="1100" height="800" x="133" y="78" />
- <generation
-   path=""
-   greybox="0"
-   simulation="VERILOG"
-   clear_previous="1"
-   modelsim="1" />
- <library expandedCategories="Library,Existing IP Variants,Project" />
+ <window width="1100" height="800" x="0" y="0" />
+ <generation path="" greybox="0" simulation="VERILOG" modelsim="1" />
 </preferences>

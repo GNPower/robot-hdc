@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file
+   path="altera_fp_functions_1917/sim/dspba_library_package.vhd"
+   type="VHDL"
+   library="altera_fp_functions_1917" />
+ <file
+   path="altera_fp_functions_1917/sim/dspba_library.vhd"
+   type="VHDL"
+   library="altera_fp_functions_1917" />
+ <file
+   path="altera_fp_functions_1917/sim/fp_compare_altera_fp_functions_1917_q54p7sy.vhd"
+   type="VHDL"
+   library="altera_fp_functions_1917" />
+ <file
+   path="sim/fp_compare.v"
+   type="VERILOG"
+   library="fp_compare"
+   hasInlineConfiguration="true" />
+ <topLevel name="fp_compare.fp_compare" />
+ <deviceFamily name="cyclone10gx" />
+ <device name="10CX220YF780I5G" />
+</simPackage>

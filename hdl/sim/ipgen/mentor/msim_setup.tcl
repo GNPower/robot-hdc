@@ -18,6 +18,7 @@
 # This script provides commands to simulate the following IP detected in
 # your Quartus project:
 #     fp_add.fp_add
+#     fp_compare.fp_compare
 # 
 # Intel recommends that you source this Quartus-generated IP simulation
 # script from your own customized top-level script, and avoid editing this
@@ -83,18 +84,7 @@
 # 
 # IP SIMULATION SCRIPT
 # ----------------------------------------
-# If fp_add.fp_add is one of several IP cores in your
-# Quartus project, you can generate a simulation script
-# suitable for inclusion in your top-level simulation
-# script by running the following command line:
-# 
-# ip-setup-simulation --quartus-project=<quartus project>
-# 
-# ip-setup-simulation will discover the Intel IP
-# within the Quartus project, and generate a unified
-# script which supports all the Intel IP within the design.
-# ----------------------------------------
-# ACDS 23.3 104 win32 2023.11.01.18:10:47
+# ACDS 23.3 104 win32 2023.11.08.14:01:19
 
 # ----------------------------------------
 # Initialize variables
@@ -105,7 +95,7 @@ if ![info exists SYSTEM_INSTANCE_NAME] {
 }
 
 if ![info exists TOP_LEVEL_NAME] { 
-  set TOP_LEVEL_NAME "fp_add.fp_add"
+  set TOP_LEVEL_NAME "fp_compare.fp_compare"
 }
 
 if ![info exists QSYS_SIMDIR] { 

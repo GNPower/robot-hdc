@@ -1,5 +1,5 @@
 Synthesis report
-Wed Nov  8 13:59:20 2023
+Wed Nov 15 03:23:27 2023
 Quartus Prime Version 23.3.0 Build 104 09/20/2023 SC Pro Edition
 
 
@@ -29,14 +29,15 @@ Quartus Prime Version 23.3.0 Build 104 09/20/2023 SC Pro Edition
  21. Synthesis Resource Usage Summary for Partition "root_partition"
  22. Verilog Macro Usage
  23. Top Causes of Logic Optimized Away During Sweep
- 24. Synthesis Messages
+ 24. Warnings for ../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv
+ 25. Synthesis Messages
 
 
 
 +---------------------------------------------------------------+
 ; Synthesis Summary                                             ;
 +-----------------------+---------------------------------------+
-; Synthesis Status      ; Successful - Wed Nov  8 13:59:19 2023 ;
+; Synthesis Status      ; Successful - Wed Nov 15 03:23:25 2023 ;
 ; Revision Name         ; hdl                                   ;
 ; Top-level Entity Name ; ElementAdditionCutBipolar_F           ;
 ; Family                ; Cyclone 10 GX                         ;
@@ -153,8 +154,9 @@ Quartus Prime Version 23.3.0 Build 104 09/20/2023 SC Pro Edition
 +-----------------------------------------------------------------------------------------------------------------+----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+--------------------------+-------------------------------------+----------------------------------+
 ; File Name with User-Entered Path                                                                                ; File Type                              ; File Name with Absolute Path                                                                                                                ; Library                  ; IP Source                           ; MD5                              ;
 +-----------------------------------------------------------------------------------------------------------------+----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+--------------------------+-------------------------------------+----------------------------------+
-; ../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_State.h                                          ; User-Specified File                    ; D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_State.h                                          ;                          ;                                     ; c302965e3a5945d6bdb42f2cb5ff331d ;
-; ../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv                                             ; User-Specified SystemVerilog HDL File  ; D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv                                             ;                          ;                                     ; 62b8372b0ea62473b14e7d4a73900060 ;
+; ../rtl/mapping/memory/bundle/BundleLinearMapper_State.h                                                         ; User-Specified File                    ; D:/School/Grad/Code/my_hdc/hdl/rtl/mapping/memory/bundle/BundleLinearMapper_State.h                                                         ;                          ;                                     ; e080aeaff0a133b37c9c7ccdca0b3be5 ;
+; ../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_State.h                                          ; User-Specified File                    ; D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_State.h                                          ;                          ;                                     ; f90d0b598373a84d2b05ec32ad9488f5 ;
+; ../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv                                             ; User-Specified SystemVerilog HDL File  ; D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv                                             ;                          ;                                     ; 2c31eb994b580206ea99a6e2674ec416 ;
 ; ../rtl/floating_point/fp_add.ip                                                                                 ; User-Specified IP File                 ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add.ip                                                                                 ;                          ;                                     ; b44dfadfd23df8a1233200bdbf3eaeb8 ;
 ; ../rtl/floating_point/fp_add/altera_fp_functions_1917/synth/dspba_library_package.vhd                           ; User-Specified VHDL File               ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/synth/dspba_library_package.vhd                           ; altera_fp_functions_1917 ; ../rtl/floating_point/fp_add.ip     ; 0d452ce175c471c7cd001a454c77d335 ;
 ; ../rtl/floating_point/fp_add/altera_fp_functions_1917/synth/dspba_library.vhd                                   ; User-Specified VHDL File               ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/synth/dspba_library.vhd                                   ; altera_fp_functions_1917 ; ../rtl/floating_point/fp_add.ip     ; f8c9cdc2c6a0cc87f0c9067934f77b8c ;
@@ -165,6 +167,7 @@ Quartus Prime Version 23.3.0 Build 104 09/20/2023 SC Pro Edition
 ; ../rtl/floating_point/fp_compare/altera_fp_functions_1917/synth/dspba_library.vhd                               ; User-Specified VHDL File               ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_compare/altera_fp_functions_1917/synth/dspba_library.vhd                               ; altera_fp_functions_1917 ; ../rtl/floating_point/fp_compare.ip ; f8c9cdc2c6a0cc87f0c9067934f77b8c ;
 ; ../rtl/floating_point/fp_compare/altera_fp_functions_1917/synth/fp_compare_altera_fp_functions_1917_q54p7sy.vhd ; User-Specified VHDL File               ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_compare/altera_fp_functions_1917/synth/fp_compare_altera_fp_functions_1917_q54p7sy.vhd ; altera_fp_functions_1917 ; ../rtl/floating_point/fp_compare.ip ; 351ce0fad09af01725bd56484d6a5128 ;
 ; ../rtl/floating_point/fp_compare/synth/fp_compare.v                                                             ; User-Specified Verilog HDL File        ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_compare/synth/fp_compare.v                                                             ; fp_compare               ; ../rtl/floating_point/fp_compare.ip ; cb0b6fee1b12d0450048d0c918fe1690 ;
+; ../rtl/mapping/memory/bundle/BundleLinearMapper.sv                                                              ; User-Specified SystemVerilog HDL File  ; D:/School/Grad/Code/my_hdc/hdl/rtl/mapping/memory/bundle/BundleLinearMapper.sv                                                              ;                          ;                                     ; 45c4e022e46c77b29d0e5f479c164e23 ;
 +-----------------------------------------------------------------------------------------------------------------+----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+--------------------------+-------------------------------------+----------------------------------+
 
 
@@ -173,9 +176,9 @@ Quartus Prime Version 23.3.0 Build 104 09/20/2023 SC Pro Edition
 +-------------------+---------------------+---------+--------------+--------------+-----------------+-------------------------------------+
 ; Vendor            ; IP Core Name        ; Version ; Release Date ; License Type ; Entity Instance ; IP Include File                     ;
 +-------------------+---------------------+---------+--------------+--------------+-----------------+-------------------------------------+
-; Intel Corporation ; altera_fp_functions ; 19.1.7  ; N/A          ; N/A          ; fp_add_inst     ; ../rtl/floating_point/fp_add.ip     ;
 ; Intel Corporation ; altera_fp_functions ; 19.1.7  ; N/A          ; N/A          ; c_leq_max_inst  ; ../rtl/floating_point/fp_compare.ip ;
 ; Intel Corporation ; altera_fp_functions ; 19.1.7  ; N/A          ; N/A          ; c_leq_min_inst  ; ../rtl/floating_point/fp_compare.ip ;
+; Intel Corporation ; altera_fp_functions ; 19.1.7  ; N/A          ; N/A          ; fp_add_inst     ; ../rtl/floating_point/fp_add.ip     ;
 +-------------------+---------------------+---------+--------------+--------------+-----------------+-------------------------------------+
 
 
@@ -241,16 +244,13 @@ c_leq_min_inst|fp_functions_0
 
 
 
-+-------------------------------------------------+
-; Parameter Settings for Top-Level Entity         ;
-+------------------------+-------+----------------+
-; Parameter Name         ; Value ; Type           ;
-+------------------------+-------+----------------+
-; CUT_NEG                ; -1    ; Untyped        ;
-; CUT_POS                ; 1     ; Signed Integer ;
-; HYPERVECTOR_DIMENSIONS ; 1000  ; Signed Integer ;
-; NUM_KERNELS            ; 1     ; Signed Integer ;
-+------------------------+-------+----------------+
++-----------------------------------------+
+; Parameter Settings for Top-Level Entity ;
++----------------+-------+----------------+
+; Parameter Name ; Value ; Type           ;
++----------------+-------+----------------+
+; HV_DATA_WIDTH  ; 32    ; Signed Integer ;
++----------------+-------+----------------+
 All Instances:
 <top>
 
@@ -315,19 +315,21 @@ c_leq_min_inst|fp_functions_0|oneIsNaN_uid34_fpCompareTest_delay|delay_block.del
 +-----------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------+--------------------------------------------------------------------------------------------------------------------+---------------------------------------------+--------------------------+
 ; Compilation Hierarchy Node                                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; IOPLLs ; Full Hierarchy Name                                                                                                ; Entity Name                                 ; Library Name             ;
 +-----------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------+--------------------------------------------------------------------------------------------------------------------+---------------------------------------------+--------------------------+
-; |                                                         ; 568 (44)            ; 312 (127)                 ; 0                 ; 0          ; 174  ; 0            ; 0 (0)  ; |                                                                                                                  ; ElementAdditionCutBipolar_F                 ; altera_work              ;
-;    |c_leq_max_inst|                                       ; 13 (0)              ; 2 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; c_leq_max_inst                                                                                                     ; fp_compare                                  ; fp_compare               ;
-;       |fp_functions_0|                                    ; 13 (13)             ; 2 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; c_leq_max_inst|fp_functions_0                                                                                      ; fp_compare_altera_fp_functions_1917_q54p7sy ; altera_fp_functions_1917 ;
+; |                                                         ; 543 (56)            ; 226 (43)                  ; 0                 ; 0          ; 71   ; 0            ; 0 (0)  ; |                                                                                                                  ; ElementAdditionCutBipolar_F                 ; altera_work              ;
+;    |c_leq_max_inst|                                       ; 1 (0)               ; 2 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; c_leq_max_inst                                                                                                     ; fp_compare                                  ; fp_compare               ;
+;       |fp_functions_0|                                    ; 1 (1)               ; 2 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; c_leq_max_inst|fp_functions_0                                                                                      ; fp_compare_altera_fp_functions_1917_q54p7sy ; altera_fp_functions_1917 ;
 ;          |oneIsNaN_uid34_fpCompareTest_delay|             ; 0 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; c_leq_max_inst|fp_functions_0|oneIsNaN_uid34_fpCompareTest_delay                                                   ; dspba_delay                                 ; altera_fp_functions_1917 ;
 ;             |delay_block.delay_loop[0].with_reset.reg|    ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; c_leq_max_inst|fp_functions_0|oneIsNaN_uid34_fpCompareTest_delay|delay_block.delay_loop[0].with_reset.reg          ; dspba_reg                                   ; altera_fp_functions_1917 ;
 ;          |rc2_uid63_fpCompareTest_delay|                  ; 0 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; c_leq_max_inst|fp_functions_0|rc2_uid63_fpCompareTest_delay                                                        ; dspba_delay                                 ; altera_fp_functions_1917 ;
 ;             |delay_block.delay_loop[0].with_reset.reg|    ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; c_leq_max_inst|fp_functions_0|rc2_uid63_fpCompareTest_delay|delay_block.delay_loop[0].with_reset.reg               ; dspba_reg                                   ; altera_fp_functions_1917 ;
-;    |c_leq_min_inst|                                       ; 31 (0)              ; 4 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; c_leq_min_inst                                                                                                     ; fp_compare                                  ; fp_compare               ;
-;       |fp_functions_0|                                    ; 31 (31)             ; 4 (3)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; c_leq_min_inst|fp_functions_0                                                                                      ; fp_compare_altera_fp_functions_1917_q54p7sy ; altera_fp_functions_1917 ;
+;    |c_leq_min_inst|                                       ; 9 (0)               ; 2 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; c_leq_min_inst                                                                                                     ; fp_compare                                  ; fp_compare               ;
+;       |fp_functions_0|                                    ; 9 (9)               ; 2 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; c_leq_min_inst|fp_functions_0                                                                                      ; fp_compare_altera_fp_functions_1917_q54p7sy ; altera_fp_functions_1917 ;
 ;          |oneIsNaN_uid34_fpCompareTest_delay|             ; 0 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; c_leq_min_inst|fp_functions_0|oneIsNaN_uid34_fpCompareTest_delay                                                   ; dspba_delay                                 ; altera_fp_functions_1917 ;
 ;             |delay_block.delay_loop[0].with_reset.reg|    ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; c_leq_min_inst|fp_functions_0|oneIsNaN_uid34_fpCompareTest_delay|delay_block.delay_loop[0].with_reset.reg          ; dspba_reg                                   ; altera_fp_functions_1917 ;
-;    |fp_add_inst|                                          ; 480 (0)             ; 179 (0)                   ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; fp_add_inst                                                                                                        ; fp_add                                      ; fp_add                   ;
-;       |fp_functions_0|                                    ; 480 (480)           ; 179 (171)                 ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; fp_add_inst|fp_functions_0                                                                                         ; fp_add_altera_fp_functions_1917_3lb67iq     ; altera_fp_functions_1917 ;
+;          |rc2_uid63_fpCompareTest_delay|                  ; 0 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; c_leq_min_inst|fp_functions_0|rc2_uid63_fpCompareTest_delay                                                        ; dspba_delay                                 ; altera_fp_functions_1917 ;
+;             |delay_block.delay_loop[0].with_reset.reg|    ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; c_leq_min_inst|fp_functions_0|rc2_uid63_fpCompareTest_delay|delay_block.delay_loop[0].with_reset.reg               ; dspba_reg                                   ; altera_fp_functions_1917 ;
+;    |fp_add_inst|                                          ; 477 (0)             ; 179 (0)                   ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; fp_add_inst                                                                                                        ; fp_add                                      ; fp_add                   ;
+;       |fp_functions_0|                                    ; 477 (477)           ; 179 (171)                 ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; fp_add_inst|fp_functions_0                                                                                         ; fp_add_altera_fp_functions_1917_3lb67iq     ; altera_fp_functions_1917 ;
 ;          |excN_aSig_uid28_fpAddTest_delay|                ; 0 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; fp_add_inst|fp_functions_0|excN_aSig_uid28_fpAddTest_delay                                                         ; dspba_delay                                 ; altera_fp_functions_1917 ;
 ;             |delay_block.delay_loop[0].with_reset.reg|    ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; fp_add_inst|fp_functions_0|excN_aSig_uid28_fpAddTest_delay|delay_block.delay_loop[0].with_reset.reg                ; dspba_reg                                   ; altera_fp_functions_1917 ;
 ;          |excN_bSig_uid42_fpAddTest_delay|                ; 0 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; fp_add_inst|fp_functions_0|excN_bSig_uid42_fpAddTest_delay                                                         ; dspba_delay                                 ; altera_fp_functions_1917 ;
@@ -353,24 +355,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------+------------------+------------+----------------+----------+
 ; Name  ; Number of States ; Using aclr ; Encoding Style ; Safeness ;
 +-------+------------------+------------+----------------+----------+
-; state ; 7                ; No         ; One-Hot        ; Not Safe ;
+; state ; 7                ; Yes        ; One-Hot        ; Not Safe ;
 +-------+------------------+------------+----------------+----------+
 
 
 Encoding Type:  One-Hot
-+--------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - state                                                                                                                            ;
-+---------------------+------------------+--------------+-----------------+-----------------+-----------------+---------------------+--------------+
-; Name                ; state.S_DATA_RDY ; state.S_COMP ; state.S_FPADD_2 ; state.S_FPADD_1 ; state.S_FPADD_0 ; state.S_DATA_WAIT_0 ; state.S_IDLE ;
-+---------------------+------------------+--------------+-----------------+-----------------+-----------------+---------------------+--------------+
-; state.S_IDLE        ; 0                ; 0            ; 0               ; 0               ; 0               ; 0                   ; 0            ;
-; state.S_DATA_WAIT_0 ; 0                ; 0            ; 0               ; 0               ; 0               ; 1                   ; 1            ;
-; state.S_FPADD_0     ; 0                ; 0            ; 0               ; 0               ; 1               ; 0                   ; 1            ;
-; state.S_FPADD_1     ; 0                ; 0            ; 0               ; 1               ; 0               ; 0                   ; 1            ;
-; state.S_FPADD_2     ; 0                ; 0            ; 1               ; 0               ; 0               ; 0                   ; 1            ;
-; state.S_COMP        ; 0                ; 1            ; 0               ; 0               ; 0               ; 0                   ; 1            ;
-; state.S_DATA_RDY    ; 1                ; 0            ; 0               ; 0               ; 0               ; 0                   ; 1            ;
-+---------------------+------------------+--------------+-----------------+-----------------+-----------------+---------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - state                                                                                                                         ;
++---------------------+--------------+---------------+-----------------+-----------------+-----------------+---------------------+--------------+
+; Name                ; state.S_COMP ; state.S_ACCUM ; state.S_FPADD_2 ; state.S_FPADD_1 ; state.S_FPADD_0 ; state.S_DATA_WAIT_0 ; state.S_IDLE ;
++---------------------+--------------+---------------+-----------------+-----------------+-----------------+---------------------+--------------+
+; state.S_IDLE        ; 0            ; 0             ; 0               ; 0               ; 0               ; 0                   ; 0            ;
+; state.S_DATA_WAIT_0 ; 0            ; 0             ; 0               ; 0               ; 0               ; 1                   ; 1            ;
+; state.S_FPADD_0     ; 0            ; 0             ; 0               ; 0               ; 1               ; 0                   ; 1            ;
+; state.S_FPADD_1     ; 0            ; 0             ; 0               ; 1               ; 0               ; 0                   ; 1            ;
+; state.S_FPADD_2     ; 0            ; 0             ; 1               ; 0               ; 0               ; 0                   ; 1            ;
+; state.S_ACCUM       ; 0            ; 1             ; 0               ; 0               ; 0               ; 0                   ; 1            ;
+; state.S_COMP        ; 1            ; 0             ; 0               ; 0               ; 0               ; 0                   ; 1            ;
++---------------------+--------------+---------------+-----------------+-----------------+-----------------+---------------------+--------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -379,7 +381,7 @@ Encoding Type:  One-Hot
 ; Register name                                                                          ; Reason for Removal                                                               ;
 +----------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
 ; c_leq_max_inst|fp_functions_0|efxLTefy_uid48_fpCompareTest_o[32]                       ; Stuck at GND due to stuck port data_in                                           ;
-; c_leq_min_inst|fp_functions_0|efxGTefy_uid47_fpCompareTest_o[32]                       ; Stuck at GND due to stuck port data_in                                           ;
+; c_leq_min_inst|fp_functions_0|efxLTefy_uid48_fpCompareTest_o[32]                       ; Stuck at GND due to stuck port data_in                                           ;
 ; fp_add_inst|fp_functions_0|redist0_rVStage_uid151_lzCountVal_uid85_fpAddTest_b_1_q[14] ; Merged with fp_add_inst|fp_functions_0|redist2_fracGRS_uid84_fpAddTest_q_1_q[26] ;
 ; fp_add_inst|fp_functions_0|redist0_rVStage_uid151_lzCountVal_uid85_fpAddTest_b_1_q[13] ; Merged with fp_add_inst|fp_functions_0|redist2_fracGRS_uid84_fpAddTest_q_1_q[25] ;
 ; fp_add_inst|fp_functions_0|redist0_rVStage_uid151_lzCountVal_uid85_fpAddTest_b_1_q[12] ; Merged with fp_add_inst|fp_functions_0|redist2_fracGRS_uid84_fpAddTest_q_1_q[24] ;
@@ -394,12 +396,14 @@ Encoding Type:  One-Hot
 ; fp_add_inst|fp_functions_0|redist0_rVStage_uid151_lzCountVal_uid85_fpAddTest_b_1_q[3]  ; Merged with fp_add_inst|fp_functions_0|redist2_fracGRS_uid84_fpAddTest_q_1_q[15] ;
 ; fp_add_inst|fp_functions_0|redist0_rVStage_uid151_lzCountVal_uid85_fpAddTest_b_1_q[2]  ; Merged with fp_add_inst|fp_functions_0|redist2_fracGRS_uid84_fpAddTest_q_1_q[14] ;
 ; fp_add_inst|fp_functions_0|redist0_rVStage_uid151_lzCountVal_uid85_fpAddTest_b_1_q[1]  ; Merged with fp_add_inst|fp_functions_0|redist2_fracGRS_uid84_fpAddTest_q_1_q[13] ;
+; c_leq_min_inst|fp_functions_0|redist1_signX_uid52_fpCompareTest_b_1_q[0]               ; Lost fanout                                                                      ;
+; c_leq_min_inst|fp_functions_0|efxGTefy_uid47_fpCompareTest_o[32]                       ; Lost fanout                                                                      ;
 ; c_leq_max_inst|fp_functions_0|redist1_signX_uid52_fpCompareTest_b_1_q[0]               ; Lost fanout                                                                      ;
 ; c_leq_max_inst|fp_functions_0|efxGTefy_uid47_fpCompareTest_o[32]                       ; Lost fanout                                                                      ;
 ; state~0                                                                                ; Lost fanout                                                                      ;
 ; state~1                                                                                ; Lost fanout                                                                      ;
 ; state~2                                                                                ; Lost fanout                                                                      ;
-; Total Number of Removed Registers = 21                                                 ;                                                                                  ;
+; Total Number of Removed Registers = 23                                                 ;                                                                                  ;
 +----------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
 
 
@@ -410,6 +414,8 @@ Encoding Type:  One-Hot
 +------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------+
 ; c_leq_max_inst|fp_functions_0|efxLTefy_uid48_fpCompareTest_o[32] ; Stuck at GND              ; c_leq_max_inst|fp_functions_0|redist1_signX_uid52_fpCompareTest_b_1_q[0], ;
 ;                                                                  ; due to stuck port data_in ; c_leq_max_inst|fp_functions_0|efxGTefy_uid47_fpCompareTest_o[32]          ;
+; c_leq_min_inst|fp_functions_0|efxLTefy_uid48_fpCompareTest_o[32] ; Stuck at GND              ; c_leq_min_inst|fp_functions_0|redist1_signX_uid52_fpCompareTest_b_1_q[0], ;
+;                                                                  ; due to stuck port data_in ; c_leq_min_inst|fp_functions_0|efxGTefy_uid47_fpCompareTest_o[32]          ;
 +------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------+
 
 
@@ -418,12 +424,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------------+
 ; Statistic                                    ; Value       ;
 +----------------------------------------------+-------------+
-; Total registers                              ; 312         ;
-; Number of registers using Synchronous Clear  ; 41          ;
-; Number of registers using Synchronous Load   ; 71          ;
-; Number of registers using Asynchronous Clear ; 231         ;
+; Total registers                              ; 226         ;
+; Number of registers using Synchronous Clear  ; 71          ;
+; Number of registers using Synchronous Load   ; 72          ;
+; Number of registers using Asynchronous Clear ; 226         ;
 ; Number of registers using Asynchronous Load  ; 0           ;
-; Number of registers using Clock Enable       ; 308         ;
+; Number of registers using Clock Enable       ; 215         ;
 ; Number of registers using Preset             ; 0           ;
 +----------------------------------------------+-------------+
 
@@ -433,7 +439,7 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; we_n~reg0                              ; 2       ;
+; ready~reg0                             ; 2       ;
 ; Total number of inverted registers = 1 ;         ;
 +----------------------------------------+---------+
 
@@ -443,24 +449,24 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------+-------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                              ; Restructuring Performed ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------+-------------------------+
-; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; fp_add_inst|fp_functions_0|leftShiftStage2_uid249_fracPostNormExt_uid88_fpAddTest_q[19] ; Yes                     ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; fp_add_inst|fp_functions_0|r_uid219_alignmentShifter_uid64_fpAddTest_q[45]              ; Yes                     ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; fp_add_inst|fp_functions_0|r_uid219_alignmentShifter_uid64_fpAddTest_q[18]              ; Yes                     ;
-; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; fp_add_inst|fp_functions_0|r_uid219_alignmentShifter_uid64_fpAddTest_q[1]               ; Yes                     ;
-; 4:1                ; 21 bits   ; 42 LEs        ; 0 LEs                ; 42 LEs                 ; Yes        ; raddress[0]~reg0                                                                        ; Yes                     ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; fp_add_inst|fp_functions_0|r_uid219_alignmentShifter_uid64_fpAddTest_q[14]              ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; fp_add_inst|fp_functions_0|leftShiftStage2_uid249_fracPostNormExt_uid88_fpAddTest_q[15] ; Yes                     ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; fp_add_inst|fp_functions_0|r_uid219_alignmentShifter_uid64_fpAddTest_q[48]              ; Yes                     ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; fp_add_inst|fp_functions_0|r_uid219_alignmentShifter_uid64_fpAddTest_q[23]              ; Yes                     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; fp_add_inst|fp_functions_0|r_uid219_alignmentShifter_uid64_fpAddTest_q[3]               ; Yes                     ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; fp_add_inst|fp_functions_0|r_uid219_alignmentShifter_uid64_fpAddTest_q[15]              ; Yes                     ;
 ; 6:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; fp_add_inst|fp_functions_0|r_uid219_alignmentShifter_uid64_fpAddTest_q[11]              ; Yes                     ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; fp_add_inst|fp_functions_0|Mux_214~0                                                    ; Yes                     ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; data_wr[1]~30                                                                           ; Yes                     ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; fp_add_inst|fp_functions_0|Mux_151                                                      ; Yes                     ;
+; 5:1                ; 22 bits   ; 66 LEs        ; 0 LEs                ; 66 LEs                 ; Yes        ; accumulate[8]                                                                           ; Yes                     ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; accumulate[30]                                                                          ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; data_out[0]~31                                                                          ; Yes                     ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; fp_add_inst|fp_functions_0|Mux_158                                                      ; Yes                     ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; fp_add_inst|fp_functions_0|Mux_176                                                      ; Yes                     ;
 ; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; fp_add_inst|fp_functions_0|Mux_177                                                      ; Yes                     ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; fp_add_inst|fp_functions_0|Mux_177                                                      ; Yes                     ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; fp_add_inst|fp_functions_0|Mux_177                                                      ; Yes                     ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; fp_add_inst|fp_functions_0|Mux_58                                                       ; Yes                     ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; fp_add_inst|fp_functions_0|Mux_60                                                       ; Yes                     ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; fp_add_inst|fp_functions_0|Mux_57                                                       ; Yes                     ;
-; 4:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; fp_add_inst|fp_functions_0|Mux_60                                                       ; Yes                     ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; fp_add_inst|fp_functions_0|Mux_76                                                       ; Yes                     ;
+; 4:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; fp_add_inst|fp_functions_0|Mux_59                                                       ; Yes                     ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; fp_add_inst|fp_functions_0|Mux_77                                                       ; Yes                     ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; fp_add_inst|fp_functions_0|Mux_59                                                       ; Yes                     ;
 ; 4:1                ; 21 bits   ; 42 LEs        ; 42 LEs               ; 0 LEs                  ; No         ; fp_add_inst|fp_functions_0|Mux_2                                                        ; Yes                     ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; fp_add_inst|fp_functions_0|Mux_177                                                      ; Yes                     ;
@@ -481,42 +487,40 @@ Notes: Table created because there is an active PRESERVE_FOR_DEBUG_ENABLE in the
 +------------------------+-----------------------------------------+
 ; Type                   ; Count                                   ;
 +------------------------+-----------------------------------------+
-; boundary_port          ; 174                                     ;
-; cyclone10gx_ff         ; 312                                     ;
-;     CLR                ; 3                                       ;
-;     ENA                ; 80                                      ;
-;     ENA CLR            ; 141                                     ;
-;     ENA CLR SCLR       ; 16                                      ;
-;     ENA CLR SCLR SLD   ; 25                                      ;
-;     ENA CLR SLD        ; 46                                      ;
-;     plain              ; 1                                       ;
-; cyclone10gx_lcell_comb ; 568                                     ;
-;     arith              ; 132                                     ;
-;         0 data inputs  ; 7                                       ;
+; boundary_port          ; 71                                      ;
+; cyclone10gx_ff         ; 226                                     ;
+;     CLR                ; 11                                      ;
+;     ENA CLR            ; 119                                     ;
+;     ENA CLR SCLR       ; 24                                      ;
+;     ENA CLR SCLR SLD   ; 47                                      ;
+;     ENA CLR SLD        ; 25                                      ;
+; cyclone10gx_lcell_comb ; 543                                     ;
+;     arith              ; 101                                     ;
+;         0 data inputs  ; 6                                       ;
 ;         1 data inputs  ; 56                                      ;
 ;         2 data inputs  ; 32                                      ;
 ;         3 data inputs  ; 5                                       ;
-;         4 data inputs  ; 30                                      ;
-;         5 data inputs  ; 2                                       ;
-;     extend             ; 2                                       ;
-;         7 data inputs  ; 2                                       ;
-;     normal             ; 392                                     ;
+;         4 data inputs  ; 1                                       ;
+;         5 data inputs  ; 1                                       ;
+;     extend             ; 3                                       ;
+;         7 data inputs  ; 3                                       ;
+;     normal             ; 397                                     ;
 ;         1 data inputs  ; 2                                       ;
-;         2 data inputs  ; 27                                      ;
-;         3 data inputs  ; 104                                     ;
-;         4 data inputs  ; 81                                      ;
-;         5 data inputs  ; 63                                      ;
-;         6 data inputs  ; 115                                     ;
+;         2 data inputs  ; 23                                      ;
+;         3 data inputs  ; 111                                     ;
+;         4 data inputs  ; 67                                      ;
+;         5 data inputs  ; 104                                     ;
+;         6 data inputs  ; 90                                      ;
 ;     shared             ; 42                                      ;
 ;         0 data inputs  ; 2                                       ;
 ;         1 data inputs  ; 9                                       ;
 ;         2 data inputs  ; 31                                      ;
 ;                        ;                                         ;
-; Number of carry chains ; 9                                       ;
+; Number of carry chains ; 8                                       ;
 ; Max carry chain length ; 34                                      ;
 ;                        ;                                         ;
-; Max LUT depth          ; 13.90                                   ;
-; Average LUT depth      ; 7.14                                    ;
+; Max LUT depth          ; 11.00                                   ;
+; Average LUT depth      ; 7.08                                    ;
 +------------------------+-----------------------------------------+
 
 
@@ -525,27 +529,27 @@ Notes: Table created because there is an active PRESERVE_FOR_DEBUG_ENABLE in the
 +---------------------------------------------+-------------------+
 ; Resource                                    ; Usage             ;
 +---------------------------------------------+-------------------+
-; Estimate of Logic utilization (ALMs needed) ; 381               ;
+; Estimate of Logic utilization (ALMs needed) ; 341               ;
 ;                                             ;                   ;
-; Combinational ALUT usage for logic          ; 568               ;
-;     -- 7 input functions                    ; 2                 ;
-;     -- 6 input functions                    ; 115               ;
-;     -- 5 input functions                    ; 65                ;
-;     -- 4 input functions                    ; 111               ;
-;     -- <=3 input functions                  ; 275               ;
+; Combinational ALUT usage for logic          ; 543               ;
+;     -- 7 input functions                    ; 3                 ;
+;     -- 6 input functions                    ; 90                ;
+;     -- 5 input functions                    ; 105               ;
+;     -- 4 input functions                    ; 68                ;
+;     -- <=3 input functions                  ; 277               ;
 ;                                             ;                   ;
-; Dedicated logic registers                   ; 312               ;
+; Dedicated logic registers                   ; 226               ;
 ;                                             ;                   ;
-; I/O pins                                    ; 174               ;
+; I/O pins                                    ; 71                ;
 ;                                             ;                   ;
 ; Total DSP Blocks                            ; 0                 ;
 ;     -- [A] Total Fixed Point DSP Blocks     ; 0                 ;
 ;     -- [B] Total Floating Point DSP Blocks  ; 0                 ;
 ;                                             ;                   ;
 ; Maximum fan-out node                        ; clk               ;
-; Maximum fan-out                             ; 312               ;
-; Total fan-out                               ; 3630              ;
-; Average fan-out                             ; 3.44              ;
+; Maximum fan-out                             ; 226               ;
+; Total fan-out                               ; 3222              ;
+; Average fan-out                             ; 3.84              ;
 +---------------------------------------------+-------------------+
 
 
@@ -558,27 +562,45 @@ Notes: Table created because there is an active PRESERVE_FOR_DEBUG_ENABLE in the
 ;     ELEMENT_ADDITION_CUT_BIPOLAR_DEFINE_STATE                                                      ;          ;      ;       ;           ;
 ;         Refer                                                                                      ; 1        ; None ;       ;           ;
 ;         Define                                                                                     ; 2        ;      ;       ;           ;
+; D:/School/Grad/Code/my_hdc/hdl/rtl/mapping/memory/bundle/BundleLinearMapper_State.h                ;          ;      ;       ;           ;
+;     BUNDLE_LINEAR_MAPPER_DEFINE_STATE                                                              ;          ;      ;       ;           ;
+;         Refer                                                                                      ; 1        ; None ;       ;           ;
+;         Define                                                                                     ; 2        ;      ;       ;           ;
 +----------------------------------------------------------------------------------------------------+----------+------+-------+-----------+
 &lt;same as above&gt; indicates that the value matches the previous occurence of the macro.
 
 
 Top root causes of logic optimization that have been identified during sweep. Go to the " Root Causes Tab " in the " Sweep Hints Viewer " tool in the " RTL Analyzer " for more details and filtering options.
-+-----------------------------------------------------------------------------+
-; Top Causes of Logic Optimized Away During Sweep                             ;
-+----------------------+------------------+-------------+---------------------+
-; Root Object Path     ; Root Object Type ; Root Reason ; Swept Objects Count ;
-+----------------------+------------------+-------------+---------------------+
-; c_leq_min_inst|b[30] ; INPUT_INST_PORT  ; stuck at 1  ; 38                  ;
-; c_leq_max_inst|b[30] ; INPUT_INST_PORT  ; stuck at 0  ; 31                  ;
-; c_leq_min_inst|b[22] ; INPUT_INST_PORT  ; stuck at 1  ; 13                  ;
-; c_leq_min_inst|b[31] ; INPUT_INST_PORT  ; stuck at 1  ; 10                  ;
-; c_leq_max_inst|b[0]  ; INPUT_INST_PORT  ; stuck at 1  ; 5                   ;
-; c_leq_max_inst|b[1]  ; INPUT_INST_PORT  ; stuck at 0  ; 4                   ;
-; c_leq_max_inst|b[2]  ; INPUT_INST_PORT  ; stuck at 0  ; 4                   ;
-; c_leq_max_inst|b[3]  ; INPUT_INST_PORT  ; stuck at 0  ; 4                   ;
-; c_leq_max_inst|b[4]  ; INPUT_INST_PORT  ; stuck at 0  ; 4                   ;
-; c_leq_max_inst|b[5]  ; INPUT_INST_PORT  ; stuck at 0  ; 4                   ;
-+----------------------+------------------+-------------+---------------------+
++-----------------------------------------------------------------------------------------------------+
+; Top Causes of Logic Optimized Away During Sweep                                                     ;
++----------------------+------------------+-------------------------------------+---------------------+
+; Root Object Path     ; Root Object Type ; Root Reason                         ; Swept Objects Count ;
++----------------------+------------------+-------------------------------------+---------------------+
+; c_leq_min_inst|b[30] ; INPUT_INST_PORT  ; stuck at 0                          ; 31                  ;
+; c_leq_max_inst|b[30] ; INPUT_INST_PORT  ; stuck at 0                          ; 31                  ;
+; c_leq_min_inst|b[22] ; INPUT_INST_PORT  ; stuck at 0                          ; 7                   ;
+; c_leq_max_inst|b[22] ; INPUT_INST_PORT  ; stuck at 0                          ; 7                   ;
+; top-level|CUT_POS    ; NET              ; undriven net set to default value 0 ; 7                   ;
+; top-level|CUT_NEG    ; NET              ; undriven net set to default value 0 ; 7                   ;
+; c_leq_min_inst|b[1]  ; INPUT_INST_PORT  ; stuck at 0                          ; 4                   ;
+; c_leq_max_inst|b[1]  ; INPUT_INST_PORT  ; stuck at 0                          ; 4                   ;
+; c_leq_min_inst|b[2]  ; INPUT_INST_PORT  ; stuck at 0                          ; 4                   ;
+; c_leq_max_inst|b[2]  ; INPUT_INST_PORT  ; stuck at 0                          ; 4                   ;
++----------------------+------------------+-------------------------------------+---------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Warnings for ../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv                                                                              ;
++------------+----------+-------+-------------------------------------------------------------------------------------------------------------------------------+
+; Message ID ; Severity ; Count ; Sample Warning                                                                                                                ;
++------------+----------+-------+-------------------------------------------------------------------------------------------------------------------------------+
+; 16735      ; Warning  ; 2     ; Verilog HDL warning at ElementAdditionCutBipolar_F.sv(72): actual bit length 1 differs from formal bit length 32 for port "b" ;
+;     16735  ;          ;       ; Verilog HDL warning at ElementAdditionCutBipolar_F.sv(72): actual bit length 1 differs from formal bit length 32 for port "b" ;
+;     16735  ;          ;       ; Verilog HDL warning at ElementAdditionCutBipolar_F.sv(82): actual bit length 1 differs from formal bit length 32 for port "b" ;
+; 16788      ; Warning  ; 2     ; Net "CUT_POS" does not have a driver at ElementAdditionCutBipolar_F.sv(72)                                                    ;
+;     16788  ;          ;       ; Net "CUT_POS" does not have a driver at ElementAdditionCutBipolar_F.sv(72)                                                    ;
+;     16788  ;          ;       ; Net "CUT_NEG" does not have a driver at ElementAdditionCutBipolar_F.sv(82)                                                    ;
++------------+----------+-------+-------------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -587,9 +609,9 @@ Top root causes of logic optimization that have been identified during sweep. Go
 Info: *******************************************************************
 Info: Running Quartus Prime Synthesis
     Info: Version 23.3.0 Build 104 09/20/2023 SC Pro Edition
-    Info: Processing started: Wed Nov  8 13:58:05 2023
-    Info: System process ID: 24132
-Info: Command: quartus_syn --dni --read_settings_files=on --write_settings_files=off --analysis_and_elaboration hdl -c hdl --synthesis
+    Info: Processing started: Wed Nov 15 03:22:29 2023
+    Info: System process ID: 21956
+Info: Command: quartus_syn --dni --read_settings_files=on --write_settings_files=off hdl -c hdl
 Info: The application is running in 'DNI' mode.
 Info: qis_default_flow_script.tcl version: #3
 Info: Initializing Synthesis in DNI mode...
@@ -601,27 +623,33 @@ Info (18237): File "D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_compare
 Info (18237): File "D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_compare/altera_fp_functions_1917/synth/dspba_library.vhd" is a duplicate of already analyzed file "D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/synth/dspba_library.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
 Info (16884): Verilog HDL info at ElementAdditionCutBipolar_F.sv(3): analyzing included file D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_State.h File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 3
 Info (19624): Verilog HDL info at ElementAdditionCutBipolar_F.sv(3): back to file 'D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv' File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 3
+Info (16884): Verilog HDL info at BundleLinearMapper.sv(3): analyzing included file D:/School/Grad/Code/my_hdc/hdl/rtl/mapping/memory/bundle/BundleLinearMapper_State.h File: D:/School/Grad/Code/my_hdc/hdl/rtl/mapping/memory/bundle/BundleLinearMapper.sv Line: 3
+Info (19624): Verilog HDL info at BundleLinearMapper.sv(3): back to file 'D:/School/Grad/Code/my_hdc/hdl/rtl/mapping/memory/bundle/BundleLinearMapper.sv' File: D:/School/Grad/Code/my_hdc/hdl/rtl/mapping/memory/bundle/BundleLinearMapper.sv Line: 3
 Info: Elaborating from top-level entity "ElementAdditionCutBipolar_F"
 Info (18235): Library search order is as follows: "fp_add; fp_compare; altera_fp_functions_1917". Quartus will look for undefined design units in your libraries in that order. To modify the ordering, please specify a semi-colon separated library list using the assignment LIBRARY_SEARCH_ORDER.
 Info (19337): VHDL info at fp_add_altera_fp_functions_1917_3lb67iq.vhd(37): executing entity "fp_add_altera_fp_functions_1917_3lb67iq" with architecture "normal" File: D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/synth/fp_add_altera_fp_functions_1917_3lb67iq.vhd Line: 37
 Info (19337): VHDL info at dspba_library.vhd(145): executing entity "dspba_delay(width=1)(1,5)" with architecture "delay" File: D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/synth/dspba_library.vhd Line: 145
 Info (19337): VHDL info at dspba_library.vhd(19): executing entity "dspba_reg(width=1,init_value="0")(0,0)(1,5)" with architecture "reg" File: D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_add/altera_fp_functions_1917/synth/dspba_library.vhd Line: 19
 Info (19337): VHDL info at fp_compare_altera_fp_functions_1917_q54p7sy.vhd(38): executing entity "fp_compare_altera_fp_functions_1917_q54p7sy" with architecture "normal" File: D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_compare/altera_fp_functions_1917/synth/fp_compare_altera_fp_functions_1917_q54p7sy.vhd Line: 38
-Info: Found 12 design entities
+Warning (16735): Verilog HDL warning at ElementAdditionCutBipolar_F.sv(72): actual bit length 1 differs from formal bit length 32 for port "b" File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 72
+Warning (16735): Verilog HDL warning at ElementAdditionCutBipolar_F.sv(82): actual bit length 1 differs from formal bit length 32 for port "b" File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 82
+Warning (16788): Net "CUT_POS" does not have a driver at ElementAdditionCutBipolar_F.sv(72) File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 72
+Warning (16788): Net "CUT_NEG" does not have a driver at ElementAdditionCutBipolar_F.sv(82) File: D:/School/Grad/Code/my_hdc/hdl/rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv Line: 82
+Info: Found 14 design entities
 Info: There are 31 partitions after elaboration.
 Info: Synthesizing partition "root_partition"
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 5 registers lost all their fanouts during netlist optimizations.
-Info (21057): Implemented 976 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 98 input pins
-    Info (21059): Implemented 76 output pins
-    Info (21061): Implemented 802 logic cells
+Info (17049): 7 registers lost all their fanouts during netlist optimizations.
+Info (21057): Implemented 731 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 37 input pins
+    Info (21059): Implemented 34 output pins
+    Info (21061): Implemented 660 logic cells
 Info: Successfully synthesized partition
 Info: Saving post-synthesis snapshots for 1 partition(s)
 Info: Quartus Prime Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 656 megabytes
-    Info: Processing ended: Wed Nov  8 13:59:20 2023
-    Info: Elapsed time: 00:01:15
-    Info: System process ID: 24132
+    Info: Peak virtual memory: 663 megabytes
+    Info: Processing ended: Wed Nov 15 03:23:27 2023
+    Info: Elapsed time: 00:00:58
+    Info: System process ID: 21956
 
 

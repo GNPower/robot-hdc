@@ -1,0 +1,30 @@
+`timescale 1ns/100ps
+
+`include "ElementAdditionCutBipolar_State.h"
+
+module BundleLinearMapper
+#(
+	parameter HV_DATA_DIWTH	= 32
+)
+(
+	// clock and reset signals
+	clk,
+	reset_n,
+	
+	// address control signals
+	valid,
+	
+	// hypervector address components
+	hva,
+	hvb,
+	hvc,
+	hv_offset,
+	
+	// a
+	
+	data_in,
+	data_out,
+	
+	ready,
+	done
+);

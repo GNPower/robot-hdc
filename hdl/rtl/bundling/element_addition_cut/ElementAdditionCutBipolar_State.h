@@ -8,8 +8,8 @@ typedef enum logic[2:0] {
 	S_FPADD_0,
 	S_FPADD_1,
 	S_FPADD_2,
-	S_COMP,
-	S_DATA_RDY
+	S_ACCUM,
+	S_COMP
 } ElemAdd_State_t;
 
 

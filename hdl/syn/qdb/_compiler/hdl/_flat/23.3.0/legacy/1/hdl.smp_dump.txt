@@ -2,11 +2,11 @@
 State Machine - Summary
 
 State Machine - state
-Name state.S_DATA_RDY state.S_COMP state.S_FPADD_2 state.S_FPADD_1 state.S_FPADD_0 state.S_DATA_WAIT_0 state.S_IDLE 
+Name state.S_COMP state.S_ACCUM state.S_FPADD_2 state.S_FPADD_1 state.S_FPADD_0 state.S_DATA_WAIT_0 state.S_IDLE 
 state.S_IDLE 0 0 0 0 0 0 0 
 state.S_DATA_WAIT_0 0 0 0 0 0 1 1 
 state.S_FPADD_0 0 0 0 0 1 0 1 
 state.S_FPADD_1 0 0 0 1 0 0 1 
 state.S_FPADD_2 0 0 1 0 0 0 1 
-state.S_COMP 0 1 0 0 0 0 1 
-state.S_DATA_RDY 1 0 0 0 0 0 1 
+state.S_ACCUM 0 1 0 0 0 0 1 
+state.S_COMP 1 0 0 0 0 0 1 

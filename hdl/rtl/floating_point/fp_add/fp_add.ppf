@@ -7,7 +7,6 @@
  <global>
   <pin name="clk" direction="input" scope="external" />
   <pin name="areset" direction="input" scope="external" />
-  <pin name="en" direction="input" scope="external" />
   <pin name="a[31..0]" direction="input" scope="external" />
   <pin name="b[31..0]" direction="input" scope="external" />
   <pin name="q[31..0]" direction="output" scope="external" />

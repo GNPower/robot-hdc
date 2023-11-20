@@ -6,29 +6,31 @@
 
 // This module emulates the simple DP_RAM device during simulation
 // Data is read out in a single clock cycle
-module dpRamEmulator (
+module dpRamEmulator 
+#(
+	parameter HV_DATA_WIDTH	= 32,
+	parameter HV_ADDRESS_WIDTH = 21
+)
+(
 	clk,
 	reset_n,
 	
 	we_n,
-	waddress,
+	address,
 	data_i,
-	
-	raddress,
 	data_o
 );
 
 input logic clk;
 input logic reset_n;
 input logic we_n;
-input logic [20:0] waddress;
-input logic [31:0] data_i;
-input logic [20:0] raddress;
-output logic [31:0] data_o;
+input logic [HV_ADDRESS_WIDTH-1:0] address;
+input logic [HV_DATA_WIDTH-1:0] data_i;
+output logic [HV_DATA_WIDTH-1:0] data_o;
 
-localparam DPRAM_SIZE = 2097152; // 2^21
+localparam DPRAM_SIZE = 2**HV_ADDRESS_WIDTH; //2097152; // 2^21
 
-logic [31:0] DPRAM_data [DPRAM_SIZE-1:0];
+logic [HV_DATA_WIDTH-1:0] DPRAM_data [DPRAM_SIZE-1:0];
 
 integer i;
 
@@ -38,9 +40,9 @@ always_ff @(posedge clk or negedge reset_n) begin
 		for (i = 0; i < DPRAM_SIZE; i = i + 1) 
 			DPRAM_data[i] <= 32'd0;
 	end else begin
-		data_o <= DPRAM_data[raddress];
+		data_o <= DPRAM_data[address];
 		if (!we_n) begin
-			DPRAM_data[waddress] <= data_i;
+			DPRAM_data[address] <= data_i;
 		end
 	end
 end

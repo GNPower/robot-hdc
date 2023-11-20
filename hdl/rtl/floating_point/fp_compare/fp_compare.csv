@@ -1,4 +1,4 @@
-# system info fp_compare on 2023.11.08.13:05:27
+# system info fp_compare on 2023.11.18.19:16:50
 system_info:
 name,value
 DEVICE,10CX220YF780I5G
@@ -6,15 +6,15 @@ DEVICE_FAMILY,Cyclone 10 GX
 GENERATION_ID,0
 #
 #
-# Files generated for fp_compare on 2023.11.08.13:05:27
+# Files generated for fp_compare on 2023.11.18.19:16:50
 files:
 filepath,kind,attributes,module,is_top
 sim/fp_compare.v,VERILOG,CONTAINS_INLINE_CONFIGURATION,fp_compare,true
-altera_fp_functions_1917/sim/dspba_library_package.vhd,VHDL,,fp_compare_altera_fp_functions_1917_q54p7sy,false
-altera_fp_functions_1917/sim/dspba_library.vhd,VHDL,,fp_compare_altera_fp_functions_1917_q54p7sy,false
-altera_fp_functions_1917/sim/fp_compare_altera_fp_functions_1917_q54p7sy.vhd,VHDL,,fp_compare_altera_fp_functions_1917_q54p7sy,false
+altera_fp_functions_1917/sim/dspba_library_package.vhd,VHDL,,fp_compare_altera_fp_functions_1917_bazjwmi,false
+altera_fp_functions_1917/sim/dspba_library.vhd,VHDL,,fp_compare_altera_fp_functions_1917_bazjwmi,false
+altera_fp_functions_1917/sim/fp_compare_altera_fp_functions_1917_bazjwmi.vhd,VHDL,,fp_compare_altera_fp_functions_1917_bazjwmi,false
 #
 # Map from instance-path to kind of module
 instances:
 instancePath,module
-fp_compare.fp_functions_0,fp_compare_altera_fp_functions_1917_q54p7sy
+fp_compare.fp_functions_0,fp_compare_altera_fp_functions_1917_bazjwmi

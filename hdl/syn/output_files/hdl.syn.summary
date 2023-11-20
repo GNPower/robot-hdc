@@ -1,4 +1,4 @@
-Synthesis Status : Successful - Wed Nov 15 03:23:25 2023
+Synthesis Status : Successful - Sun Nov 19 20:20:07 2023
 Revision Name : hdl
-Top-level Entity Name : ElementAdditionCutBipolar_F
+Top-level Entity Name : BundleKernelMapper
 Family : Cyclone 10 GX

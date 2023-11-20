@@ -158,7 +158,7 @@
           </parameter>
           <parameter>
             <name>gen_enable</name>
-            <value>true</value>
+            <value>false</value>
           </parameter>
           <parameter>
             <name>latency_feedback</name>
@@ -225,7 +225,7 @@
         <className>altera_fp_functions</className>
         <version>19.1.7</version>
         <name>fp_functions_0</name>
-        <uniqueName>fp_add_altera_fp_functions_1917_3lb67iq</uniqueName>
+        <uniqueName>fp_add_altera_fp_functions_1917_vbqzuli</uniqueName>
         <nonce>0</nonce>
         <incidentConnections></incidentConnections>
         <path>fp_add.fp_functions_0</path>

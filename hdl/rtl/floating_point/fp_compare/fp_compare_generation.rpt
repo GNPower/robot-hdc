@@ -5,21 +5,21 @@ Info: fp_compare: "Transforming system: fp_compare"
 Info: fp_compare: "Naming system components in system: fp_compare"
 Info: fp_compare: "Processing generation queue"
 Info: fp_compare: "Generating: fp_compare"
-Info: fp_compare: "Generating: fp_compare_altera_fp_functions_1917_q54p7sy"
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 400 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 200 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 300 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 250 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 275 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 262 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 269 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 265 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 267 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 266 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 265 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 266 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_compare: "Generating: fp_compare_altera_fp_functions_1917_bazjwmi"
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 400 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 200 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 300 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 250 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 275 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 262 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 269 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 265 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 267 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 266 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 265 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 266 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
 Info: fp_functions_0: Could achieve 1 cycles latency maximum at Frequency 265 MHz, padding with registers to reach requested 1 cycles latency
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 265 -name fp_compare_altera_fp_functions_1917_q54p7sy -noChanValid -enable -enableHardFP 1 -printMachineReadable -lang VHDL -constrainLatency 1 -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 265 -name fp_compare_altera_fp_functions_1917_bazjwmi -noChanValid -enableHardFP 1 -printMachineReadable -lang VHDL -constrainLatency 1 -speedgrade 5 FPCompare 8 23 -2
 Info: fp_functions_0: DSP Blocks Used: 0
 Info: fp_functions_0: LUTs Used: 155
 Info: fp_functions_0: Memory Bits Used: 0
@@ -47,21 +47,21 @@ Info: fp_compare: "Transforming system: fp_compare"
 Info: fp_compare: "Naming system components in system: fp_compare"
 Info: fp_compare: "Processing generation queue"
 Info: fp_compare: "Generating: fp_compare"
-Info: fp_compare: "Generating: fp_compare_altera_fp_functions_1917_q54p7sy"
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 400 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 200 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 300 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 250 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 275 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 262 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 269 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 265 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 267 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 266 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 265 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 266 -name none -noChanValid -enable -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_compare: "Generating: fp_compare_altera_fp_functions_1917_bazjwmi"
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 400 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 200 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 300 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 250 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 275 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 262 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 269 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 265 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 267 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 266 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 265 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 266 -name none -noChanValid -enableHardFP 1 -printMachineReadable -noFileGenerate -speedgrade 5 FPCompare 8 23 -2
 Info: fp_functions_0: Could achieve 1 cycles latency maximum at Frequency 265 MHz, padding with registers to reach requested 1 cycles latency
-Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 265 -name fp_compare_altera_fp_functions_1917_q54p7sy -noChanValid -enable -enableHardFP 1 -printMachineReadable -lang VHDL -constrainLatency 1 -speedgrade 5 FPCompare 8 23 -2
+Info: fp_functions_0: D:/programs/intelfpga_pro/23.3/quartus/dspba/backend/windows64/cmdPolyEval -target Cyclone10GX -frequency 265 -name fp_compare_altera_fp_functions_1917_bazjwmi -noChanValid -enableHardFP 1 -printMachineReadable -lang VHDL -constrainLatency 1 -speedgrade 5 FPCompare 8 23 -2
 Info: fp_functions_0: DSP Blocks Used: 0
 Info: fp_functions_0: LUTs Used: 155
 Info: fp_functions_0: Memory Bits Used: 0

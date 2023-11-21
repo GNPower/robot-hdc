@@ -21,7 +21,7 @@ namespace eval fp_add {
     set design_files [list]
     lappend design_files "vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS  \"[normalize_path "$QSYS_SIMDIR/../altera_fp_functions_1917/sim/dspba_library_package.vhd"]\"  -work altera_fp_functions_1917"                  
     lappend design_files "vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS  \"[normalize_path "$QSYS_SIMDIR/../altera_fp_functions_1917/sim/dspba_library.vhd"]\"  -work altera_fp_functions_1917"                          
-    lappend design_files "vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS  \"[normalize_path "$QSYS_SIMDIR/../altera_fp_functions_1917/sim/fp_add_altera_fp_functions_1917_3lb67iq.vhd"]\"  -work altera_fp_functions_1917"
+    lappend design_files "vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS  \"[normalize_path "$QSYS_SIMDIR/../altera_fp_functions_1917/sim/fp_add_altera_fp_functions_1917_vbqzuli.vhd"]\"  -work altera_fp_functions_1917"
     lappend design_files "vlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS  \"[normalize_path "$QSYS_SIMDIR/fp_add.v"]\"  -work fp_add"                                                                                  
     return $design_files
   }

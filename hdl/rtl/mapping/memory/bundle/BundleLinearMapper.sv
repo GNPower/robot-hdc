@@ -5,7 +5,9 @@
 module BundleLinearMapper
 #(
 	parameter HV_DATA_WIDTH	= 32,
-	parameter HV_ADDRESS_WIDTH = 20
+	parameter HV_ADDRESS_WIDTH = 20,
+	
+	parameter MAX_HYPERVECTOR_LENGTH = 4
 )
 (
 	//////////////////////////////
@@ -25,7 +27,7 @@ module BundleLinearMapper
 	hvc,
 	hv_offset,
 	
-	// bundling mode
+	// bundling mode (0 = A&B, 1 = A->B)
 	mode,
 	
 	// dpram signals
@@ -83,26 +85,29 @@ output logic done;
 //////////////////////////////
 
 // address control signals
-output k_valid;
-output k_first;
-output k_last;
+output logic k_valid;
+output logic k_first;
+output logic k_last;
 
 // data
-output [HV_DATA_WIDTH-1:0] k_data_in;
-input [HV_DATA_WIDTH-1:0] k_data_out;
+output logic [HV_DATA_WIDTH-1:0] k_data_in;
+input logic [HV_DATA_WIDTH-1:0] k_data_out;
 
 // output control signals
-input k_ready;
-input k_done;
+input logic k_ready;
+input logic k_done;
 
 
 
-
-logic [HV_DATA_WIDTH-1:0] buff1;
-//logic [HV_DATA_WIDTH-1:0] buff2;
-assign k_data_in = buff1;
+logic buff_loaded;
+logic [HV_DATA_WIDTH-1:0] buff;
 
 logic [HV_ADDRESS_WIDTH-1:0] addr_counter;
+
+assign k_valid 	= k_ready & buff_loaded;
+assign k_first 	= k_valid & (addr_counter == 0);
+assign k_last 		= k_valid & (hva + addr_counter == hvb);
+assign k_data_in 	= buff;
 
 
 MapperBundleLinear_State_t state;
@@ -112,31 +117,34 @@ always_ff @(posedge clk or negedge reset_n) begin
 		// module state
 		state <= S_IDLE;
 		// output
-		done <= 1'b0;
+		done <= 1'b1;
 		we_n <= 1'b1;
-		address <= {HV_ADDRESS_WIDTH{1'b0}};
+		address <= {HV_ADDRESS_WIDTH{1'b1}};
 		data_wr <= {HV_DATA_WIDTH{1'b0}};
 		// internal enables
 		// internal registers
-		buff1 <= {HV_DATA_WIDTH{1'b0}};
-//		buff2 <= {HV_DATA_WIDTH{1'b0}};
+		buff_loaded <= 1'b0;
+		buff <= {HV_DATA_WIDTH{1'b0}};
 		addr_counter <= {HV_ADDRESS_WIDTH{1'b0}};
 	end else begin
 	
 		case(state)
 		
 			S_IDLE:	begin
+							we_n <= 1'b1;
 							done <= 1'b1;
+							buff_loaded <= 1'b0;
 							
-							if(valid) begin
+							if(valid & k_ready) begin
 								done <= 1'b0;
 								// request the first address from memory (HVA[offset])
 								address <= hva + hv_offset;
 								we_n <= 1'b1;
 								
-								// advence to the next mode
+								// advance to the next mode
 								if (mode) begin
 									// We are bundling all A->B
+									addr_counter <= 1'b0;
 									state <= S_MAPA_0;
 								end else begin
 									// We are just bundling A&B
@@ -151,8 +159,44 @@ always_ff @(posedge clk or negedge reset_n) begin
 						end
 						
 			S_MAPA_0:	begin
-			
 							
+							// request the next address from memory (HVA[offset]+1)
+							address <= hva + hv_offset + addr_counter + MAX_HYPERVECTOR_LENGTH; // OLD:  hva + hv_offset + addr_counter + 1'b1
+							we_n <= 1'b1;
+							
+							// Delay 1 cycle for memory read
+							state <= S_MAPA_1;
+			
+						end
+						
+			S_MAPA_1:	begin
+			
+							// HVA[offset] is ready, buffer it
+							buff <= data_rd;
+							buff_loaded <= 1'b1;
+							
+							// Delay 0 cycle for memory read
+							state <= S_MAPA_2;
+			
+						end
+						
+			S_MAPA_2:	begin
+			
+							// Kernel is ready and HVA[offset]+addr_counter is being read this cycle
+							if (k_valid) begin
+								buff <= data_rd;
+								buff_loaded <= 1'b0;
+								// increment addr_counter
+								addr_counter <= addr_counter + MAX_HYPERVECTOR_LENGTH; // OLD: addr_counter + 1'b1
+								if (addr_counter == (hvb - hva)) begin
+									buff_loaded <= 1'b0;
+									state <= S_WRITE_0;
+								end else begin
+									state <= S_MAPA_0;
+								end								
+							end else begin
+								state <= S_MAPA_2;
+							end
 			
 						end
 						
@@ -160,41 +204,49 @@ always_ff @(posedge clk or negedge reset_n) begin
 			
 							// request the final address from memory (HVB[offset])
 							address <= hvb + hv_offset;
-							we_n <= 1'b1;
-							// HVA[offset] is ready, buffer it
-							buff1 <= data_rd;
-							// signal to bundle kernel we are  ready
-							k_valid <= 1'b1;
-							k_first <= 1'b1;
+							we_n <= 1'b1;							
 							
+							// Delay 1 cycle for memory read
 							state <= S_MAPB_1;
 			
 						end
 						
 			S_MAPB_1:	begin
-							k_first <= 1'b0;
 							
-							// HVB[offset] is ready, buffer it
-							buff1 <= data_rd;
+							// set addr_counter to 0 so k_first is asserted next cycle
+							addr_counter <= 0;
+							// HVA[offset] is ready, buffer it
+							buff <= data_rd;
+							buff_loaded <= 1'b1;
 							
-							if (k_ready) begin
-								k_valid <= 1'b1;
-								k_last <= 1'b1;
-								state <= S_WRITE_0;
-							end else begin
-								k_valid <= 1'b0;
-								state <= S_MAPB_2;
-							end
-							
+							// Delay 0 cycle for memory read
+							state <= S_MAPB_2;
 				
 						end
 						
 			S_MAPB_2:	begin
 			
-							if (k_ready) begin
-								k_valid <= 1'b1;
-								k_last <= 1'b1;
+							// Kernel is ready and HVA[offset] is being read this cycle
+							if (k_valid) begin
+								buff <= data_rd;
+								buff_loaded <= 1'b1;
+								// increment addr_counter so k_last is asserted next cycle
+								addr_counter <= hvb - hva;
+								state <= S_MAPB_3;
+							end else begin
+								state <= S_MAPB_2;
+							end
+			
+						end
+						
+			S_MAPB_3:	begin
+			
+							// Kernel is ready and HVB[offset] is being read this cycle
+							if (k_valid) begin
+								buff_loaded <= 1'b0;
 								state <= S_WRITE_0;
+							end else begin
+								state <= S_MAPB_2;
 							end
 			
 						end
@@ -204,6 +256,7 @@ always_ff @(posedge clk or negedge reset_n) begin
 							if (k_done) begin
 								address <= hvc + hv_offset;
 								data_wr <= k_data_out;
+								we_n <= 1'b0;
 								done <= 1'b1;
 								state <= S_IDLE;
 							end

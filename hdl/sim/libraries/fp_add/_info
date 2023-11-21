@@ -10,22 +10,22 @@ z2
 cModel Technology
 Z0 dD:/School/Grad/Code/my_hdc/hdl/sim
 vfp_add
-!s110 1700026077
+!s110 1700528245
 !i10b 1
-!s100 D^OjU^J:gO;YY]Wh754G>0
-I<D9GiLXBGA1HobdBWj7I`0
+!s100 dO=TcX8_F:c?@lMz4i?Z_0
+I4>c5`@<:AmEg_3dilzg3I2
 R0
-w1699036459
+w1700352379
 8../rtl/floating_point/fp_add/sim/fp_add.v
 F../rtl/floating_point/fp_add/sim/fp_add.v
 !i122 0
-L0 6 19
+L0 6 17
 VDg1SIo80bB@j0V0VzS_@n1
 OV;L;2021.1;73
 r1
 !s85 0
 31
-!s108 1700026077.000000
+!s108 1700528245.000000
 !s107 ../rtl/floating_point/fp_add/sim/fp_add.v|
 !s90 -reportprogress|300|../rtl/floating_point/fp_add/sim/fp_add.v|-work|fp_add|
 !i113 1

@@ -1,0 +1,21 @@
+`timescale 1ns/100ps
+
+`include "BundleKernelMapper_State.h"
+
+module BundleKernelGenerator
+#(
+	parameter HV_DATA_WIDTH	= 32,
+	parameter HV_ADDRESS_WIDTH = 20
+)
+(
+	// clock and reset signals
+	clk,
+	reset_n,
+	
+);
+
+
+
+MapperBundleKernel_State_t state;
+
+endmodule;

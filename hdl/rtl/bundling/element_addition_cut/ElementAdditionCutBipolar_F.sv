@@ -4,7 +4,9 @@
 
 module ElementAdditionCutBipolar_F
 #(
-	parameter HV_DATA_WIDTH	= 32
+	parameter HV_DATA_WIDTH	= 32,
+	parameter [HV_DATA_WIDTH-1:0] CUT_POS = 32'b00111111100000000000000000000000,
+	parameter [HV_DATA_WIDTH-1:0] CUT_NEG = 32'b10111111100000000000000000000000
 )
 (
 	// clock and reset signals
@@ -41,22 +43,18 @@ output logic done;
 
 logic [HV_DATA_WIDTH-1:0] accumulate;
 
-
-logic add_en;
-logic comp_en;
 logic c_leq_max;
 logic c_leq_min;
+logic last_latch;
 
 logic [31:0] adder_out;
 
 
 assign data_out = c_leq_max ? (c_leq_min ? CUT_NEG : accumulate ) : CUT_POS;
 
-
 fp_add fp_add_inst (
 	.clk(clk),
 	.areset(~reset_n),
-	.en(add_en),
 	
 	.a(data_in),
 	.b(accumulate),
@@ -66,7 +64,6 @@ fp_add fp_add_inst (
 fp_compare c_leq_max_inst (
 	.clk(clk),
 	.areset(~reset_n),
-	.en(comp_en),
 	
 	.a(accumulate),
 	.b(CUT_POS),
@@ -76,7 +73,6 @@ fp_compare c_leq_max_inst (
 fp_compare c_leq_min_inst (
 	.clk(clk),
 	.areset(~reset_n),
-	.en(comp_en),
 	
 	.a(accumulate),
 	.b(CUT_NEG),
@@ -90,14 +86,12 @@ always_ff @(posedge clk or negedge reset_n) begin
 	if(!reset_n) begin
 		// module state
 		state <= S_IDLE;
+		last_latch <= 1'b0;
 		// output
 		done <= 1'b0;
-		ready <= 1'b1;
-		// internal enables
-		comp_en <= 1'b0;
-		add_en <= 1'b0;
+		ready <= 1'b0;
 		// accumulator
-		accumulate <= {HV_DATA_WIDTH{1'b0}};		
+		accumulate <= {HV_DATA_WIDTH{1'b0}};	
 	end else begin
 		
 		case (state)
@@ -105,14 +99,13 @@ always_ff @(posedge clk or negedge reset_n) begin
 			S_IDLE:			begin
 									done <= 1'b1;
 									ready <= 1'b1;
+									last_latch <= 1'b0;
 									
 									if (valid) begin
 										// Load the first data directly into the register								
 										accumulate <= data_in;
 										// we are no longer done (but still ready for data on the next cycle)
 										done <= 1'b0;
-										// add_en goes high early so we can catch the next bit of data
-										add_en <= 1'b1;
 										// Advance states
 										state <= S_DATA_WAIT_0;
 									end else begin
@@ -124,11 +117,13 @@ always_ff @(posedge clk or negedge reset_n) begin
 			S_DATA_WAIT_0:	begin
 				
 									// If we are valid again we can start accumulating
-									if (valid) begin
-										// we've caught the data this cycle so we don't need add_en anymore
-										add_en <= 1'b0;
+									if (valid) begin										
 										// disable ready since FP_ADD has latency
 										ready <= 1'b0;
+										// latch the last flag to remember if we are done later
+										if (last) begin
+											last_latch <= 1'b1;
+										end
 										// advance to accumulate state
 										state <= S_FPADD_0;
 									// otherwise we stick around until data is here
@@ -140,21 +135,14 @@ always_ff @(posedge clk or negedge reset_n) begin
 						
 			S_FPADD_0:		begin
 			
-									// Wait for 3 clock cycles
+									// Wait for 1 clock cycles
 									state <= S_FPADD_1;
 									
 								end
 							
-			S_FPADD_1:		begin
+			S_FPADD_1:		begin											
 			
-									// Wait for 2 clock cycles
-									state <= S_FPADD_2;
-				
-								end
-							
-			S_FPADD_2:		begin
-			
-									// Wait for 1 clock cycles						
+									// Wait for 0 clock cycles
 									state <= S_ACCUM;
 				
 								end
@@ -164,31 +152,18 @@ always_ff @(posedge clk or negedge reset_n) begin
 									// Add data is ready, send it to the accumulator
 									accumulate <= adder_out;
 									// If this was the last data, move to the output state
-									if (last) begin
-										// Start the cut comparison
-										comp_en <= 1'b1;
-										// Move to comparison state
-										state <= S_COMP;
+									if (last_latch) begin										
+										done <= 1'b1;
+										ready <= 1'b1;
+										
+										state <= S_IDLE;
 									end else begin
 										// Indicate we're done with this add and are ready for the next
 										ready <= 1'b1;
-										// add_en goes high early so we can catch the next bit of data
-										add_en <= 1'b1;
 										// Move back to waiting for new data
 										state <= S_DATA_WAIT_0;
 									end									
 													
-								end
-							
-			S_COMP:			begin
-			
-									// Output is ready, go back to idle and wait to start again
-									comp_en <= 1'b0;
-									done <= 1'b1;
-									ready <= 1'b1;
-									
-									state <= S_IDLE;
-				
 								end
 		
 		endcase

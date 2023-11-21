@@ -115,7 +115,12 @@ always_ff @(posedge clk or negedge reset_n) begin
 								hvc_latch <= hvc;
 								mode_latch <= mode;
 								
-								state <= S_MAP_0;
+								if (vec_length < NUM_PARALLEL_KERNELS) begin
+									state <= S_MAP_3;
+								end else begin
+									state <= S_MAP_0;
+								end								
+								
 							end
 			
 						end
@@ -149,8 +154,11 @@ always_ff @(posedge clk or negedge reset_n) begin
 							if (all_kernels_complete) begin
 								if (group_offset >= NUM_PARALLEL_KERNELS) begin
 									state <= S_MAP_0;
-								end else begin
+								end else if (group_offset > 0) begin
 									state <= S_MAP_3;
+								end else begin
+									done <= 1'b1;
+									state <= S_IDLE;
 								end
 							end
 			
@@ -166,11 +174,22 @@ always_ff @(posedge clk or negedge reset_n) begin
 								end
 							end
 							
+							group_offset <= 0;
 							state <= S_MAP_4;
 			
 						end
 						
 			S_MAP_4:	begin
+			
+							for (k = 0; k < NUM_PARALLEL_KERNELS; k = k + 1) begin
+								k_valid[k] <= 1'b0;						
+							end
+
+							state <= S_MAP_5;
+			
+						end
+						
+			S_MAP_5:	begin
 			
 							for (k = 0; k < NUM_PARALLEL_KERNELS; k = k + 1) begin
 								k_valid[k] <= 1'b0;						

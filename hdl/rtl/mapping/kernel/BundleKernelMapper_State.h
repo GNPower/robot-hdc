@@ -8,7 +8,8 @@ typedef enum logic[2:0] {
 	S_MAP_1,
 	S_MAP_2,
 	S_MAP_3,
-	S_MAP_4
+	S_MAP_4,
+	S_MAP_5
 } MapperBundleKernel_State_t;
 
 

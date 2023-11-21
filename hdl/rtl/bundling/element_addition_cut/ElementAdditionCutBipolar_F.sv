@@ -116,6 +116,7 @@ always_ff @(posedge clk or negedge reset_n) begin
 			S_IDLE:			begin
 									done <= 1'b1;
 									ready <= 1'b1;
+									last_latch <= 1'b0;
 									
 									if (valid) begin
 										// Load the first data directly into the register								

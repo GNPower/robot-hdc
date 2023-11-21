@@ -54,42 +54,70 @@ add wave -bin UUT/KernelNum[0]/KernelGen_Inst/MemMap/MemoryMapper_Inst/done
 add wave -bin UUT/KernelNum[0]/KernelGen_Inst/MemMap/MemoryMapper_Inst/buff_loaded
 add wave -bin UUT/KernelNum[0]/KernelGen_Inst/MemMap/MemoryMapper_Inst/buff
 add wave -uns UUT/KernelNum[0]/KernelGen_Inst/MemMap/MemoryMapper_Inst/addr_counter
+add wave -bin UUT/KernelNum[0]/KernelGen_Inst/MemMap/MemoryMapper_Inst/we_n
+add wave -uns UUT/KernelNum[0]/KernelGen_Inst/MemMap/MemoryMapper_Inst/address
+add wave -hex UUT/KernelNum[0]/KernelGen_Inst/MemMap/MemoryMapper_Inst/data_wr
+add wave -hex UUT/KernelNum[0]/KernelGen_Inst/MemMap/MemoryMapper_Inst/data_rd
 
-add wave -divider -height 20 {Memory Mapper Inst 1}
-add wave -uns UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/state
-add wave -bin UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/valid
-add wave -uns UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hva
-add wave -uns UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hvb
-add wave -uns UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hvc
-add wave -uns UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hv_offset
-add wave -bin UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/mode
-add wave -bin UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/done
-add wave -bin UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/buff_loaded
-add wave -bin UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/buff
-add wave -uns UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/addr_counter
+add wave -divider -height 20 {Bundle Kernel Inst 0}
+add wave -uns UUT/KernelNum[0]/KernelGen_Inst/Kernel/Kernel_Inst/state
+add wave -bin UUT/KernelNum[0]/KernelGen_Inst/Kernel/Kernel_Inst/valid
+add wave -bin UUT/KernelNum[0]/KernelGen_Inst/Kernel/Kernel_Inst/first
+add wave -bin UUT/KernelNum[0]/KernelGen_Inst/Kernel/Kernel_Inst/last
+add wave -hex UUT/KernelNum[0]/KernelGen_Inst/Kernel/Kernel_Inst/data_in
+add wave -hex UUT/KernelNum[0]/KernelGen_Inst/Kernel/Kernel_Inst/data_out
+add wave -bin UUT/KernelNum[0]/KernelGen_Inst/Kernel/Kernel_Inst/ready
+add wave -bin UUT/KernelNum[0]/KernelGen_Inst/Kernel/Kernel_Inst/done
+add wave -hex UUT/KernelNum[0]/KernelGen_Inst/Kernel/Kernel_Inst/accumulate
 
-add wave -divider -height 20 {Memory Mapper Inst 2}
-add wave -uns UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/state
-add wave -bin UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/valid
-add wave -uns UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hva
-add wave -uns UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hvb
-add wave -uns UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hvc
-add wave -uns UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hv_offset
-add wave -bin UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/mode
-add wave -bin UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/done
-add wave -bin UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/buff_loaded
-add wave -bin UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/buff
-add wave -uns UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/addr_counter
+#add wave -divider -height 20 {Memory Mapper Inst 1}
+#add wave -uns UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/state
+#add wave -bin UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/valid
+#add wave -uns UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hva
+#add wave -uns UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hvb
+#add wave -uns UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hvc
+#add wave -uns UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hv_offset
+#add wave -bin UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/mode
+#add wave -bin UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/done
+#add wave -bin UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/buff_loaded
+#add wave -bin UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/buff
+#add wave -uns UUT/KernelNum[1]/KernelGen_Inst/MemMap/MemoryMapper_Inst/addr_counter
 
-add wave -divider -height 20 {Memory Mapper Inst 3}
-add wave -uns UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/state
-add wave -bin UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/valid
-add wave -uns UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hva
-add wave -uns UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hvb
-add wave -uns UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hvc
-add wave -uns UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hv_offset
-add wave -bin UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/mode
-add wave -bin UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/done
-add wave -bin UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/buff_loaded
-add wave -bin UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/buff
-add wave -uns UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/addr_counter
+#add wave -divider -height 20 {Memory Mapper Inst 2}
+#add wave -uns UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/state
+#add wave -bin UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/valid
+#add wave -uns UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hva
+#add wave -uns UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hvb
+#add wave -uns UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hvc
+#add wave -uns UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hv_offset
+#add wave -bin UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/mode
+#add wave -bin UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/done
+#add wave -bin UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/buff_loaded
+#add wave -bin UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/buff
+#add wave -uns UUT/KernelNum[2]/KernelGen_Inst/MemMap/MemoryMapper_Inst/addr_counter
+
+#add wave -divider -height 20 {Memory Mapper Inst 3}
+#add wave -uns UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/state
+#add wave -bin UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/valid
+#add wave -uns UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hva
+#add wave -uns UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hvb
+#add wave -uns UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hvc
+#add wave -uns UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hv_offset
+#add wave -bin UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/mode
+#add wave -bin UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/done
+#add wave -bin UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/buff_loaded
+#add wave -bin UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/buff
+#add wave -uns UUT/KernelNum[3]/KernelGen_Inst/MemMap/MemoryMapper_Inst/addr_counter
+
+#add wave -divider -height 20 {Memory Mapper Inst 4}
+#add wave -uns UUT/KernelNum[4]/KernelGen_Inst/MemMap/MemoryMapper_Inst/state
+#add wave -bin UUT/KernelNum[4]/KernelGen_Inst/MemMap/MemoryMapper_Inst/valid
+#add wave -uns UUT/KernelNum[4]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hva
+#add wave -uns UUT/KernelNum[4]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hvb
+#add wave -uns UUT/KernelNum[4]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hvc
+#add wave -uns UUT/KernelNum[4]/KernelGen_Inst/MemMap/MemoryMapper_Inst/hv_offset
+#add wave -bin UUT/KernelNum[4]/KernelGen_Inst/MemMap/MemoryMapper_Inst/mode
+#add wave -bin UUT/KernelNum[4]/KernelGen_Inst/MemMap/MemoryMapper_Inst/done
+#add wave -bin UUT/KernelNum[4]/KernelGen_Inst/MemMap/MemoryMapper_Inst/buff_loaded
+#add wave -bin UUT/KernelNum[4]/KernelGen_Inst/MemMap/MemoryMapper_Inst/buff
+#add wave -uns UUT/KernelNum[4]/KernelGen_Inst/MemMap/MemoryMapper_Inst/addr_counter

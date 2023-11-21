@@ -98,14 +98,24 @@ def TransposeVectorDerivedTransformation(*hypervectors: np.ndarray) -> np.ndarra
     result = np.squeeze(np.asarray(result @ x_m))
 
 
-def MatrixMultiplication(*hypervectors: np.ndarray) -> np.ndarray:
-    # TODO
-    pass
+def MatrixMultiplication(*hypervectors: np.ndarray, matrices: np.ndarray) -> np.ndarray:
+    hvs = __GetHypervectorAsList(*hypervectors)
+    if (len(hvs) != len(matrices)-1):
+        raise TypeError("N-1 unique orthogonal matrices required for binding N matrices")
+    result = hvs[0]
+    for i in range(len(hvs)-1):
+        result = (result + hvs[i+1])*matrices[i]
+    return result
 
 
-def InverseMatrixMultiplication(*hypervectors: np.ndarray) -> np.ndarray:
-    # TODO
-    pass
+def InverseMatrixMultiplication(*hypervectors: np.ndarray, matrices: np.ndarray) -> np.ndarray:
+    hvs = __GetHypervectorAsList(*hypervectors)
+    if (len(hvs) != len(matrices)-1):
+        raise TypeError("N-1 unique orthogonal matrices required for binding N matrices")
+    result = hvs[0]
+    for i in range(len(hvs)-1):
+        result = (result * matrices[i].transpose()) - hvs[i+1]
+    return result
 
 
 def ExclusiveOr(*hypervectors: np.ndarray) -> np.ndarray:
@@ -114,6 +124,8 @@ def ExclusiveOr(*hypervectors: np.ndarray) -> np.ndarray:
 
 
 def Shifting(*hypervectors: np.ndarray) -> np.ndarray:
+    
+
     # TODO
     pass
 

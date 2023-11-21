@@ -17,3 +17,5 @@ set_global_assignment -name IP_FILE ../rtl/floating_point/fp_compare.ip
 set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/mapping/memory/bundle/BundleLinearMapper.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/mapping/kernel/BundleKernelMapper.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/mapping/kernel/BundleKernelGenerator.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/binding/element_multiplication/ElementMultiplication_F.sv
+set_global_assignment -name IP_FILE ../rtl/floating_point/fp_mult.ip

@@ -43,9 +43,6 @@ output logic done;
 
 logic [HV_DATA_WIDTH-1:0] accumulate;
 
-
-//logic add_en;
-//logic comp_en;
 logic c_leq_max;
 logic c_leq_min;
 logic last_latch;
@@ -55,25 +52,18 @@ logic [31:0] adder_out;
 
 assign data_out = c_leq_max ? (c_leq_min ? CUT_NEG : accumulate ) : CUT_POS;
 
-//logic [31:0] data1;
-//logic [31:0] data2;
-
 fp_add fp_add_inst (
 	.clk(clk),
 	.areset(~reset_n),
-	//.en(add_en),
 	
 	.a(data_in),
 	.b(accumulate),
-	//.a(data1),
-	//.b(data2),
 	.q(adder_out)
 );
 
 fp_compare c_leq_max_inst (
 	.clk(clk),
 	.areset(~reset_n),
-	//.en(comp_en),
 	
 	.a(accumulate),
 	.b(CUT_POS),
@@ -83,7 +73,6 @@ fp_compare c_leq_max_inst (
 fp_compare c_leq_min_inst (
 	.clk(clk),
 	.areset(~reset_n),
-	//.en(comp_en),
 	
 	.a(accumulate),
 	.b(CUT_NEG),
@@ -101,14 +90,8 @@ always_ff @(posedge clk or negedge reset_n) begin
 		// output
 		done <= 1'b0;
 		ready <= 1'b0;
-		// internal enables
-		//comp_en <= 1'b0;
-		//add_en <= 1'b0;
 		// accumulator
 		accumulate <= {HV_DATA_WIDTH{1'b0}};	
-		// junk
-		//data1 <= 32'b00111111100000000000000000000000;
-		//data2 <= 32'b01000000000000000000000000000000;
 	end else begin
 		
 		case (state)
@@ -157,58 +140,31 @@ always_ff @(posedge clk or negedge reset_n) begin
 									
 								end
 							
-			S_FPADD_1:		begin
-			
-									
+			S_FPADD_1:		begin											
 			
 									// Wait for 0 clock cycles
 									state <= S_ACCUM;
 				
 								end
-							
-//			S_FPADD_2:		begin
-//			
-//									// Wait for 1 clock cycles						
-//									state <= S_ACCUM;
-//				
-//								end
 								
 			S_ACCUM:			begin
 			
 									// Add data is ready, send it to the accumulator
 									accumulate <= adder_out;
 									// If this was the last data, move to the output state
-									if (last_latch) begin
-										// Start the cut comparison
-										//comp_en <= 1'b1;
-										// Move to comparison state
-//										state <= S_COMP;
-
+									if (last_latch) begin										
 										done <= 1'b1;
 										ready <= 1'b1;
 										
 										state <= S_IDLE;
-
 									end else begin
 										// Indicate we're done with this add and are ready for the next
 										ready <= 1'b1;
-										// add_en goes high early so we can catch the next bit of data
-										//add_en <= 1'b1;
 										// Move back to waiting for new data
 										state <= S_DATA_WAIT_0;
 									end									
 													
 								end
-							
-//			S_COMP:			begin
-//			
-//									// Output is ready, go back to idle and wait to start again
-//									done <= 1'b1;
-//									ready <= 1'b1;
-//									
-//									state <= S_IDLE;
-//				
-//								end
 		
 		endcase
 				

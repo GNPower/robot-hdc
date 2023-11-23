@@ -2,7 +2,7 @@
 `default_nettype none
 
 // the top module of the testbench
-module MemoryMapperTB;
+module BundleMemoryMapperTB;
 
 	localparam CLOCK_PERIOD_NS = 20;
 	localparam TESTBENCH_TIMEOUT_CLKS = 100;

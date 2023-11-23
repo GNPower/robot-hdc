@@ -1,0 +1,26 @@
+`timescale 1ns/100ps
+
+`include "CosineSimilarity_State.h"
+
+module CosineSimilarity_F
+#(
+	parameter HV_DATA_WIDTH	= 32
+)
+(
+	// clock and reset signals
+	clk,
+	reset_n,
+	
+	// address control signals
+	valid,
+	first,
+	last,
+	
+	// data
+	data_in,
+	data_out,
+	
+	// output control signals
+	ready,
+	done
+);

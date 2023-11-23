@@ -6,7 +6,7 @@ set waves $sim/waves
 if { $1 == 1 } {
 	set top BundleKernelTB
 } elseif { $1 == 2} {
-	set top MemoryMapperTB
+	set top BundleMemoryMapperTB
 } elseif { $1 == 3 } {
 	set top KernelMapperTB
 }

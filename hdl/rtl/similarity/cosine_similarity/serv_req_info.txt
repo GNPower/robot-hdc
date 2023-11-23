@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<internal_error>
+	<sub_system>ERR</sub_system>
+	<callstack>	0x7ffda7fd1390: dni_orch + 0x11390 (?unregister_callable@ORCH_STATE_MANAGER@@YA_NW4ORCH_STATE_APP_ENUM@@@Z + 0x3b40)
+	0x7ffdf25042d5: ucrtbase + 0x142d5 (_execute_onexit_table + 0x155)
+	0x7ffdf25041fa: ucrtbase + 0x141fa (_execute_onexit_table + 0x7a)
+	0x7ffdf25041b3: ucrtbase + 0x141b3 (_execute_onexit_table + 0x33)
+	0x7ffda7fcf0ac: dni_orch + 0xf0ac (?unregister_callable@ORCH_STATE_MANAGER@@YA_NW4ORCH_STATE_APP_ENUM@@@Z + 0x185c)
+	0x7ffda7fce38d: dni_orch + 0xe38d (?unregister_callable@ORCH_STATE_MANAGER@@YA_NW4ORCH_STATE_APP_ENUM@@@Z + 0xb3d)
+	0x7ffda7fce66d: dni_orch + 0xe66d (?unregister_callable@ORCH_STATE_MANAGER@@YA_NW4ORCH_STATE_APP_ENUM@@@Z + 0xe1d)
+	0x7ffdf45a9a1c: ntdll + 0x19a1c (RtlActivateActivationContextUnsafeFast + 0x11c)
+	0x7ffdf45faaaa: ntdll + 0x6aaaa (LdrUnloadAlternateResourceModuleEx + 0x2fa)
+	0x7ffdf45fa506: ntdll + 0x6a506 (RtlPushFrame + 0x86)
+	0x7ffdf45fa757: ntdll + 0x6a757 (RtlPushFrame + 0x2d7)
+	0x7ffdf45fa757: ntdll + 0x6a757 (RtlPushFrame + 0x2d7)
+	0x7ffdf45fa757: ntdll + 0x6a757 (RtlPushFrame + 0x2d7)
+	0x7ffdf45fa757: ntdll + 0x6a757 (RtlPushFrame + 0x2d7)
+	0x7ffdf459fd09: ntdll + 0xfd09 (LdrUnloadDll + 0x119)
+	0x7ffdf459fc83: ntdll + 0xfc83 (LdrUnloadDll + 0x93)
+	0x7ffdf204acfd: KERNELBASE + 0x2acfd (FreeLibrary + 0x1d)
+	0x7ffdc4031c58: mega_qsysipc_jni_stub + 0x1c58 (Java_com_altera_qsys_ipc_QsysIPCNativeInterface_nativeShutDownJNIModule + 0x18)
+	0x284ee83986d:
+	0x2849a112aff:
+	0xcf21aff017:
+	0x284b042fcd7:
+	0x2849984cfff:
+	0x284ee839521:
+	0xcf21afefd7:
+	0x2849a112aff:
+	0xcf21aff037:
+	0x2849a115f6f:
+</callstack>
+	<error>*** Fatal Error: Access Violation at 00007FFDA7FD1391</error>
+	<date>Thu Nov 23 08:52:10 2023
+</date>
+	<version>Version 23.3.0 Build 104 09/20/2023 SC Pro Edition</version>
+</internal_error>

@@ -38,6 +38,9 @@ output logic [HV_DATA_WIDTH-1:0] data_out;
 output logic ready;
 output logic done;
 
+logic [HV_DATA_WIDTH-1:0] a_latch;
+logic [HV_DATA_WIDTH-1:0] last_latch;
+
 logic [HV_DATA_WIDTH-1:0] AB_mult_out;
 logic [HV_DATA_WIDTH-1:0] AA_mult_out;
 logic [HV_DATA_WIDTH-1:0] BB_mult_out;
@@ -118,11 +121,41 @@ always_ff @(posedge clk or negedge reset_n) begin
 		
 		case (state):
 		
-			S_IDLE: 	begin
+			S_IDLE: 		begin
+								done <= 1'b1;
+								ready <= 1'b1;
+								
+								if (valid & first) begin
+									// Load the first data into a_latch
+									a_latch <= data_in;
+									// we are no longer done (but still ready for data on the next cycle)
+									done <= 1'b0;
+									// Advance states
+									state <= S_DATA_WAIT_1;
+								end else begin
+									state <= S_IDLE;
+								end
 			
+							end
+						
+		S_DATA_WAIT_0:	begin
+		
+							end
 							
-			
-						end
+		S_DATA_WAIT_1:	begin
+		
+								// If we are valid again we can start multiplying
+								if (valid & last) begin
+									// disable ready since FP_MULT has latency
+									ready <= 1'b0;
+									// advance to multiply state
+									state <= S_FPMULT_0;
+								// otherwise we stick around until data is here
+								end else begin
+									state <= S_DATA_WAIT_0;
+								end
+		
+							end
 		
 		endcase
 		

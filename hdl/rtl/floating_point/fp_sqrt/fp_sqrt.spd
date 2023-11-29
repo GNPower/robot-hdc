@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file
+   path="altera_fp_functions_1917/sim/fp_sqrt_altera_fp_functions_1917_hchdkjq_memoryC0_uid62_sqrtTables_lutmem.hex"
+   type="HEX"
+   library="altera_fp_functions_1917" />
+ <file
+   path="altera_fp_functions_1917/sim/fp_sqrt_altera_fp_functions_1917_hchdkjq_memoryC1_uid65_sqrtTables_lutmem.hex"
+   type="HEX"
+   library="altera_fp_functions_1917" />
+ <file
+   path="altera_fp_functions_1917/sim/fp_sqrt_altera_fp_functions_1917_hchdkjq_memoryC2_uid68_sqrtTables_lutmem.hex"
+   type="HEX"
+   library="altera_fp_functions_1917" />
+ <file
+   path="altera_fp_functions_1917/sim/dspba_library_package.vhd"
+   type="VHDL"
+   library="altera_fp_functions_1917" />
+ <file
+   path="altera_fp_functions_1917/sim/dspba_library.vhd"
+   type="VHDL"
+   library="altera_fp_functions_1917" />
+ <file
+   path="altera_fp_functions_1917/sim/fp_sqrt_altera_fp_functions_1917_hchdkjq.vhd"
+   type="VHDL"
+   library="altera_fp_functions_1917" />
+ <file
+   path="sim/fp_sqrt.v"
+   type="VERILOG"
+   library="fp_sqrt"
+   hasInlineConfiguration="true" />
+ <topLevel name="fp_sqrt.fp_sqrt" />
+ <deviceFamily name="cyclone10gx" />
+ <device name="10CX220YF780I5G" />
+</simPackage>

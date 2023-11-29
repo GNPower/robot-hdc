@@ -1,6 +1,6 @@
 `timescale 1ns/100ps
 
-`include "BundleLinearMapper_State.h"
+`include "BindDirectMapper_State.h"
 
 module BindDirectMapper
 #(
@@ -68,8 +68,6 @@ input logic [HV_ADDRESS_WIDTH-1:0] hvb;
 input logic [HV_ADDRESS_WIDTH-1:0] hvc;
 input logic [HV_ADDRESS_WIDTH-1:0] hv_offset;
 
-input logic mode;
-
 output logic we_n;
 output logic [HV_ADDRESS_WIDTH-1:0] address;
 output logic [HV_DATA_WIDTH-1:0] data_wr;
@@ -97,6 +95,10 @@ input logic k_done;
 
 logic [HV_DATA_WIDTH-1:0] buff;
 
+
+MapperBindDirect_State_t state;
+
+
 assign k_valid = (
 						(state == S_MAPB_1) |
 						((state == S_MAPB_2) & k_ready) |
@@ -106,11 +108,9 @@ assign k_first = (state == S_MAPB_1) ? 1'b1 : 1'b0;
 assign k_last =  (
 						((state == S_MAPB_2) & k_ready) |
 						((state == S_WRITE_0) & k_ready & ~k_done)
-						) : 1'b1 : 1'b0;
+						) ? 1'b1 : 1'b0;
 assign k_data_in = (state == S_MAPB_1 | state == S_MAPB_2) ? data_rd : buff;
 
-
-MapperBindDirect_State_t state;
 
 always_ff @(posedge clk or negedge reset_n) begin
 	if(!reset_n) begin
@@ -122,11 +122,7 @@ always_ff @(posedge clk or negedge reset_n) begin
 		address <= {HV_ADDRESS_WIDTH{1'b1}};
 		data_wr <= {HV_DATA_WIDTH{1'b0}};
 		// internal enables
-		k_valid <= 1'b0;
-		k_first <= 1'b0;
-		k_last <= 1'b0;
 		// internal registers
-		buff_loaded <= 1'b0;
 		buff <= {HV_DATA_WIDTH{1'b0}};
 	end else begin
 	
@@ -135,9 +131,9 @@ always_ff @(posedge clk or negedge reset_n) begin
 			S_IDLE:	begin
 							we_n <= 1'b1;
 							done <= 1'b1;
-							buf_loaded <= 1'b0;
 							
 							if (valid & k_ready) begin
+								done <= 1'b0;
 								// request the first address from memory (HVA[offset])
 								address <= hva + hv_offset;
 								we_n <= 1'b1;
@@ -157,7 +153,7 @@ always_ff @(posedge clk or negedge reset_n) begin
 							we_n <= 1'b1;
 							
 							// Delay 1 cycle for memory read
-							state <= S_MAPA_1;
+							state <= S_MAPB_1;
 							
 						end
 						

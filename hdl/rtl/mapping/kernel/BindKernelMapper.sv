@@ -87,7 +87,6 @@ always_ff @(posedge clk or negedge reset_n) begin
 		hva_latch <= {HV_ADDRESS_WIDTH{1'b0}};
 		hvb_latch <= {HV_ADDRESS_WIDTH{1'b0}};
 		hvc_latch <= {HV_ADDRESS_WIDTH{1'b0}};
-		mode_latch <= 1'b0;
 		for (k = 0; k < NUM_PARALLEL_KERNELS; k = k + 1) begin
 			k_valid[k] <= 1'b0;
 			k_offset[k] <= {HV_ADDRESS_WIDTH{1'b0}};

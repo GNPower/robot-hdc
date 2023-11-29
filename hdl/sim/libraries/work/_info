@@ -2,15 +2,232 @@ m255
 K4
 z2
 !s11f vlog 2021.1 2021.02, Feb  3 2021
+13
 !s112 1.1
 !i10d 8192
 !i10e 25
 !i10f 100
 cModel Technology
 Z0 dD:/School/Grad/Code/my_hdc/hdl/sim
-vBundleKernelGenerator
+vBindDirectMapper
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1700528246
+DXx4 work 24 BindDirectMapper_sv_unit 0 22 2DF3?2B=bL[>E461CR[fM3
+Z2 !s110 1701231359
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+!i10b 1
+!s100 CXQ03421WVF95i;GPBoLH1
+IQECNBb?^1Fcohm>_kIdA@0
+!s105 BindDirectMapper_sv_unit
+S1
+R0
+Z4 w1701229339
+Z5 8../rtl/mapping/memory/bind/BindDirectMapper.sv
+Z6 F../rtl/mapping/memory/bind/BindDirectMapper.sv
+!i122 8
+L0 5 192
+Z7 OV;L;2021.1;73
+31
+Z8 !s108 1701231359.000000
+Z9 !s107 ../rtl/mapping/memory/bind/BindDirectMapper_State.h|../rtl/mapping/memory/bind/BindDirectMapper.sv|
+Z10 !s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../rtl/mapping/memory/bind/BindDirectMapper.sv|
+!i113 1
+o-sv
+Z11 !s92 -sv +define+DISABLE_DEFAULT_NET
+Z12 tCvgOpt 0
+n@bind@direct@mapper
+XBindDirectMapper_sv_unit
+R1
+R2
+V2DF3?2B=bL[>E461CR[fM3
+r1
+!s85 0
+!i10b 1
+!s100 =chmagYWNJFz3J4:B_QCD3
+I2DF3?2B=bL[>E461CR[fM3
+!i103 1
+S1
+R0
+R4
+R5
+R6
+F../rtl/mapping/memory/bind/BindDirectMapper_State.h
+!i122 8
+Z13 L0 5 0
+R7
+31
+R8
+R9
+R10
+!i113 1
+o-sv
+R11
+R12
+n@bind@direct@mapper_sv_unit
+vBindKernelGenerator
+R1
+R2
+!i10b 1
+!s100 EAQmdSaiPXjPOScV4]:zV0
+IVZhlGdJgS?Q@fCZ_aJH<z2
+S1
+R0
+w1700637264
+8../rtl/mapping/kernel/BindKernelGenerator.sv
+F../rtl/mapping/kernel/BindKernelGenerator.sv
+!i122 13
+L0 3 141
+R3
+R7
+r1
+!s85 0
+31
+R8
+!s107 ../rtl/mapping/kernel/BindKernelGenerator.sv|
+!s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../rtl/mapping/kernel/BindKernelGenerator.sv|
+!i113 1
+o-sv
+R11
+R12
+n@bind@kernel@generator
+vBindKernelMapper
+R1
+DXx4 work 24 BindKernelMapper_sv_unit 0 22 j<ho:mO^B;O>4^Km=[hg@0
+R2
+R3
+r1
+!s85 0
+!i10b 1
+!s100 AoLiJI9U;AG>0UN?M@;B<3
+I80<>X`NKO94n[EVRXUOkc2
+!s105 BindKernelMapper_sv_unit
+S1
+R0
+w1701148765
+Z14 8../rtl/mapping/kernel/BindKernelMapper.sv
+Z15 F../rtl/mapping/kernel/BindKernelMapper.sv
+!i122 12
+L0 5 235
+R7
+31
+R8
+Z16 !s107 ../rtl/mapping/kernel/BindKernelMapper_State.h|../rtl/mapping/kernel/BindKernelMapper.sv|
+Z17 !s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../rtl/mapping/kernel/BindKernelMapper.sv|
+!i113 1
+o-sv
+R11
+R12
+n@bind@kernel@mapper
+XBindKernelMapper_sv_unit
+R1
+R2
+Vj<ho:mO^B;O>4^Km=[hg@0
+r1
+!s85 0
+!i10b 1
+!s100 _X?4Tefki6H1D4MGHFJ6l2
+Ij<ho:mO^B;O>4^Km=[hg@0
+!i103 1
+S1
+R0
+w1701148975
+R14
+R15
+F../rtl/mapping/kernel/BindKernelMapper_State.h
+!i122 12
+R13
+R7
+31
+R8
+R16
+R17
+!i113 1
+o-sv
+R11
+R12
+n@bind@kernel@mapper_sv_unit
+vBindKernelMapperTB
+R1
+Z18 !s110 1701231360
+!i10b 1
+!s100 ZXbEV0Z8D8k_NhS9m?0Ij3
+IDRAfz7fW]D5=lc[hMjiYK0
+S1
+R0
+w1701230121
+8../tb/BindKernelMapper_tb.sv
+F../tb/BindKernelMapper_tb.sv
+!i122 15
+L0 5 239
+R3
+R7
+r1
+!s85 0
+31
+!s108 1701231360.000000
+!s107 ../tb/BindKernelMapper_tb.sv|
+!s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../tb/BindKernelMapper_tb.sv|
+!i113 1
+o-sv
+R11
+R12
+n@bind@kernel@mapper@t@b
+vBindKernelTB
+R1
+R2
+!i10b 1
+!s100 9^i2AGaMch[FzAcJD`>eZ0
+IT9fXa3dHYk>Wj;9216cEj1
+S1
+R0
+w1701226337
+8../tb/BindKernel_tb.sv
+F../tb/BindKernel_tb.sv
+!i122 3
+L0 5 173
+R3
+R7
+r1
+!s85 0
+31
+R8
+!s107 ../tb/BindKernel_tb.sv|
+!s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../tb/BindKernel_tb.sv|
+!i113 1
+o-sv
+R11
+R12
+n@bind@kernel@t@b
+vBindMemoryMapperTB
+R1
+R2
+!i10b 1
+!s100 fn]=HB2AOW4=G`FY0YcTJ0
+ITXIo>V8zF2_aMN8WN@<O:2
+S1
+R0
+w1701228637
+8../tb/BindMemoryMapper_tb.sv
+F../tb/BindMemoryMapper_tb.sv
+!i122 9
+L0 5 241
+R3
+R7
+r1
+!s85 0
+31
+R8
+!s107 ../tb/BindMemoryMapper_tb.sv|
+!s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../tb/BindMemoryMapper_tb.sv|
+!i113 1
+o-sv
+R11
+R12
+n@bind@memory@mapper@t@b
+vBundleKernelGenerator
+R1
+R2
 !i10b 1
 !s100 WedhhTl9X3RY@<0E<YK1L1
 IdcB@XWofnfY6>z7:B]gMH2
@@ -19,20 +236,20 @@ R0
 w1700497267
 8../rtl/mapping/kernel/BundleKernelGenerator.sv
 F../rtl/mapping/kernel/BundleKernelGenerator.sv
-!i122 6
+!i122 11
 L0 3 147
-Z3 VDg1SIo80bB@j0V0VzS_@n1
-Z4 OV;L;2021.1;73
+R3
+R7
 r1
 !s85 0
 31
-Z5 !s108 1700528246.000000
+R8
 !s107 ../rtl/mapping/kernel/BundleKernelGenerator.sv|
 !s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../rtl/mapping/kernel/BundleKernelGenerator.sv|
 !i113 1
 o-sv
-Z6 !s92 -sv +define+DISABLE_DEFAULT_NET
-Z7 tCvgOpt 0
+R11
+R12
 n@bundle@kernel@generator
 vBundleKernelMapper
 R1
@@ -47,20 +264,20 @@ I=[I81Rmi0bEQ`PCbhK0[l2
 !s105 BundleKernelMapper_sv_unit
 S1
 R0
-Z8 w1700527959
-Z9 8../rtl/mapping/kernel/BundleKernelMapper.sv
-Z10 F../rtl/mapping/kernel/BundleKernelMapper.sv
-!i122 5
+Z19 w1700527959
+Z20 8../rtl/mapping/kernel/BundleKernelMapper.sv
+Z21 F../rtl/mapping/kernel/BundleKernelMapper.sv
+!i122 10
 L0 5 246
-R4
+R7
 31
-R5
-Z11 !s107 ../rtl/mapping/kernel/BundleKernelMapper_State.h|../rtl/mapping/kernel/BundleKernelMapper.sv|
-Z12 !s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../rtl/mapping/kernel/BundleKernelMapper.sv|
+R8
+Z22 !s107 ../rtl/mapping/kernel/BundleKernelMapper_State.h|../rtl/mapping/kernel/BundleKernelMapper.sv|
+Z23 !s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../rtl/mapping/kernel/BundleKernelMapper.sv|
 !i113 1
 o-sv
-R6
-R7
+R11
+R12
 n@bundle@kernel@mapper
 XBundleKernelMapper_sv_unit
 R1
@@ -74,25 +291,51 @@ IO9?3>c1h29haWd^K4PZ^92
 !i103 1
 S1
 R0
-R8
-R9
-R10
+R19
+R20
+R21
 F../rtl/mapping/kernel/BundleKernelMapper_State.h
-!i122 5
-Z13 L0 5 0
-R4
+!i122 10
+R13
+R7
 31
-R5
-R11
-R12
+R8
+R22
+R23
 !i113 1
 o-sv
-R6
-R7
+R11
+R12
 n@bundle@kernel@mapper_sv_unit
+vBundleKernelMapperTB
+R1
+R18
+!i10b 1
+!s100 9]O8R^flVkoja95R:z80o1
+Ihn;mmQi^U9[F<[2HiGn3h1
+S1
+R0
+w1701205812
+8../tb/BundleKernelMapper_tb.sv
+F../tb/BundleKernelMapper_tb.sv
+!i122 14
+L0 5 249
+R3
+R7
+r1
+!s85 0
+31
+R8
+!s107 ../tb/BundleKernelMapper_tb.sv|
+!s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../tb/BundleKernelMapper_tb.sv|
+!i113 1
+o-sv
+R11
+R12
+n@bundle@kernel@mapper@t@b
 vBundleKernelTB
 R1
-Z14 !s110 1700528245
+Z24 !s110 1701231358
 !i10b 1
 !s100 Oe3oo:>_=nlf0lV8GNb__3
 I05dNj]E;BP?WJ3Q^9SCl@2
@@ -104,22 +347,22 @@ F../tb/BundleKernel_tb.sv
 !i122 1
 L0 5 174
 R3
-R4
+R7
 r1
 !s85 0
 31
-Z15 !s108 1700528245.000000
+Z25 !s108 1701231358.000000
 !s107 ../tb/BundleKernel_tb.sv|
 !s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../tb/BundleKernel_tb.sv|
 !i113 1
 o-sv
-R6
-R7
+R11
+R12
 n@bundle@kernel@t@b
 vBundleLinearMapper
 R1
 DXx4 work 26 BundleLinearMapper_sv_unit 0 22 6k]8HD9=D:XSo1zJK76BJ1
-R14
+R2
 R3
 r1
 !s85 0
@@ -129,24 +372,24 @@ I86`V:nX[GILlN?JLZ?NGC2
 !s105 BundleLinearMapper_sv_unit
 S1
 R0
-Z16 w1700445217
-Z17 8../rtl/mapping/memory/bundle/BundleLinearMapper.sv
-Z18 F../rtl/mapping/memory/bundle/BundleLinearMapper.sv
-!i122 2
+Z26 w1700445217
+Z27 8../rtl/mapping/memory/bundle/BundleLinearMapper.sv
+Z28 F../rtl/mapping/memory/bundle/BundleLinearMapper.sv
+!i122 6
 L0 5 268
-R4
+R7
 31
-R15
-Z19 !s107 ../rtl/mapping/memory/bundle/BundleLinearMapper_State.h|../rtl/mapping/memory/bundle/BundleLinearMapper.sv|
-Z20 !s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../rtl/mapping/memory/bundle/BundleLinearMapper.sv|
+R8
+Z29 !s107 ../rtl/mapping/memory/bundle/BundleLinearMapper_State.h|../rtl/mapping/memory/bundle/BundleLinearMapper.sv|
+Z30 !s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../rtl/mapping/memory/bundle/BundleLinearMapper.sv|
 !i113 1
 o-sv
-R6
-R7
+R11
+R12
 n@bundle@linear@mapper
 XBundleLinearMapper_sv_unit
 R1
-R14
+R2
 V6k]8HD9=D:XSo1zJK76BJ1
 r1
 !s85 0
@@ -156,25 +399,51 @@ I6k]8HD9=D:XSo1zJK76BJ1
 !i103 1
 S1
 R0
-R16
-R17
-R18
+R26
+R27
+R28
 F../rtl/mapping/memory/bundle/BundleLinearMapper_State.h
-!i122 2
+!i122 6
 R13
-R4
+R7
 31
-R15
-R19
-R20
+R8
+R29
+R30
 !i113 1
 o-sv
-R6
-R7
+R11
+R12
 n@bundle@linear@mapper_sv_unit
+vBundleMemoryMapperTB
+R1
+R2
+!i10b 1
+!s100 LEGaf22EK=T^]n<O8`=1N2
+IN;RYcB?5b9WCIUJ>l0CHD3
+S1
+R0
+w1700635485
+8../tb/BundleMemoryMapper_tb.sv
+F../tb/BundleMemoryMapper_tb.sv
+!i122 7
+L0 5 252
+R3
+R7
+r1
+!s85 0
+31
+R8
+!s107 ../tb/BundleMemoryMapper_tb.sv|
+!s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../tb/BundleMemoryMapper_tb.sv|
+!i113 1
+o-sv
+R11
+R12
+n@bundle@memory@mapper@t@b
 vdpRamEmulator
 R1
-R14
+R2
 !i10b 1
 !s100 XiizdA_@>Tm`6b0EW93`n0
 I_Ae^V]9PDQ2QKYODnYT0A1
@@ -183,20 +452,20 @@ R0
 w1700417873
 8../tb/MemoryEmulator.sv
 F../tb/MemoryEmulator.sv
-!i122 3
+!i122 4
 L0 9 42
 R3
-R4
+R7
 r1
 !s85 0
 31
-R15
+R8
 !s107 ../tb/MemoryEmulator.sv|
 !s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../tb/MemoryEmulator.sv|
 !i113 1
 o-sv
-R6
-R7
+R11
+R12
 ndp@ram@emulator
 vdpRamEmulatorInfPorts
 R1
@@ -209,126 +478,130 @@ R0
 w1700446977
 8../tb/MemoryEmulator_InfPort.sv
 F../tb/MemoryEmulator_InfPort.sv
-!i122 7
+!i122 5
 L0 9 47
 R3
-R4
+R7
 r1
 !s85 0
 31
-R5
+R8
 !s107 ../tb/MemoryEmulator_InfPort.sv|
 !s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../tb/MemoryEmulator_InfPort.sv|
 !i113 1
 o-sv
-R6
-R7
+R11
+R12
 ndp@ram@emulator@inf@ports
 vElementAdditionCutBipolar_F
 R1
-DXx4 work 35 ElementAdditionCutBipolar_F_sv_unit 0 22 hN^2gG@f8b<>c9n6XRQXl0
-R14
+DXx4 work 35 ElementAdditionCutBipolar_F_sv_unit 0 22 b;eTDnV:M[1<Vl8Ec[]KW1
+R24
 R3
 r1
 !s85 0
 !i10b 1
-!s100 =OfPZhzg6Zh0gD@GdI`7;3
-I6?LczWgaZED@l[Nj^>o7d2
+!s100 HifAOO@SGGan:Q_93M4Te1
+IPPZDZ5S^gMaH`O]dnbck<1
 !s105 ElementAdditionCutBipolar_F_sv_unit
 S1
 R0
-Z21 w1700527080
-Z22 8../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv
-Z23 F../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv
+Z31 w1700528806
+Z32 8../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv
+Z33 F../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv
 !i122 0
-L0 5 214
-R4
+L0 5 170
+R7
 31
-R15
-Z24 !s107 ../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_State.h|../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv|
-Z25 !s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv|
+R25
+Z34 !s107 ../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_State.h|../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv|
+Z35 !s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_F.sv|
 !i113 1
 o-sv
-R6
-R7
+R11
+R12
 n@element@addition@cut@bipolar_@f
 XElementAdditionCutBipolar_F_sv_unit
 R1
-R14
-VhN^2gG@f8b<>c9n6XRQXl0
+R24
+Vb;eTDnV:M[1<Vl8Ec[]KW1
 r1
 !s85 0
 !i10b 1
-!s100 UTK9^WF4Mof7?9b^Cb4]F3
-IhN^2gG@f8b<>c9n6XRQXl0
+!s100 TTiCl>H1e`AJNK5mh]Q]J1
+Ib;eTDnV:M[1<Vl8Ec[]KW1
 !i103 1
 S1
 R0
-R21
-R22
-R23
+R31
+R32
+R33
 F../rtl/bundling/element_addition_cut/ElementAdditionCutBipolar_State.h
 !i122 0
 R13
-R4
+R7
 31
-R15
-R24
 R25
+R34
+R35
 !i113 1
 o-sv
-R6
-R7
+R11
+R12
 n@element@addition@cut@bipolar_@f_sv_unit
-vKernelMapperTB
+vElementMultiplication_F
+R1
+DXx4 work 31 ElementMultiplication_F_sv_unit 0 22 Y:9J^@9aCTK^dJ_?njk6]0
+R2
+R3
+r1
+!s85 0
+!i10b 1
+!s100 Q`;;m3>]:VVJ7LcJSKA8K2
+IKAY:[HkYUXgX]80k5FbV00
+!s105 ElementMultiplication_F_sv_unit
+S1
+R0
+w1700790449
+Z36 8../rtl/binding/element_multiplication/ElementMultiplication_F.sv
+Z37 F../rtl/binding/element_multiplication/ElementMultiplication_F.sv
+!i122 2
+L0 5 133
+R7
+31
+R25
+Z38 !s107 ../rtl/binding/element_multiplication/ElementMultiplication_State.h|../rtl/binding/element_multiplication/ElementMultiplication_F.sv|
+Z39 !s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../rtl/binding/element_multiplication/ElementMultiplication_F.sv|
+!i113 1
+o-sv
+R11
+R12
+n@element@multiplication_@f
+XElementMultiplication_F_sv_unit
 R1
 R2
-!i10b 1
-!s100 bV[;dVO`J07mo5[@KWZnd3
-IeCZCPEb:Idi^oH<CaB<Kg0
-S1
-R0
-w1700528241
-8../tb/KernelMapper_tb.sv
-F../tb/KernelMapper_tb.sv
-!i122 8
-L0 5 249
-R3
-R4
+VY:9J^@9aCTK^dJ_?njk6]0
 r1
 !s85 0
-31
-R5
-!s107 ../tb/KernelMapper_tb.sv|
-!s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../tb/KernelMapper_tb.sv|
-!i113 1
-o-sv
-R6
-R7
-n@kernel@mapper@t@b
-vMemoryMapperTB
-R1
-R14
 !i10b 1
-!s100 0k1^Qi:BB076ljU_HRD_@1
-Ig<bT9]QnodLFGR9=6iGKN3
+!s100 bYl8c:`YRc9F0dNZ`dL^32
+IY:9J^@9aCTK^dJ_?njk6]0
+!i103 1
 S1
 R0
-w1700445923
-8../tb/MemoryMapper_tb.sv
-F../tb/MemoryMapper_tb.sv
-!i122 4
-L0 5 252
-R3
-R4
-r1
-!s85 0
+w1701148948
+R36
+R37
+F../rtl/binding/element_multiplication/ElementMultiplication_State.h
+!i122 2
+R13
+R7
 31
-R15
-!s107 ../tb/MemoryMapper_tb.sv|
-!s90 -reportprogress|300|-sv|+define+DISABLE_DEFAULT_NET|../tb/MemoryMapper_tb.sv|
+R25
+R38
+R39
 !i113 1
 o-sv
-R6
-R7
-n@memory@mapper@t@b
+R11
+R12
+n@element@multiplication_@f_sv_unit

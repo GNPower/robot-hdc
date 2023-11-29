@@ -1,0 +1,23 @@
+# system info fp_sqrt on 2023.11.23.21:09:09
+system_info:
+name,value
+DEVICE,10CX220YF780I5G
+DEVICE_FAMILY,Cyclone 10 GX
+GENERATION_ID,0
+#
+#
+# Files generated for fp_sqrt on 2023.11.23.21:09:09
+files:
+filepath,kind,attributes,module,is_top
+sim/fp_sqrt.v,VERILOG,CONTAINS_INLINE_CONFIGURATION,fp_sqrt,true
+altera_fp_functions_1917/sim/fp_sqrt_altera_fp_functions_1917_hchdkjq_memoryC0_uid62_sqrtTables_lutmem.hex,HEX,,fp_sqrt_altera_fp_functions_1917_hchdkjq,false
+altera_fp_functions_1917/sim/fp_sqrt_altera_fp_functions_1917_hchdkjq_memoryC1_uid65_sqrtTables_lutmem.hex,HEX,,fp_sqrt_altera_fp_functions_1917_hchdkjq,false
+altera_fp_functions_1917/sim/fp_sqrt_altera_fp_functions_1917_hchdkjq_memoryC2_uid68_sqrtTables_lutmem.hex,HEX,,fp_sqrt_altera_fp_functions_1917_hchdkjq,false
+altera_fp_functions_1917/sim/dspba_library_package.vhd,VHDL,,fp_sqrt_altera_fp_functions_1917_hchdkjq,false
+altera_fp_functions_1917/sim/dspba_library.vhd,VHDL,,fp_sqrt_altera_fp_functions_1917_hchdkjq,false
+altera_fp_functions_1917/sim/fp_sqrt_altera_fp_functions_1917_hchdkjq.vhd,VHDL,,fp_sqrt_altera_fp_functions_1917_hchdkjq,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+fp_sqrt.fp_functions_0,fp_sqrt_altera_fp_functions_1917_hchdkjq

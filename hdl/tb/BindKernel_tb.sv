@@ -36,6 +36,7 @@ module BindKernelTB;
 	#(
 		.HV_DATA_WIDTH(HV_DATA_WIDTH)
 	)
+	UUT
 	(
 		// clock and reset signals
 		.clk(clock),

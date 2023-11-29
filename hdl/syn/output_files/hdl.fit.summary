@@ -1,0 +1,18 @@
+Fitter Status : Failed - Tue Nov 28 00:39:53 2023
+Quartus Prime Version : 23.3.0 Build 104 09/20/2023 SC Pro Edition
+Revision Name : hdl
+Top-level Entity Name : BundleKernelMapper
+Family : Cyclone 10 GX
+Device : 10CX220YF780I5G
+Timing Models : Final
+Power Models : Final
+Device Status : Final
+Total registers : 1549
+Total pins : 425 / 340 ( 125 % )
+Total virtual pins : 0
+Total block memory bits : 0 / 12,021,760 ( 0 % )
+Total RAM Blocks : 0 / 587 ( 0 % )
+Total DSP Blocks : 0 / 192 ( 0 % )
+Total HSSI RX channels : 0 / 12 ( 0 % )
+Total HSSI TX channels : 0 / 12 ( 0 % )
+Total PLLs : 0 / 30 ( 0 % )

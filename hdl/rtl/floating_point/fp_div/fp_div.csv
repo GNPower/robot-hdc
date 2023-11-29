@@ -1,0 +1,23 @@
+# system info fp_div on 2023.11.23.21:06:16
+system_info:
+name,value
+DEVICE,10CX220YF780I5G
+DEVICE_FAMILY,Cyclone 10 GX
+GENERATION_ID,0
+#
+#
+# Files generated for fp_div on 2023.11.23.21:06:16
+files:
+filepath,kind,attributes,module,is_top
+sim/fp_div.v,VERILOG,CONTAINS_INLINE_CONFIGURATION,fp_div,true
+altera_fp_functions_1917/sim/fp_div_altera_fp_functions_1917_ugoptdy_memoryC0_uid146_invTables_lutmem.hex,HEX,,fp_div_altera_fp_functions_1917_ugoptdy,false
+altera_fp_functions_1917/sim/fp_div_altera_fp_functions_1917_ugoptdy_memoryC1_uid149_invTables_lutmem.hex,HEX,,fp_div_altera_fp_functions_1917_ugoptdy,false
+altera_fp_functions_1917/sim/fp_div_altera_fp_functions_1917_ugoptdy_memoryC2_uid152_invTables_lutmem.hex,HEX,,fp_div_altera_fp_functions_1917_ugoptdy,false
+altera_fp_functions_1917/sim/dspba_library_package.vhd,VHDL,,fp_div_altera_fp_functions_1917_ugoptdy,false
+altera_fp_functions_1917/sim/dspba_library.vhd,VHDL,,fp_div_altera_fp_functions_1917_ugoptdy,false
+altera_fp_functions_1917/sim/fp_div_altera_fp_functions_1917_ugoptdy.vhd,VHDL,,fp_div_altera_fp_functions_1917_ugoptdy,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+fp_div.fp_functions_0,fp_div_altera_fp_functions_1917_ugoptdy

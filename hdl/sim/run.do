@@ -7,12 +7,18 @@ if { $argc != 1} {
 	error "Missing input arguments"
 }
 
-if {$1 > 3 || $1 < 1} {
+if {$1 > 9 || $1 < 1} {
 	puts "TopLevel testbench input ID invalid"
     puts "Valid input IDs are:"
 	puts "1 - BundleKernelTB (BundleKernel_tb.sv)"
-	puts "2 - MemoryMapperTB (MemoryMapper_tb.sv)"
-	puts "3 - KernelMapperTB (KernelMapper_tb.sv)"
+	puts "2 - BundleMemoryMapperTB (BundleMemoryMapper_tb.sv)"
+	puts "3 - BundleKernelMapperTB (BundleKernelMapper_tb.sv)"
+	puts "4 - BindKernelTB (BindKernel_tb.sv)"
+	puts "5 - BindMemoryMapperTB (BindMemoryMapper_tb.sv)"
+	puts "6 - BindKernelMapperTB (BindKernelMapper_tb.sv)"
+	puts "7 - SimilarityKernelTB (SimilarityKernel_tb.sv)"
+	puts "8 - SimilarityMemoryMapperTB (SimilarityMemoryMapper_tb.sv)"
+	puts "9 - SimilarityKernelMapperTB (SimilarityKernelMapper_tb.sv)"
     puts "Please try again."
 	error "Invalid input arguments"
 }

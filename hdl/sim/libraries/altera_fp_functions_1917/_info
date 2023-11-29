@@ -10,26 +10,26 @@ z2
 cModel Technology
 Z0 dD:/School/Grad/Code/my_hdc/hdl/sim
 Edspba_dcfifo_mixed_widths
-Z1 w1700353010
+Z1 w1700791749
 Z2 DPx9 altera_mf 20 altera_mf_components 0 22 MILGFK[L`bXcS4=YT<HBH2
 Z3 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 4
+!i122 13
 R0
-Z6 8../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/dspba_library.vhd
-Z7 F../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/dspba_library.vhd
+Z6 8../rtl/floating_point/fp_sqrt/altera_fp_functions_1917/sim/dspba_library.vhd
+Z7 F../rtl/floating_point/fp_sqrt/altera_fp_functions_1917/sim/dspba_library.vhd
 l0
 L450 1
 V=]B0l2Wzb^NJ5d5Y5nmj?0
 !s100 8hGKG>I1>cV^KF>7jHGa73
 Z8 OV;C;2021.1;73
 32
-Z9 !s110 1700528245
+Z9 !s110 1701231358
 !i10b 1
-Z10 !s108 1700528245.000000
-Z11 !s90 -reportprogress|300|../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/dspba_library.vhd|-work|altera_fp_functions_1917|
-Z12 !s107 ../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/dspba_library.vhd|
+Z10 !s108 1701231358.000000
+Z11 !s90 -reportprogress|300|../rtl/floating_point/fp_sqrt/altera_fp_functions_1917/sim/dspba_library.vhd|-work|altera_fp_functions_1917|
+Z12 !s107 ../rtl/floating_point/fp_sqrt/altera_fp_functions_1917/sim/dspba_library.vhd|
 !i113 1
 Z13 o-work altera_fp_functions_1917
 Z14 tExplicit 1 CvgOpt 0
@@ -39,7 +39,7 @@ R3
 R4
 R5
 DEx4 work 25 dspba_dcfifo_mixed_widths 0 22 =]B0l2Wzb^NJ5d5Y5nmj?0
-!i122 4
+!i122 13
 l484
 L483 36
 V=mH?Hz[Wi^U`[1aO6[nRb3
@@ -59,7 +59,7 @@ R1
 Z15 DPx4 work 21 dspba_library_package 0 22 `6DXc3<FTKD`?9IK4lHdS0
 R4
 R5
-!i122 4
+!i122 13
 R0
 R6
 R7
@@ -82,7 +82,7 @@ R15
 R4
 R5
 DEx4 work 11 dspba_delay 0 22 fog9Z?c3IDYYNj<HZSGZ=2
-!i122 4
+!i122 13
 l167
 L163 35
 VioTk1moE:I0W:<zcjF^CA1
@@ -100,11 +100,11 @@ R14
 Pdspba_library_package
 R4
 R5
-!i122 3
+!i122 12
 R1
 R0
-8../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/dspba_library_package.vhd
-F../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/dspba_library_package.vhd
+8../rtl/floating_point/fp_sqrt/altera_fp_functions_1917/sim/dspba_library_package.vhd
+F../rtl/floating_point/fp_sqrt/altera_fp_functions_1917/sim/dspba_library_package.vhd
 l0
 L17 1
 V`6DXc3<FTKD`?9IK4lHdS0
@@ -114,8 +114,8 @@ R8
 R9
 !i10b 1
 R10
-!s90 -reportprogress|300|../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/dspba_library_package.vhd|-work|altera_fp_functions_1917|
-!s107 ../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/dspba_library_package.vhd|
+!s90 -reportprogress|300|../rtl/floating_point/fp_sqrt/altera_fp_functions_1917/sim/dspba_library_package.vhd|-work|altera_fp_functions_1917|
+!s107 ../rtl/floating_point/fp_sqrt/altera_fp_functions_1917/sim/dspba_library_package.vhd|
 !i113 1
 R13
 R14
@@ -124,7 +124,7 @@ R1
 R3
 R4
 R5
-!i122 4
+!i122 13
 R0
 R6
 R7
@@ -147,7 +147,7 @@ R3
 R4
 R5
 DEx4 work 10 dspba_pipe 0 22 I`neI[Rj1k2OZMO_kQVf[3
-!i122 4
+!i122 13
 l423
 L417 21
 VI6K<AcmTk@3CEOfUEo_oN0
@@ -167,7 +167,7 @@ R1
 R15
 R4
 R5
-!i122 4
+!i122 13
 R0
 R6
 R7
@@ -190,7 +190,7 @@ R15
 R4
 R5
 DEx4 work 9 dspba_reg 0 22 6WG4>nnRjm;`l7L8LhHWJ0
-!i122 4
+!i122 13
 l37
 L35 38
 ViRAU[WQKP=5jTJnb`UM]D2
@@ -210,7 +210,7 @@ R1
 R15
 R4
 R5
-!i122 4
+!i122 13
 R0
 R6
 R7
@@ -233,7 +233,7 @@ R15
 R4
 R5
 DEx4 work 22 dspba_reg_w_attributes 0 22 Mk>AZ2LPN[7:PJB;4cMl`1
-!i122 4
+!i122 13
 l102
 L97 42
 V;OC]6oX]:D;?c[llYHCiZ2
@@ -254,7 +254,7 @@ R15
 R3
 R4
 R5
-!i122 4
+!i122 13
 R0
 R6
 R7
@@ -278,7 +278,7 @@ R3
 R4
 R5
 DEx4 work 14 dspba_sync_reg 0 22 UeVHi?GJZ5^n`?`JhNBhC0
-!i122 4
+!i122 13
 l244
 L231 166
 VE`9cm@ggcUh?e]lhV<Hg>2
@@ -311,16 +311,16 @@ R0
 Z23 8../rtl/floating_point/fp_add/altera_fp_functions_1917/sim/fp_add_altera_fp_functions_1917_vbqzuli.vhd
 Z24 F../rtl/floating_point/fp_add/altera_fp_functions_1917/sim/fp_add_altera_fp_functions_1917_vbqzuli.vhd
 l0
-L37 1
+Z25 L37 1
 VDW]i@Pc2[^<9j3ESbjPSY3
 !s100 efSelM4AjI]2nf2F:CgWS2
 R8
 32
-R9
+Z26 !s110 1701231357
 !i10b 1
-Z25 !s108 1700528244.000000
-Z26 !s90 -reportprogress|300|../rtl/floating_point/fp_add/altera_fp_functions_1917/sim/fp_add_altera_fp_functions_1917_vbqzuli.vhd|-work|altera_fp_functions_1917|
-Z27 !s107 ../rtl/floating_point/fp_add/altera_fp_functions_1917/sim/fp_add_altera_fp_functions_1917_vbqzuli.vhd|
+Z27 !s108 1701231357.000000
+Z28 !s90 -reportprogress|300|../rtl/floating_point/fp_add/altera_fp_functions_1917/sim/fp_add_altera_fp_functions_1917_vbqzuli.vhd|-work|altera_fp_functions_1917|
+Z29 !s107 ../rtl/floating_point/fp_add/altera_fp_functions_1917/sim/fp_add_altera_fp_functions_1917_vbqzuli.vhd|
 !i113 1
 R13
 R14
@@ -344,16 +344,16 @@ V:@N46QF`A4O6NLAZ=FWzH1
 !s100 2F;JannW8M=YE8[nCHnSA1
 R8
 32
-R9
-!i10b 1
-R25
 R26
+!i10b 1
 R27
+R28
+R29
 !i113 1
 R13
 R14
 Efp_compare_altera_fp_functions_1917_bazjwmi
-R1
+Z30 w1700353010
 R17
 R18
 R19
@@ -367,19 +367,19 @@ R4
 R5
 !i122 5
 R0
-Z28 8../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/fp_compare_altera_fp_functions_1917_bazjwmi.vhd
-Z29 F../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/fp_compare_altera_fp_functions_1917_bazjwmi.vhd
+Z31 8../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/fp_compare_altera_fp_functions_1917_bazjwmi.vhd
+Z32 F../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/fp_compare_altera_fp_functions_1917_bazjwmi.vhd
 l0
-L38 1
+Z33 L38 1
 VmeET02W?WaY[@?6GamR1_1
 !s100 C;?Fj8KWAT7CPCC>iVO7[1
 R8
 32
-R9
+R26
 !i10b 1
-R10
-Z30 !s90 -reportprogress|300|../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/fp_compare_altera_fp_functions_1917_bazjwmi.vhd|-work|altera_fp_functions_1917|
-!s107 ../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/fp_compare_altera_fp_functions_1917_bazjwmi.vhd|
+R27
+Z34 !s90 -reportprogress|300|../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/fp_compare_altera_fp_functions_1917_bazjwmi.vhd|-work|altera_fp_functions_1917|
+Z35 !s107 ../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/fp_compare_altera_fp_functions_1917_bazjwmi.vhd|
 !i113 1
 R13
 R14
@@ -403,11 +403,188 @@ V?NJ6C2Q>Ec5O0S2>Z4Fge0
 !s100 zBO^F=2[_:gLKDBR<e7Om3
 R8
 32
+R26
+!i10b 1
+R27
+R34
+R35
+!i113 1
+R13
+R14
+Efp_div_altera_fp_functions_1917_ugoptdy
+Z36 w1700791576
+R17
+R18
+R19
+R20
+R21
+R2
+R15
+R22
+R3
+R4
+R5
+!i122 11
+R0
+Z37 8../rtl/floating_point/fp_div/altera_fp_functions_1917/sim/fp_div_altera_fp_functions_1917_ugoptdy.vhd
+Z38 F../rtl/floating_point/fp_div/altera_fp_functions_1917/sim/fp_div_altera_fp_functions_1917_ugoptdy.vhd
+l0
+R33
+VgcCZQ0Zg07>PDdOE=8gK;0
+!s100 <nYH<ADESn]OoF8>EK`nA1
+R8
+32
 R9
 !i10b 1
 R10
-R30
-Z31 !s107 ../rtl/floating_point/fp_compare/altera_fp_functions_1917/sim/fp_compare_altera_fp_functions_1917_bazjwmi.vhd|
+Z39 !s90 -reportprogress|300|../rtl/floating_point/fp_div/altera_fp_functions_1917/sim/fp_div_altera_fp_functions_1917_ugoptdy.vhd|-work|altera_fp_functions_1917|
+Z40 !s107 ../rtl/floating_point/fp_div/altera_fp_functions_1917/sim/fp_div_altera_fp_functions_1917_ugoptdy.vhd|
+!i113 1
+R13
+R14
+Anormal
+R17
+R18
+R19
+R20
+R21
+R2
+R15
+R22
+R3
+R4
+R5
+DEx4 work 39 fp_div_altera_fp_functions_1917_ugoptdy 0 22 gcCZQ0Zg07>PDdOE=8gK;0
+!i122 11
+l422
+L48 1817
+VonCiQBRe2KQf8cEQKUDCD1
+!s100 0d[E]hZX0;eciA?XiAa9e3
+R8
+32
+R9
+!i10b 1
+R10
+R39
+R40
+!i113 1
+R13
+R14
+Efp_mult_altera_fp_functions_1917_ebne4uy
+Z41 w1700530452
+R17
+R18
+R19
+R20
+R21
+R2
+R15
+R22
+R3
+R4
+R5
+!i122 8
+R0
+Z42 8../rtl/floating_point/fp_mult/altera_fp_functions_1917/sim/fp_mult_altera_fp_functions_1917_ebne4uy.vhd
+Z43 F../rtl/floating_point/fp_mult/altera_fp_functions_1917/sim/fp_mult_altera_fp_functions_1917_ebne4uy.vhd
+l0
+R25
+VzLG8]NYnEiA4ZLAnZV`QJ2
+!s100 H9P`<E`iTo6[<@hU8c]EN2
+R8
+32
+R26
+!i10b 1
+R27
+Z44 !s90 -reportprogress|300|../rtl/floating_point/fp_mult/altera_fp_functions_1917/sim/fp_mult_altera_fp_functions_1917_ebne4uy.vhd|-work|altera_fp_functions_1917|
+Z45 !s107 ../rtl/floating_point/fp_mult/altera_fp_functions_1917/sim/fp_mult_altera_fp_functions_1917_ebne4uy.vhd|
+!i113 1
+R13
+R14
+Anormal
+R17
+R18
+R19
+R20
+R21
+R2
+R15
+R22
+R3
+R4
+R5
+DEx4 work 40 fp_mult_altera_fp_functions_1917_ebne4uy 0 22 zLG8]NYnEiA4ZLAnZV`QJ2
+!i122 8
+l191
+L47 629
+V8e^TjkN81W9mNiGfH7D=a0
+!s100 3J@BdEgPl[6g;5RA8`:4@0
+R8
+32
+R26
+!i10b 1
+R27
+R44
+R45
+!i113 1
+R13
+R14
+Efp_sqrt_altera_fp_functions_1917_hchdkjq
+R1
+R17
+R18
+R19
+R20
+R21
+R2
+R15
+R22
+R3
+R4
+R5
+!i122 14
+R0
+Z46 8../rtl/floating_point/fp_sqrt/altera_fp_functions_1917/sim/fp_sqrt_altera_fp_functions_1917_hchdkjq.vhd
+Z47 F../rtl/floating_point/fp_sqrt/altera_fp_functions_1917/sim/fp_sqrt_altera_fp_functions_1917_hchdkjq.vhd
+l0
+R33
+VGOd0:KVYijMAZU_T2mY]V3
+!s100 AE_:[[j0eMUF3D]DDlCN60
+R8
+32
+R9
+!i10b 1
+R10
+Z48 !s90 -reportprogress|300|../rtl/floating_point/fp_sqrt/altera_fp_functions_1917/sim/fp_sqrt_altera_fp_functions_1917_hchdkjq.vhd|-work|altera_fp_functions_1917|
+!s107 ../rtl/floating_point/fp_sqrt/altera_fp_functions_1917/sim/fp_sqrt_altera_fp_functions_1917_hchdkjq.vhd|
+!i113 1
+R13
+R14
+Anormal
+R17
+R18
+R19
+R20
+R21
+R2
+R15
+R22
+R3
+R4
+R5
+DEx4 work 40 fp_sqrt_altera_fp_functions_1917_hchdkjq 0 22 GOd0:KVYijMAZU_T2mY]V3
+!i122 14
+l228
+L47 880
+VW[jj_VgW;N]QdecGki=WM2
+!s100 h^aMZ6S24nbbHM2F;_A:h1
+R8
+32
+R9
+!i10b 1
+R10
+R48
+Z49 !s107 ../rtl/floating_point/fp_sqrt/altera_fp_functions_1917/sim/fp_sqrt_altera_fp_functions_1917_hchdkjq.vhd|
 !i113 1
 R13
 R14

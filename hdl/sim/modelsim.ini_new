@@ -54,6 +54,7 @@ work_lib = ./libraries/work/
 altera_fp_functions_1917 = ./libraries/altera_fp_functions_1917/
 fp_add = ./libraries/fp_add/
 fp_compare = ./libraries/fp_compare/
+fp_sqrt = ./libraries/fp_sqrt/
 [vcom]
 ; VHDL93 variable selects language version as the default. 
 ; Default is VHDL-2002.

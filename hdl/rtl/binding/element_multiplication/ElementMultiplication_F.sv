@@ -117,7 +117,7 @@ always_ff @(posedge clk or negedge reset_n) begin
 			
 								end
 								
-			S_FPMULT_1:		begin
+			S_FPMULT_2:		begin
 			
 									// Mult data is ready, send it to the result register
 									partial_result <= mult_out;

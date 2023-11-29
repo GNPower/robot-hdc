@@ -1,5 +1,5 @@
-`ifndef BUNDLE_LINEAR_MAPPER_DEFINE_STATE
-`define BUNDLE_LINEAR_MAPPER_DEFINE_STATE
+`ifndef BIND_DIRECT_MAPPER_DEFINE_STATE
+`define BIND_DIRECT_MAPPER_DEFINE_STATE
 
 
 typedef enum logic[3:0] {
@@ -9,7 +9,7 @@ typedef enum logic[3:0] {
 	S_MAPB_2,
 	S_MAPB_3,
 	S_WRITE_0
-} MapperBundleLinear_State_t;
+} MapperBindDirect_State_t;
 
 
 `endif

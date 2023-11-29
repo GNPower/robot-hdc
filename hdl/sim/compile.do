@@ -17,8 +17,16 @@ vlog -sv +define+DISABLE_DEFAULT_NET $rtl/mapping/memory/bundle/BundleLinearMapp
 
 vlog -sv +define+DISABLE_DEFAULT_NET $tb/BundleMemoryMapper_tb.sv
 
+# Bind Memory Mappers & Testbench
+vlog -sv +define+DISABLE_DEFAULT_NET $rtl/mapping/memory/bind/BindDirectMapper.sv
+
+vlog -sv +define+DISABLE_DEFAULT_NET $tb/BindMemoryMapper_tb.sv
+
 # Kernel Mappers & Testbench
 vlog -sv +define+DISABLE_DEFAULT_NET $rtl/mapping/kernel/BundleKernelMapper.sv
 vlog -sv +define+DISABLE_DEFAULT_NET $rtl/mapping/kernel/BundleKernelGenerator.sv
+vlog -sv +define+DISABLE_DEFAULT_NET $rtl/mapping/kernel/BindKernelMapper.sv
+vlog -sv +define+DISABLE_DEFAULT_NET $rtl/mapping/kernel/BindKernelGenerator.sv
 
-vlog -sv +define+DISABLE_DEFAULT_NET $tb/KernelMapper_tb.sv
+vlog -sv +define+DISABLE_DEFAULT_NET $tb/BundleKernelMapper_tb.sv
+vlog -sv +define+DISABLE_DEFAULT_NET $tb/BindKernelMapper_tb.sv

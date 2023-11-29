@@ -10,7 +10,7 @@ z2
 cModel Technology
 Z0 dD:/School/Grad/Code/my_hdc/hdl/sim
 vfp_compare
-!s110 1700528245
+!s110 1701231357
 !i10b 1
 !s100 FH5Y@B=JS<PJ`42<V=Y:[2
 I0m7dbTQToVDM7JNlmc88P2
@@ -25,7 +25,7 @@ OV;L;2021.1;73
 r1
 !s85 0
 31
-!s108 1700528245.000000
+!s108 1701231357.000000
 !s107 ../rtl/floating_point/fp_compare/sim/fp_compare.v|
 !s90 -reportprogress|300|../rtl/floating_point/fp_compare/sim/fp_compare.v|-work|fp_compare|
 !i113 1

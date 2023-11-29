@@ -12,7 +12,7 @@
 # or its authorized distributors. Please refer to the applicable 
 # agreement for further details.
 
-# ACDS 23.3 104 win32 2023.11.18.19:19:53
+# ACDS 23.3 104 win32 2023.11.28.21:57:26
 # ----------------------------------------
 # Auto-generated simulation script rivierapro_setup.tcl
 # ----------------------------------------
@@ -20,6 +20,9 @@
 # your Quartus project:
 #     fp_add.fp_add
 #     fp_compare.fp_compare
+#     fp_mult.fp_mult
+#     fp_div.fp_div
+#     fp_sqrt.fp_sqrt
 # 
 # Intel recommends that you source this Quartus-generated IP simulation
 # script from your own customized top-level script, and avoid editing this
@@ -95,7 +98,7 @@ if ![info exists SYSTEM_INSTANCE_NAME] {
 }
 
 if ![info exists TOP_LEVEL_NAME] { 
-  set TOP_LEVEL_NAME "fp_compare.fp_compare"
+  set TOP_LEVEL_NAME "fp_sqrt.fp_sqrt"
 }
 
 if ![info exists QSYS_SIMDIR] { 

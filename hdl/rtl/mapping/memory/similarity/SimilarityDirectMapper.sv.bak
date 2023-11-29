@@ -1,0 +1,55 @@
+`timescale 1ns/100ps
+
+`include "BundleLinearMapper_State.h"
+
+module SimilarityDirectMapper
+#(
+	parameter HV_DATA_WIDTH	= 32,
+	parameter HV_ADDRESS_WIDTH = 20,
+	
+	parameter MAX_HYPERVECTOR_LENGTH = 4
+)
+(
+	//////////////////////////////
+	// SIGNALS FROM KERNEL MAPPER
+	//////////////////////////////
+
+	// clock and reset signals
+	clk,
+	reset_n,
+	
+	// address control signals
+	valid,
+	
+	// hypervector address components
+	hva,
+	hvb,
+	hvc,
+	hv_offset,
+	
+	// dpram signals
+	we_n,
+	address,
+	data_wr,
+	data_rd,
+	
+	// output control signals
+	done,
+	
+	//////////////////////////////
+	// SIGNALS TO BUNDLE KERNEL
+	//////////////////////////////
+	
+	// address control signals
+	k_valid,
+	k_first,
+	k_last,
+	
+	// data
+	k_data_in,
+	k_data_out,
+	
+	// output control signals
+	k_ready,
+	k_done
+);

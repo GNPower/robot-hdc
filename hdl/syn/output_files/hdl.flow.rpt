@@ -1,5 +1,5 @@
 Flow report for hdl
-Tue Nov 28 00:51:07 2023
+Thu Dec  7 14:40:21 2023
 Quartus Prime Version 23.3.0 Build 104 09/20/2023 SC Pro Edition
 
 
@@ -39,7 +39,7 @@ on the Quartus Prime software download page.
 +-----------------------------------------------------+
 ; Flow Summary                                        ;
 +-------------+---------------------------------------+
-; Flow Status ; Successful - Tue Nov 28 00:51:07 2023 ;
+; Flow Status ; Successful - Thu Dec  7 14:40:21 2023 ;
 +-------------+---------------------------------------+
 
 
@@ -48,7 +48,7 @@ on the Quartus Prime software download page.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/28/2023 00:50:25 ;
+; Start date & time ; 12/07/2023 14:39:37 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; hdl                 ;
 +-------------------+---------------------+
@@ -59,7 +59,7 @@ on the Quartus Prime software download page.
 +--------------------------+----------------------------------------------------------------------------------+-----------------------------+-------------+----------------+
 ; Assignment Name          ; Value                                                                            ; Default Value               ; Entity Name ; Section Id     ;
 +--------------------------+----------------------------------------------------------------------------------+-----------------------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID    ; 49410864350819.170115066026012                                                   ; --                          ; --          ; --             ;
+; COMPILER_SIGNATURE_ID    ; 49410864350819.170197801414428                                                   ; --                          ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT   ; Verilog Hdl                                                                      ; --                          ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL      ; QuestaSim (Verilog)                                                              ; Questa Intel FPGA (Verilog) ; --          ; --             ;
 ; EDA_TIME_SCALE           ; 1 ps                                                                             ; --                          ; --          ; eda_simulation ;
@@ -79,7 +79,7 @@ on the Quartus Prime software download page.
 ; SOPCINFO_FILE            ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_div/fp_div.sopcinfo         ; --                          ; --          ; --             ;
 ; SOPCINFO_FILE            ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_mult/fp_mult.sopcinfo       ; --                          ; --          ; --             ;
 ; SOPCINFO_FILE            ; D:/School/Grad/Code/my_hdc/hdl/rtl/floating_point/fp_sqrt/fp_sqrt.sopcinfo       ; --                          ; --          ; --             ;
-; TOP_LEVEL_ENTITY         ; BundleKernelMapper                                                               ; hdl                         ; --          ; --             ;
+; TOP_LEVEL_ENTITY         ; SimilarityDirectMapper                                                           ; hdl                         ; --          ; --             ;
 +--------------------------+----------------------------------------------------------------------------------+-----------------------------+-------------+----------------+
 
 
@@ -88,8 +88,8 @@ on the Quartus Prime software download page.
 +-------------+--------------+---------------------+
 ; Module Name ; Elapsed Time ; Peak Virtual Memory ;
 +-------------+--------------+---------------------+
-; Synthesis   ; 00:00:55     ; 681 MB              ;
-; Total       ; 00:00:55     ; --                  ;
+; Synthesis   ; 00:00:58     ; 649 MB              ;
+; Total       ; 00:00:58     ; --                  ;
 +-------------+--------------+---------------------+
 
 

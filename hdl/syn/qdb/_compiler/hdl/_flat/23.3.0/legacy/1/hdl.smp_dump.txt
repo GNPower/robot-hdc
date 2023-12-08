@@ -1,92 +1,12 @@
 
 State Machine - Summary
 
-State Machine - KernelNum[3].KernelGen_Inst|Kernel.Kernel_Inst|state
-Name state.S_FPADD_1 state.S_FPADD_0 state.S_DATA_WAIT_0 state.S_IDLE state.S_ACCUM 
-state.S_IDLE 0 0 0 0 0 
-state.S_DATA_WAIT_0 0 0 1 1 0 
-state.S_FPADD_0 0 1 0 1 0 
-state.S_FPADD_1 1 0 0 1 0 
-state.S_ACCUM 0 0 0 1 1 
-
-State Machine - KernelNum[3].KernelGen_Inst|MemMap.MemoryMapper_Inst|state
-Name state.S_MAPB_3 state.S_MAPB_2 state.S_MAPB_1 state.S_WRITE_0 state.S_MAPA_2 state.S_MAPA_1 state.S_MAPB_0 state.S_MAPA_0 state.S_IDLE 
-state.S_IDLE 0 0 0 0 0 0 0 0 0 
-state.S_MAPA_0 0 0 0 0 0 0 0 1 1 
-state.S_MAPB_0 0 0 0 0 0 0 1 0 1 
-state.S_MAPA_1 0 0 0 0 0 1 0 0 1 
-state.S_MAPA_2 0 0 0 0 1 0 0 0 1 
-state.S_WRITE_0 0 0 0 1 0 0 0 0 1 
-state.S_MAPB_1 0 0 1 0 0 0 0 0 1 
-state.S_MAPB_2 0 1 0 0 0 0 0 0 1 
-state.S_MAPB_3 1 0 0 0 0 0 0 0 1 
-
-State Machine - KernelNum[2].KernelGen_Inst|Kernel.Kernel_Inst|state
-Name state.S_FPADD_1 state.S_FPADD_0 state.S_DATA_WAIT_0 state.S_IDLE state.S_ACCUM 
-state.S_IDLE 0 0 0 0 0 
-state.S_DATA_WAIT_0 0 0 1 1 0 
-state.S_FPADD_0 0 1 0 1 0 
-state.S_FPADD_1 1 0 0 1 0 
-state.S_ACCUM 0 0 0 1 1 
-
-State Machine - KernelNum[2].KernelGen_Inst|MemMap.MemoryMapper_Inst|state
-Name state.S_MAPB_3 state.S_MAPB_2 state.S_MAPB_1 state.S_WRITE_0 state.S_MAPA_2 state.S_MAPA_1 state.S_MAPB_0 state.S_MAPA_0 state.S_IDLE 
-state.S_IDLE 0 0 0 0 0 0 0 0 0 
-state.S_MAPA_0 0 0 0 0 0 0 0 1 1 
-state.S_MAPB_0 0 0 0 0 0 0 1 0 1 
-state.S_MAPA_1 0 0 0 0 0 1 0 0 1 
-state.S_MAPA_2 0 0 0 0 1 0 0 0 1 
-state.S_WRITE_0 0 0 0 1 0 0 0 0 1 
-state.S_MAPB_1 0 0 1 0 0 0 0 0 1 
-state.S_MAPB_2 0 1 0 0 0 0 0 0 1 
-state.S_MAPB_3 1 0 0 0 0 0 0 0 1 
-
-State Machine - KernelNum[1].KernelGen_Inst|Kernel.Kernel_Inst|state
-Name state.S_FPADD_1 state.S_FPADD_0 state.S_DATA_WAIT_0 state.S_IDLE state.S_ACCUM 
-state.S_IDLE 0 0 0 0 0 
-state.S_DATA_WAIT_0 0 0 1 1 0 
-state.S_FPADD_0 0 1 0 1 0 
-state.S_FPADD_1 1 0 0 1 0 
-state.S_ACCUM 0 0 0 1 1 
-
-State Machine - KernelNum[1].KernelGen_Inst|MemMap.MemoryMapper_Inst|state
-Name state.S_MAPB_3 state.S_MAPB_2 state.S_MAPB_1 state.S_WRITE_0 state.S_MAPA_2 state.S_MAPA_1 state.S_MAPB_0 state.S_MAPA_0 state.S_IDLE 
-state.S_IDLE 0 0 0 0 0 0 0 0 0 
-state.S_MAPA_0 0 0 0 0 0 0 0 1 1 
-state.S_MAPB_0 0 0 0 0 0 0 1 0 1 
-state.S_MAPA_1 0 0 0 0 0 1 0 0 1 
-state.S_MAPA_2 0 0 0 0 1 0 0 0 1 
-state.S_WRITE_0 0 0 0 1 0 0 0 0 1 
-state.S_MAPB_1 0 0 1 0 0 0 0 0 1 
-state.S_MAPB_2 0 1 0 0 0 0 0 0 1 
-state.S_MAPB_3 1 0 0 0 0 0 0 0 1 
-
-State Machine - KernelNum[0].KernelGen_Inst|Kernel.Kernel_Inst|state
-Name state.S_FPADD_1 state.S_FPADD_0 state.S_DATA_WAIT_0 state.S_IDLE state.S_ACCUM 
-state.S_IDLE 0 0 0 0 0 
-state.S_DATA_WAIT_0 0 0 1 1 0 
-state.S_FPADD_0 0 1 0 1 0 
-state.S_FPADD_1 1 0 0 1 0 
-state.S_ACCUM 0 0 0 1 1 
-
-State Machine - KernelNum[0].KernelGen_Inst|MemMap.MemoryMapper_Inst|state
-Name state.S_MAPB_3 state.S_MAPB_2 state.S_MAPB_1 state.S_WRITE_0 state.S_MAPA_2 state.S_MAPA_1 state.S_MAPB_0 state.S_MAPA_0 state.S_IDLE 
-state.S_IDLE 0 0 0 0 0 0 0 0 0 
-state.S_MAPA_0 0 0 0 0 0 0 0 1 1 
-state.S_MAPB_0 0 0 0 0 0 0 1 0 1 
-state.S_MAPA_1 0 0 0 0 0 1 0 0 1 
-state.S_MAPA_2 0 0 0 0 1 0 0 0 1 
-state.S_WRITE_0 0 0 0 1 0 0 0 0 1 
-state.S_MAPB_1 0 0 1 0 0 0 0 0 1 
-state.S_MAPB_2 0 1 0 0 0 0 0 0 1 
-state.S_MAPB_3 1 0 0 0 0 0 0 0 1 
-
 State Machine - state
-Name state.S_MAP_5 state.S_MAP_4 state.S_MAP_2 state.S_MAP_1 state.S_MAP_0 state.S_MAP_3 state.S_IDLE 
+Name state.S_DATA_WAIT_0 state.S_MAPA_0 state.S_MAPA_1 state.S_MAPA_4 state.S_MAPA_3 state.S_MAPA_2 state.S_IDLE 
 state.S_IDLE 0 0 0 0 0 0 0 
-state.S_MAP_3 0 0 0 0 0 1 1 
-state.S_MAP_0 0 0 0 0 1 0 1 
-state.S_MAP_1 0 0 0 1 0 0 1 
-state.S_MAP_2 0 0 1 0 0 0 1 
-state.S_MAP_4 0 1 0 0 0 0 1 
-state.S_MAP_5 1 0 0 0 0 0 1 
+state.S_MAPA_2 0 0 0 0 0 1 1 
+state.S_MAPA_3 0 0 0 0 1 0 1 
+state.S_MAPA_4 0 0 0 1 0 0 1 
+state.S_MAPA_1 0 0 1 0 0 0 1 
+state.S_MAPA_0 0 1 0 0 0 0 1 
+state.S_DATA_WAIT_0 1 0 0 0 0 0 1 

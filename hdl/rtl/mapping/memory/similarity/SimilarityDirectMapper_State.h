@@ -2,13 +2,14 @@
 `define BIND_DIRECT_MAPPER_DEFINE_STATE
 
 
-typedef enum logic[3:0] {
+typedef enum logic[2:0] {
 	S_IDLE,
-	S_MAPB_0,
-	S_MAPB_1,
-	S_MAPB_2,
-	S_MAPB_3,
-	S_WRITE_0
+	S_MAPA_0,
+	S_MAPA_1,
+	S_MAPA_2,
+	S_MAPA_3,
+	S_MAPA_4,
+	S_DATA_WAIT_0
 } MapperSimilarityDirect_State_t;
 
 

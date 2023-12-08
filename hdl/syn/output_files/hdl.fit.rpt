@@ -1,5 +1,5 @@
 Fitter report for hdl
-Tue Nov 28 00:39:54 2023
+Tue Nov 28 23:59:57 2023
 Quartus Prime Version 23.3.0 Build 104 09/20/2023 SC Pro Edition
 
 
@@ -40,7 +40,7 @@ on the Quartus Prime software download page.
 +----------------------------------------------------------------------+
 ; Fitter Summary                                                       ;
 +-------------------------+--------------------------------------------+
-; Fitter Status           ; Failed - Tue Nov 28 00:39:53 2023          ;
+; Fitter Status           ; Failed - Tue Nov 28 23:59:56 2023          ;
 ; Quartus Prime Version   ; 23.3.0 Build 104 09/20/2023 SC Pro Edition ;
 ; Revision Name           ; hdl                                        ;
 ; Top-level Entity Name   ; BundleKernelMapper                         ;
@@ -1016,7 +1016,7 @@ Note: Retiming optimizations are not included in this table. Limiting Fitter Net
 +-----------------+
 Info (16677): Loading synthesized database.
 Info (16734): Loading "synthesized" snapshot for partition "root_partition".
-Info (16678): Successfully loaded synthesized database: elapsed time is 00:00:03.
+Info (16678): Successfully loaded synthesized database: elapsed time is 00:00:04.
 Info (22889): This design was generated using the DNI flow.
 Info (119006): Selected device 10CX220YF780I5G for design "hdl"
 Info (21076): High junction temperature operating condition is not set. Assuming a default value of '100'.
@@ -1024,7 +1024,7 @@ Info (21076): Low junction temperature operating condition is not set. Assuming 
 Info (171003): Fitter is performing an Auto Fit compilation, which may decrease Fitter effort to reduce compilation time
 Info (12262): Starting Fitter periphery placement operations
 Info (12290): Loading the periphery placement data.
-Info (12291): Periphery placement data loaded: elapsed time is 00:00:04
+Info (12291): Periphery placement data loaded: elapsed time is 00:00:05
 Info (12627): Pin ~ALTERA_DATA0~ is reserved at location AE10
 Warning (15714): Some pins have incomplete I/O assignments. Refer to the I/O Assignment Warnings report for details
 Critical Warning (12677): No exact pin location assignment(s) for 425 pins of 425 total pins. For the list of pins please refer to the I/O Assignment Warnings table in the fitter report
@@ -1034,9 +1034,9 @@ Error (179000): Design requires 425 user-specified I/O pins -- too many to fit i
 Error (15307): Cannot apply project assignments to the design due to illegal or conflicting assignments. Refer to the other messages for corrective action.
 Error (16297): An error has occurred while trying to initialize the plan stage.
 Error: Quartus Prime Fitter was unsuccessful. 3 errors, 2 warnings
-    Error: Peak virtual memory: 1398 megabytes
-    Error: Processing ended: Tue Nov 28 00:39:54 2023
-    Error: Elapsed time: 00:00:30
-    Error: System process ID: 32
+    Error: Peak virtual memory: 1397 megabytes
+    Error: Processing ended: Tue Nov 28 23:59:57 2023
+    Error: Elapsed time: 00:00:40
+    Error: System process ID: 12164
 
 

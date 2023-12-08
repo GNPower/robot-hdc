@@ -1,4 +1,4 @@
-Synthesis Status : Successful - Tue Nov 28 00:51:06 2023
+Synthesis Status : Successful - Thu Dec  7 14:40:20 2023
 Revision Name : hdl
-Top-level Entity Name : BundleKernelMapper
+Top-level Entity Name : SimilarityDirectMapper
 Family : Cyclone 10 GX

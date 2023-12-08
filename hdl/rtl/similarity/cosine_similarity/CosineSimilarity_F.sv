@@ -43,38 +43,37 @@ output logic ready;
 output logic done;
 
 
-localparam DIV_WAIT_CYCLES = 14;
-localparam SQRT_WAIT_CYCLES = 8;
+localparam ADD_WAIT_CYCLES = 3;
+localparam MUL_WAIT_CYCLES = 3;
+
+
+// State
+
+CosineSimilarity_State_t state;
+
 
 // Registers for accumulation and results
 
 logic [HV_DATA_WIDTH-1:0] a_latch;
 logic [HV_DATA_WIDTH-1:0] b_latch;
 logic [HV_DATA_WIDTH-1:0] last_latch;
-logic [DIV_WAIT_CYCLES-1:0] mac_wait;
 
 logic [HV_DATA_WIDTH-1:0] AB_accumulate;
 logic [HV_DATA_WIDTH-1:0] AA_accumulate;
 logic [HV_DATA_WIDTH-1:0] BB_accumulate;
+
+assign AB_out = AB_accumulate;
+assign AA_out = AA_accumulate;
+assign BB_out = BB_accumulate;
 
 // Wires coming out of or into FP blocks
 
 logic [HV_DATA_WIDTH-1:0] mult_a;
 logic [HV_DATA_WIDTH-1:0] mult_b;
 logic [HV_DATA_WIDTH-1:0] add_a;
-logic [HV_DATA_WIDTH-1:0] sqrt_a;
 
 logic [HV_DATA_WIDTH-1:0] mult_out;
 logic [HV_DATA_WIDTH-1:0] add_out;
-logic [HV_DATA_WIDTH-1:0] div_out;
-logic [HV_DATA_WIDTH-1:0] sqrt_out;
-
-logic [HV_DATA_WIDTH-1:0] AA_sqrt;
-logic [HV_DATA_WIDTH-1:0] BB_sqrt;
-logic [HV_DATA_WIDTH-1:0] denominator;
-
-logic [HV_DATA_WIDTH-1:0] result;
-assign data_out = result;
 
 
 fp_mult fp_mult (
@@ -95,266 +94,231 @@ fp_add fp_add (
 	.q(add_out)
 );
 
-fp_div fp_div (
-	.clk(clk),
-	.areset(~reset_n),
-	// 14 cycle latency
-	.a(AB_accumulate),
-	.b(mult_out),
-	.q(div_out)
-);
 
-fp_sqrt fp_sqrt(
-	.clk(clk),
-	.areset(~reset_n),
-	// 8 cycle latency
-	.a(sqrt_a),
-	.q(sqrt_out)
-);
+// Delay pipes for all result outputs
+
+logic AB_mul_pipe_i;
+logic AA_mul_pipe_i;
+logic BB_mul_pipe_i;
+logic [MUL_WAIT_CYCLES-1:0] AB_mul_pipe;
+logic [MUL_WAIT_CYCLES-1:0] AA_mul_pipe;
+logic [MUL_WAIT_CYCLES-1:0] BB_mul_pipe;
+
+logic AB_add_pipe_i;
+logic AA_add_pipe_i;
+logic BB_add_pipe_i;
+logic [ADD_WAIT_CYCLES-1:0] AB_add_pipe;
+logic [ADD_WAIT_CYCLES-1:0] AA_add_pipe;
+logic [ADD_WAIT_CYCLES-1:0] BB_add_pipe;
 
 
-CosineSimilarity_State_t state;
+// Combinational logic for loading the multiplier and adder inputs
+
+logic load_AA_mul_pipe;
+logic load_BB_mul_pipe;
+logic load_AB_mul_pipe;
+
+assign load_AA_mul_pipe = ((state == S_DATA_WAIT_0) | (state == S_IDLE)) & valid;
+assign load_BB_mul_pipe = (state == S_DATA_WAIT_1) & valid;
+assign load_AB_mul_pipe = (state == S_DATA_WAIT_2) & BB_mul_pipe[MUL_WAIT_CYCLES - 1];
+
+logic load_AA_add_pipe;
+logic load_BB_add_pipe;
+logic load_AB_add_pipe;
+
+assign load_AA_add_pipe = AA_mul_pipe[0];
+assign load_BB_add_pipe = BB_mul_pipe[0];
+assign load_AB_add_pipe = AB_mul_pipe[0];
+
+
+always_comb begin
+	// Default pipe inputs are 0
+	AA_mul_pipe_i = 1'b0;
+	BB_mul_pipe_i = 1'b0;
+	AB_mul_pipe_i = 1'b0;
+	AA_add_pipe_i = 1'b0;
+	BB_add_pipe_i = 1'b0;
+	AB_add_pipe_i = 1'b0;
+
+	// Load the multiplier inputs
+	if (load_AA_mul_pipe) begin // AA
+		mult_a = data_in;
+		mult_b = data_in;
+		AA_mul_pipe_i = 1'b1;
+	end else if (load_BB_mul_pipe) begin // BB
+		mult_a = data_in;
+		mult_b = data_in;
+		BB_mul_pipe_i = 1'b1;
+	end else if (load_AB_mul_pipe) begin // AB
+		mult_a = a_latch;
+		mult_b = b_latch;
+		AB_mul_pipe_i = 1'b1;
+	end else begin // All 0's
+		mult_a = {HV_DATA_WIDTH{1'b0}};
+		mult_b = {HV_DATA_WIDTH{1'b0}};
+	end
+	
+	// Load the adder inputs
+	if (load_AA_add_pipe) begin // sum(AA)
+		add_a = AA_accumulate;
+		AA_add_pipe_i = 1'b1;
+	end else if (load_BB_add_pipe) begin // sum(BB)
+		add_a = BB_accumulate;
+		BB_add_pipe_i = 1'b1;
+	end else if (load_AB_add_pipe) begin // sum(AB)
+		add_a = AB_accumulate;
+		AB_add_pipe_i = 1'b1;
+	end else begin // All 0's
+		add_a = {HV_DATA_WIDTH{1'b0}};
+	end
+	
+end
+
+
+// Pipe Shifting
+
 integer i;
+always_ff @(posedge clk or negedge reset_n) begin
+	if (!reset_n) begin
+		// All pipes
+		AB_mul_pipe[MUL_WAIT_CYCLES-1:0] <= {MUL_WAIT_CYCLES{1'b0}};
+		AA_mul_pipe[MUL_WAIT_CYCLES-1:0] <= {MUL_WAIT_CYCLES{1'b0}};
+		BB_mul_pipe[MUL_WAIT_CYCLES-1:0] <= {MUL_WAIT_CYCLES{1'b0}};
+		AB_add_pipe[ADD_WAIT_CYCLES-1:0] <= {ADD_WAIT_CYCLES{1'b0}};
+		AA_add_pipe[ADD_WAIT_CYCLES-1:0] <= {ADD_WAIT_CYCLES{1'b0}};
+		BB_add_pipe[ADD_WAIT_CYCLES-1:0] <= {ADD_WAIT_CYCLES{1'b0}};
+	end else begin
+		for (i = 0; i < MUL_WAIT_CYCLES-1; i = i + 1) begin
+			AB_mul_pipe[i] <= AB_mul_pipe[i+1];
+			AA_mul_pipe[i] <= AA_mul_pipe[i+1];
+			BB_mul_pipe[i] <= BB_mul_pipe[i+1];			
+		end
+		AB_mul_pipe[MUL_WAIT_CYCLES-1] <= AB_mul_pipe_i;
+		AA_mul_pipe[MUL_WAIT_CYCLES-1] <= AA_mul_pipe_i;
+		BB_mul_pipe[MUL_WAIT_CYCLES-1] <= BB_mul_pipe_i;
+		for (i = 0; i < ADD_WAIT_CYCLES-1; i = i + 1) begin
+			AB_add_pipe[i] <= AB_add_pipe[i+1];
+			AA_add_pipe[i] <= AA_add_pipe[i+1];
+			BB_add_pipe[i] <= BB_add_pipe[i+1];
+		end
+		AB_add_pipe[ADD_WAIT_CYCLES-1] <= AB_add_pipe_i;
+		AA_add_pipe[ADD_WAIT_CYCLES-1] <= AA_add_pipe_i;
+		BB_add_pipe[ADD_WAIT_CYCLES-1] <= BB_add_pipe_i;
+	end
+end
+
+
+// Loading results into registers
 
 always_ff @(posedge clk or negedge reset_n) begin
 	if (!reset_n) begin
-	
+		AA_accumulate <= {HV_DATA_WIDTH{1'b0}};
+		BB_accumulate <= {HV_DATA_WIDTH{1'b0}};
+		AB_accumulate <= {HV_DATA_WIDTH{1'b0}};
 	end else begin
-	
-		for (i = 0; i < DIV_WAIT_CYCLES - 1; i = i + 1) begin
-			mac_wait[i] <= mac_wait[i+1];
+		if (AA_add_pipe[0]) begin // AA
+			AA_accumulate <= add_out;
 		end
-		mac_wait[DIV_WAIT_CYCLES-1] <= 1'b0;
-		
+		if (BB_add_pipe[0]) begin // BB
+			BB_accumulate <= add_out;
+		end
+		if (AB_add_pipe[0]) begin // AB
+			AB_accumulate <= add_out;
+		end
+	end
+end
+
+
+// Data latching and external facing FSM
+
+always_ff @(posedge clk or negedge reset_n) begin
+	if (!reset_n) begin
+		// module state
+		state <= S_IDLE;
+		// output
+		done <= 1'b0;
+		ready <= 1'b0;
+		// data latches
+		last_latch <= 1'b0;
+		a_latch <= {HV_DATA_WIDTH{1'b0}};
+		b_latch <= {HV_DATA_WIDTH{1'b0}};
+	end else begin
+
 		case (state) 
-		
-			S_IDLE: 		begin
-								done <= 1'b1;
-								ready <= 1'b1;
-								
-								if (valid & first) begin
-									// Load the first data into a_latch
-									a_latch <= data_in;									
-									// we are no longer done (but still ready for data on the next cycle)
-									done <= 1'b0;
-									// Advance states
-									state <= S_DATA_WAIT_1;
-								end else begin
-									state <= S_IDLE;
+
+			S_IDLE: 			begin
+									done <= 1'b1;
+									ready <= 1'b1;
+									last_latch <= 1'b0;
+									
+									if (valid & first) begin
+										// Load the first data into a_latch
+										a_latch <= data_in;
+										// we are no longer done (but still ready for data on the next cycle)
+										done <= 1'b0;
+										// latch the last signal if this is the lest element
+										if (last) begin
+											last_latch <= 1'b1;
+										end
+										// Advance states
+										state <= S_DATA_WAIT_1;
+									end else begin
+										state <= S_IDLE;
+									end
+
 								end
-			
-							end
-						
+							
 			S_DATA_WAIT_0:	begin
-		
-								if (valid) begin
-									// Load the first data into a_latch
-									a_latch <= data_in;									
-									// we are no longer done (but still ready for data on the next cycle)
-									done <= 1'b0;
-									// Advance states
-									state <= S_DATA_WAIT_1;
-								end else begin
-									state <= S_DATA_WAIT_0;
+									
+									if (valid) begin
+										// Load the first data into a_latch
+										a_latch <= data_in;
+										// latch the last signal if this is the lest element
+										if (last) begin
+											last_latch <= 1'b1;
+										end
+										// Advance states
+										state <= S_DATA_WAIT_1;
+									end else begin
+										state <= S_DATA_WAIT_0;
+									end
+									
 								end
-		
-							end
-							
+								
 			S_DATA_WAIT_1:	begin
-		
-								// If we are valid again we can start multiplying
-								if (valid) begin
-									// disable ready since FP_MULT has latency
-									ready <= 1'b0;
-									// Load the second data into b_latch
-									b_latch <= data_in;
-									// latch the last signal so we know later if we're done
-									last_latch <= last;
-									// calculate B*B
-									mult_a <= data_in;
-									mult_b <= data_in;
-									// advance to multiply state
-									state <= S_MAC_0;
-								// otherwise we stick around until data is here
-								end else begin
-									state <= S_DATA_WAIT_1;
-								end
-		
-							end
-							
-			S_MAC_0:			begin
-			
-									// calculate A*A
-									mult_a <= a_latch;
-									mult_b <= a_latch;
-			
-									// Wait for 2 clock cycles for B*B
-									state <= S_MAC_1;
-			
-								end
-								
-			S_MAC_1:			begin
-			
-									// calculate A*B
-									mult_a <= a_latch;
-									mult_b <= b_latch;
-			
-									// Wait for 1 clock cycles for B*B
-									// Wait for 2 clock cycles for A*A
-									state <= S_MAC_2;
-			
-								end
-								
-			S_MAC_2:			begin
-			
-									// Get BB ready for accumulation
-									add_a <= BB_accumulate;
-			
-									// Wait for 0 clock cycles for B*B
-									// Wait for 1 clock cycles for A*A
-									// Wait for 2 clock cycles for A*B
-									state <= S_MAC_3;
-			
-								end
-								
-			S_MAC_3:			begin
-			
-									// Get AA ready for accumulation
-									add_a <= AA_accumulate;
 									
-									// Wait for 0 clock cycles for A*A
-									// Wait for 1 clock cycles for A*B
-									// Wait for 2 clock cycles for BB+(B*B)
-									state <= S_MAC_4;
-			
-								end
-								
-			S_MAC_4:			begin
-			
-									// Get AB ready for accumulation
-									add_a <= AB_accumulate;
-									
-									// Wait for 0 clock cycles for A*B
-									// Wait for 1 clock cycles for BB+(B*B)
-									// Wait for 2 clock cycles for AA+(A*A)
-									state <= S_MAC_5;
-			
-								end
-								
-			S_MAC_5:			begin
-									
-									
-									// Wait for 0 clock cycles for BB+(B*B)
-									// Wait for 1 clock cycles for AA+(A*A)
-									// Wait for 2 clock cycles for AB+(A*B)
-									state <= S_MAC_6;
-			
-								end
-								
-			S_MAC_6:			begin
-									
-									BB_accumulate <= add_out;
-									if (last_latch) begin
-										mac_wait[SQRT_WAIT_CYCLES-1] <= 1'b1;
-										sqrt_a <= add_out;
-									end
-									
-									// Wait for 0 clock cycles for AA+(A*A)
-									// Wait for 1 clock cycles for AB+(A*B)
-									state <= S_MAC_7;
-			
-								end
-								
-			S_MAC_7:			begin
-									
-									AA_accumulate <= add_out;
-									if (last_latch) begin
-										mac_wait[SQRT_WAIT_CYCLES-1] <= 1'b1;
-										sqrt_a <= add_out;
-									end
-									
-									// Wait for 0 clock cycles for AB+(A*B)
-									state <= S_MAC_8;
-			
-								end
-								
-			S_MAC_8:			begin
-									
-									AB_accumulate <= add_out;
-									
-									if (last_latch) begin										
-										state <= S_SIM_0;		
+									if (valid) begin
+										// Load the first data into a_latch
+										b_latch <= data_in;
+										// We are no longer ready
+										ready <= 1'b0;
+										// latch the last signal if this is the lest element
+										if (last) begin
+											last_latch <= 1'b1;
+										end
+										// Advance states
+										state <= S_DATA_WAIT_2;
 									end else begin
+										state <= S_DATA_WAIT_1;
+									end
+									
+								end
+								
+			S_DATA_WAIT_2:	begin
+			
+									// AB pipe is the last addition to complete before results are ready
+									if (AB_add_pipe[0]) begin
+										// Indicate we are ready for the next inputs
 										ready <= 1'b1;
-										state <= S_DATA_WAIT_0;										
-									end
-										
-								end
-								
-			S_SIM_0:			begin
-			
-									// Wait for result of sqrt(BB)
-									if (mac_wait[0] == 1'b1) begin
-										BB_sqrt <= sqrt_out;
-										state <= S_SIM_1;
+										// If we are done go to idle, otherwise continue waiting for inputs
+										if (last_latch) begin
+											done <= 1'b1;
+											state <= S_IDLE;
+										end else begin
+											state <= S_DATA_WAIT_0;
+										end
 									end else begin
-										state <= S_SIM_0;
-									end
-			
-								end
-								
-			S_SIM_1:			begin
-			
-									// Wait for result of sqrt(AA)
-									if (mac_wait[0] == 1'b1) begin
-										AA_sqrt <= sqrt_out;
-										mult_a <= BB_sqrt;
-										mult_b <= sqrt_out;
-										state <= S_SIM_2;
-									end else begin
-										state <= S_SIM_0;
-									end
-			
-								end
-								
-			S_SIM_2:			begin
-			
-									// Wait for 2 clock cycles for sqrt(AA)*sqrt(BB)
-									state <= S_SIM_3;
-			
-								end
-								
-			S_SIM_3:			begin
-			
-									// Wait for 1 clock cycles for sqrt(AA)*sqrt(BB)
-									state <= S_SIM_4;
-			
-								end
-			
-			S_SIM_4:			begin
-			
-									// Wait for 0 clock cycles for sqrt(AA)*sqrt(BB)
-									state <= S_SIM_5;
-			
-								end
-								
-			S_SIM_5:			begin
-				
-									// Load counter for division
-									mac_wait[DIV_WAIT_CYCLES-1] <= 1'b1;
-									
-									state <= S_SIM_6;
-			
-								end
-								
-			S_SIM_6:			begin
-			
-									// Wait for result of sqrt(AA)
-									if (mac_wait[0] == 1'b1) begin
-										done <= 1'b1;
-										ready <= 1'b1;
-										result <= div_out;
-										state <=	S_IDLE;
+										state <= S_DATA_WAIT_2;
 									end
 			
 								end

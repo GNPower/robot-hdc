@@ -5,9 +5,7 @@
 module SimilarityDirectMapper
 #(
 	parameter HV_DATA_WIDTH	= 32,
-	parameter HV_ADDRESS_WIDTH = 20,
-	
-	parameter MAX_HYPERVECTOR_LENGTH = 4
+	parameter HV_ADDRESS_WIDTH = 20
 )
 (
 	//////////////////////////////
@@ -24,17 +22,19 @@ module SimilarityDirectMapper
 	// hypervector address components
 	hva,
 	hvb,
-	hvc,
-	hv_offset,
+	hv_start,
+	hv_end,
 	
 	// dpram signals
 	we_n,
 	address,
-	data_wr,
 	data_rd,
 	
 	// output control signals
 	done,
+	AA_out,
+	BB_out,
+	AB_out,
 	
 	//////////////////////////////
 	// SIGNALS TO BUNDLE KERNEL
@@ -47,7 +47,9 @@ module SimilarityDirectMapper
 	
 	// data
 	k_data_in,
-	k_data_out,
+	k_AA_out,
+	k_BB_out,
+	k_AB_out,
 	
 	// output control signals
 	k_ready,
@@ -65,13 +67,16 @@ input logic valid;
 
 input logic [HV_ADDRESS_WIDTH-1:0] hva;
 input logic [HV_ADDRESS_WIDTH-1:0] hvb;
-input logic [HV_ADDRESS_WIDTH-1:0] hvc;
-input logic [HV_ADDRESS_WIDTH-1:0] hv_offset;
+input logic [HV_ADDRESS_WIDTH-1:0] hv_start;
+input logic [HV_ADDRESS_WIDTH-1:0] hv_end;
 
 output logic we_n;
 output logic [HV_ADDRESS_WIDTH-1:0] address;
-output logic [HV_DATA_WIDTH-1:0] data_wr;
 input logic [HV_DATA_WIDTH-1:0] data_rd;
+
+output logic [HV_DATA_WIDTH-1:0] AA_out;
+output logic [HV_DATA_WIDTH-1:0] BB_out;
+output logic [HV_DATA_WIDTH-1:0] AB_out;
 
 output logic done;
 
@@ -86,29 +91,44 @@ output logic k_last;
 
 // data
 output logic [HV_DATA_WIDTH-1:0] k_data_in;
-input logic [HV_DATA_WIDTH-1:0] k_data_out;
+input logic [HV_DATA_WIDTH-1:0] k_AA_out;
+input logic [HV_DATA_WIDTH-1:0] k_BB_out;
+input logic [HV_DATA_WIDTH-1:0] k_AB_out;
 
 // output control signals
 input logic k_ready;
 input logic k_done;
 
+
+assign we_n = 1'b1;
+assign AA_out = k_AA_out;
+assign BB_out = k_BB_out;
+assign AB_out = k_AB_out;
+
 logic [HV_DATA_WIDTH-1:0] buff;
+logic buff_loaded;
+
+logic [HV_ADDRESS_WIDTH-1:0] addr_counter;
+logic [HV_ADDRESS_WIDTH-1:0] hva_addr;
+logic [HV_ADDRESS_WIDTH-1:0] hvb_addr;
+logic [HV_ADDRESS_WIDTH-1:0] hvb_last;
+
+assign hva_addr = hva + hv_start + addr_counter;
+assign hvb_addr = hvb + hv_start + addr_counter;
+assign hvb_last = hvb + hv_end;
 
 
 MapperSimilarityDirect_State_t state;
 
 
-assign k_valid = (
-						(state == S_MAPB_1) |
-						((state == S_MAPB_2) & k_ready) |
-						((state == S_WRITE_0) & k_ready & ~k_done)
+assign k_valid = ((
+						(state == S_MAPA_2) |
+						(state == S_MAPA_3) |
+						(state == S_MAPA_4)) & k_ready
 						) ? 1'b1 : 1'b0;
-assign k_first = (state == S_MAPB_1) ? 1'b1 : 1'b0;
-assign k_last =  (
-						((state == S_MAPB_2) & k_ready) |
-						((state == S_WRITE_0) & k_ready & ~k_done)
-						) ? 1'b1 : 1'b0;
-assign k_data_in = (state == S_MAPB_1 | state == S_MAPB_2) ? data_rd : buff;
+assign k_first = ((state == S_MAPA_2) & ~|addr_counter) ? 1'b1 : 1'b0;
+assign k_last = ((state == S_MAPA_4) & (hvb_addr == hvb_last)) ? 1'b1 : 1'b0;
+assign k_data_in = buff_loaded ? buff : data_rd;
 
 
 always_ff @(posedge clk or negedge reset_n) begin
@@ -117,86 +137,103 @@ always_ff @(posedge clk or negedge reset_n) begin
 		state <= S_IDLE;
 		// output
 		done <= 1'b1;
-		we_n <= 1'b1;
 		address <= {HV_ADDRESS_WIDTH{1'b1}};
-		data_wr <= {HV_DATA_WIDTH{1'b0}};
-		// internal enables
-		k_valid <= 1'b0;
-		k_first <= 1'b0;
-		k_last <= 1'b0;
 		// internal registers
 		buff <= {HV_DATA_WIDTH{1'b0}};
+		buff_loaded <= 1'b0;
+		addr_counter <= {HV_ADDRESS_WIDTH{1'b0}};
 	end else begin
 	
 		case (state)
 		
 			S_IDLE:	begin
-							we_n <= 1'b1;
 							done <= 1'b1;
+							addr_counter <= {HV_ADDRESS_WIDTH{1'b0}};
+							buff_loaded <= 1'b0;
 							
 							if (valid & k_ready) begin
+								done <= 1'b0;
 								// request the first address from memory (HVA[offset])
-								address <= hva + hv_offset;
-								we_n <= 1'b1;
-								
+								address <= hva_addr;								
 								// advance to the next mode
-								state <= S_MAPB_1;
+								state <= S_MAPA_1;
 							end else begin
 								state <= S_IDLE;
 							end
 							
 						end
 						
-			S_MAPB_0:begin
+			S_MAPA_0:begin
 			
-							// request the first address from memory (HVA[offset])
-							address <= hva + hv_offset;
-							we_n <= 1'b1;
-			
-						end
-							
-			S_MAPB_1:begin
-			
-							// request the next address from memory (HVB[offset])
-							address <= hvb + hv_offset;
-							we_n <= 1'b1;
-							
-							// Delay 1 cycle for memory read
-							state <= S_MAPB_2;
+							// request the next address A from memory (HVA[offset]+i)
+							address <= hva_addr;							
+							state <= S_MAPA_1;
 							
 						end
 						
-			S_MAPB_2:begin
-							
-							// HVA[offset] is ready, but it will be passed directly to the kernel (i.e. read this cycle)
-							
-							// Delay 0 cycle for memory read
-							state <= S_MAPB_3;
+			S_MAPA_1:begin
+			
+							// request the next address B from memory (HVB[offset]+i)
+							address <= hvb_addr;
+							state <= S_MAPA_2;														
 			
 						end
 						
-			S_MAPB_3:begin
-			
-							// HVB[offset] is ready this cycle, buffer it
-							buff <= data_rd;
+			S_MAPA_2:begin										
 							
-							state <= S_WRITE_0;
-			
-						end
-						
-			S_WRITE_0:begin
-			
-							// Wait until kernel is done to write
-							if (k_done) begin
-								address <= hvc + hv_offset;
-								data_wr <= k_data_out;
-								we_n <= 1'b0;
-								done <= 1'b1;
-								state <= S_IDLE;
+							// Kernel is ready and HVA[offset] is being read this cycle
+							if (k_valid) begin
+								// No need to buffer HVA since it will be used directly
+								state <= S_MAPA_4;
+							end else begin
+								// (HVA[offset]) is ready, buffer it
+								buff <= data_rd;
+								buff_loaded <= 1'b1;
+								state <= S_MAPA_3;
 							end
 			
 						end
-		
+						
+			S_MAPA_3:begin
+			
+							// Kernel is ready and HVA[offset] is being read this cycle
+							if (k_valid) begin																
+								// Advance to the next state
+								buff_loaded <= 1'b0;
+								state <= S_MAPA_4;
+							end else begin
+								state <= S_MAPA_3;
+							end
+			
+						end
+						
+			S_MAPA_4:begin
+							
+							// Kernel is ready and HVB[offset] is being read this cycle
+							if (k_valid) begin
+								if (hvb_addr == hvb_last) begin
+									state <= S_DATA_WAIT_0;
+								end else begin
+									addr_counter <= addr_counter + 1'b1;
+									state <= S_MAPA_0;
+								end
+							end else begin
+								state <= S_MAPA_4;
+							end
+			
+						end
+						
+			S_DATA_WAIT_0:	begin
+			
+							if (k_done) begin
+								done <= 1'b1;
+								state <= S_IDLE;
+							end else begin
+								state <= S_DATA_WAIT_0;
+							end
+			
+						end
+						
 		endcase
 	
 	end

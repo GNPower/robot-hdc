@@ -1,10 +1,33 @@
 m255
 K4
 z2
+!s11f vlog 2021.1 2021.02, Feb  3 2021
 13
 !s112 1.1
 !i10d 8192
 !i10e 25
 !i10f 100
 cModel Technology
-dD:/School/Grad/Code/my_hdc/hdl/sim
+Z0 dD:/School/Grad/Code/my_hdc/hdl/sim
+vfp_div
+!s110 1702014268
+!i10b 1
+!s100 >9V`TLz:`UYB`f<KjMdKW3
+I6HL=<K7P4azPefIlTL[MC0
+R0
+w1700791569
+8../rtl/floating_point/fp_div/sim/fp_div.v
+F../rtl/floating_point/fp_div/sim/fp_div.v
+!i122 0
+L0 6 17
+VDg1SIo80bB@j0V0VzS_@n1
+OV;L;2021.1;73
+r1
+!s85 0
+31
+!s108 1702014268.000000
+!s107 ../rtl/floating_point/fp_div/sim/fp_div.v|
+!s90 -reportprogress|300|../rtl/floating_point/fp_div/sim/fp_div.v|-work|fp_div|
+!i113 1
+o-work fp_div
+tCvgOpt 0

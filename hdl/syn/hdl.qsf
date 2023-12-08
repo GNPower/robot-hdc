@@ -1,5 +1,5 @@
 set_global_assignment -name FAMILY "Cyclone 10 GX"
-set_global_assignment -name TOP_LEVEL_ENTITY BundleKernelMapper
+set_global_assignment -name TOP_LEVEL_ENTITY SimilarityDirectMapper
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 23.3.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:27:20  OCTOBER 30, 2023"
 set_global_assignment -name LAST_QUARTUS_VERSION "23.3.0 Pro Edition"

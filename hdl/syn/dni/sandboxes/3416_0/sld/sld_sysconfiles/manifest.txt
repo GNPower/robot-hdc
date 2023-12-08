@@ -1,0 +1,5 @@
+22 serialization::archive 19 0 0 5 0 0 0 15 fp_add.sopcinfo 0 0 10 text_model 1 1 
+ 19 fp_compare.sopcinfo 10 text_model 1 1 
+ 15 fp_div.sopcinfo 10 text_model 1 1 
+ 16 fp_mult.sopcinfo 10 text_model 1 1 
+ 16 fp_sqrt.sopcinfo 10 text_model 1 1 

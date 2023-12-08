@@ -8,6 +8,11 @@ vlog -sv +define+DISABLE_DEFAULT_NET $rtl/binding/element_multiplication/Element
 
 vlog -sv +define+DISABLE_DEFAULT_NET $tb/BindKernel_tb.sv
 
+# Similarity Kernels & Testbench
+vlog -sv +define+DISABLE_DEFAULT_NET $rtl/similarity/cosine_similarity/CosineSimilarity_F.sv
+
+vlog -sv +define+DISABLE_DEFAULT_NET $tb/SimilarityKernel_tb.sv
+
 # Memory Emulators
 vlog -sv +define+DISABLE_DEFAULT_NET $tb/MemoryEmulator.sv
 vlog -sv +define+DISABLE_DEFAULT_NET $tb/MemoryEmulator_InfPort.sv
@@ -21,6 +26,11 @@ vlog -sv +define+DISABLE_DEFAULT_NET $tb/BundleMemoryMapper_tb.sv
 vlog -sv +define+DISABLE_DEFAULT_NET $rtl/mapping/memory/bind/BindDirectMapper.sv
 
 vlog -sv +define+DISABLE_DEFAULT_NET $tb/BindMemoryMapper_tb.sv
+
+# Similarity Memory Mappers & Testbench
+vlog -sv +define+DISABLE_DEFAULT_NET $rtl/mapping/memory/similarity/SimilarityDirectMapper.sv
+
+vlog -sv +define+DISABLE_DEFAULT_NET $tb/SimilarityMemoryMapper_tb.sv
 
 # Kernel Mappers & Testbench
 vlog -sv +define+DISABLE_DEFAULT_NET $rtl/mapping/kernel/BundleKernelMapper.sv

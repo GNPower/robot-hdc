@@ -1,0 +1,20 @@
+# system info fp_accum on 2023.12.10.21:43:05
+system_info:
+name,value
+DEVICE,10CX220YF780I5G
+DEVICE_FAMILY,Cyclone 10 GX
+GENERATION_ID,0
+#
+#
+# Files generated for fp_accum on 2023.12.10.21:43:05
+files:
+filepath,kind,attributes,module,is_top
+sim/fp_accum.v,VERILOG,CONTAINS_INLINE_CONFIGURATION,fp_accum,true
+altera_fp_functions_1917/sim/dspba_library_package.vhd,VHDL,,fp_accum_altera_fp_functions_1917_oskqeyy,false
+altera_fp_functions_1917/sim/dspba_library.vhd,VHDL,,fp_accum_altera_fp_functions_1917_oskqeyy,false
+altera_fp_functions_1917/sim/fp_accum_altera_fp_functions_1917_oskqeyy.vhd,VHDL,,fp_accum_altera_fp_functions_1917_oskqeyy,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+fp_accum.fp_functions_0,fp_accum_altera_fp_functions_1917_oskqeyy

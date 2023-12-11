@@ -1,0 +1,10 @@
+	component fp_accum is
+		port (
+			clk    : in  std_logic                     := 'X';             -- clk
+			areset : in  std_logic                     := 'X';             -- reset
+			a      : in  std_logic_vector(31 downto 0) := (others => 'X'); -- a
+			q      : out std_logic_vector(31 downto 0);                    -- q
+			acc    : in  std_logic_vector(0 downto 0)  := (others => 'X')  -- acc
+		);
+	end component fp_accum;
+
